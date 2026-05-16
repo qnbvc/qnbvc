@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>像素机甲对战</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="game-wrapper">
+    <div id="title-bar">
+      <span id="title-text">机甲对战</span>
+    </div>
+    <div id="canvas-container">
+      <canvas id="gameCanvas" width="800" height="600"></canvas>
+    </div>
+    <div id="controls-bar">
+      <div class="controls-group left">
+        <span class="player-tag p1">玩家1</span>
+        <span>W/A/S/D 移动</span>
+        <span>F 攻击</span>
+        <span>G 防御</span>
+      </div>
+      <div class="controls-group right">
+        <span class="player-tag p2">玩家2</span>
+        <span>↑/←/↓/→ 移动</span>
+        <span>J 攻击</span>
+        <span>K 防御</span>
+      </div>
+    </div>
+  </div>
+  <script src="js/sprites.js"></script>
+  <script src="js/input.js"></script>
+  <script src="js/player.js"></script>
+  <script src="js/game.js"></script>
+  <script src="js/renderer.js"></script>
+  <script src="js/hud.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
