@@ -1,0 +1,27 @@
+# Optional, maintained-by-upstream vulnerable applications for tool integration.
+# The main Python lab does not require Docker.
+#
+#   docker compose -f range/compose.yml --profile vulnerable up -d
+#
+# Ports are bound to loopback on purpose. Reach them through Tailscale from a
+# teammate machine, or add a separately authenticated reverse proxy.
+services:
+  juice-shop:
+    profiles: ["vulnerable"]
+    image: bkimminich/juice-shop:latest
+    ports:
+      - "127.0.0.1:3000:3000"
+    mem_limit: 1g
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped
+
+  webgoat:
+    profiles: ["vulnerable"]
+    image: webgoat/webgoat:latest
+    ports:
+      - "127.0.0.1:8081:8080"
+    mem_limit: 1g
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped

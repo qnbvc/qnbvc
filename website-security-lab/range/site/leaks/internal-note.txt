@@ -1,0 +1,6 @@
+内部资料：本文件用于验证敏感信息泄露检测。
+项目标识：PROJECT-INTERNAL-ONLY-2026
+示例联系人：13911112222
+access_key_id = AKIAIOSFODNN7EXAMPLE
+password = FAKE_DB_PASSWORD_NOT_REAL
+以上均为合成数据，请勿用于任何真实系统。

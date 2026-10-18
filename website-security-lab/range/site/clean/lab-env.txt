@@ -1,0 +1,4 @@
+APP_ENV=lab
+APP_SECRET=FAKE_NOT_A_REAL_SECRET_2026
+DATABASE_URL=postgresql://lab_admin:FAKE_DB_PASSWORD_NOT_REAL@db.lab.invalid/fake_portal
+access_key_id = AKIAIOSFODNN7EXAMPLE

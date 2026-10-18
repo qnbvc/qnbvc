@@ -1,0 +1,18 @@
+﻿等级,风险分,类型,标题,URL,位置,规则,来源工具,置信度,二次确证,状态,影响,修复建议
+P0,0.9504,vuln,敏感文件可公开访问：/backup.zip,https://portal.example.gov.cn/backup.zip,/backup.zip,EXPOSURE.SENSITIVE_FILE.BACKUP_ZIP,exposure-path,0.98,是,new,备份或配置文件可被匿名下载，可能导致凭据或业务数据整体泄露。,在 Web 服务器或网关屏蔽 /backup.zip 的公开访问并清理该类文件。
+P0,0.9504,vuln,敏感文件可公开访问：/config/database.yml,https://portal.example.gov.cn/config/database.yml,/config/database.yml,EXPOSURE.SENSITIVE_FILE.CONFIG_DATABASE_YML,exposure-path,0.98,是,new,备份或配置文件可被匿名下载，可能导致凭据或业务数据整体泄露。,在 Web 服务器或网关屏蔽 /config/database.yml 的公开访问并清理该类文件。
+P0,0.6552,leak,命中自定义敏感关键词：内部资料,https://portal.example.gov.cn/news.html,页面内容,LEAK.KEYWORD.内部资料,sensitive-scan,0.95,是,new,敏感信息对公网可见，可能违反数据保护要求并造成信息泄露。,下线或加密该内容、补充访问控制，并排查同类页面与模板。
+P0,0.6552,leak,命中自定义敏感关键词：仅供内部使用,https://portal.example.gov.cn/news.html,页面内容,LEAK.KEYWORD.仅供内部使用,sensitive-scan,0.95,是,new,敏感信息对公网可见，可能违反数据保护要求并造成信息泄露。,下线或加密该内容、补充访问控制，并排查同类页面与模板。
+P0,0.6552,leak,命中敏感信息规则：中国大陆手机号,https://portal.example.gov.cn/news.html,页面内容,LEAK.REGEX.中国大陆手机号,sensitive-scan,0.95,是,new,敏感信息对公网可见，可能违反数据保护要求并造成信息泄露。,下线或加密该内容、补充访问控制，并排查同类页面与模板。
+P0,0.6552,leak,命中敏感信息规则：AccessKeyId,https://portal.example.gov.cn/news.html,页面内容,LEAK.REGEX.AccessKeyId,sensitive-scan,0.95,是,new,敏感信息对公网可见，可能违反数据保护要求并造成信息泄露。,下线或加密该内容、补充访问控制，并排查同类页面与模板。
+P0,0.6552,leak,命中敏感信息规则：中国大陆手机号,https://portal.example.gov.cn/files/statistics.csv,页面内容,LEAK.REGEX.中国大陆手机号,sensitive-scan,0.95,是,new,敏感信息对公网可见，可能违反数据保护要求并造成信息泄露。,下线或加密该内容、补充访问控制，并排查同类页面与模板。
+P0,0.6552,leak,命中敏感信息规则：身份证号,https://portal.example.gov.cn/files/statistics.csv,页面内容,LEAK.REGEX.身份证号,sensitive-scan,0.95,是,new,敏感信息对公网可见，可能违反数据保护要求并造成信息泄露。,下线或加密该内容、补充访问控制，并排查同类页面与模板。
+P1,0.3996,misconfig,CSP 缺失：content-security-policy,https://portal.example.gov.cn/,content-security-policy,MISCONFIG.MISSING_HEADER.content-security-policy,security-headers,0.85,否,new,浏览器端防护能力下降，可能被用于点击劫持、内容注入或降级攻击。,在 Web 服务器或 CDN 为全站响应补充 content-security-policy 响应头并回归验证。
+P1,0.3996,misconfig,HSTS 缺失：strict-transport-security,https://portal.example.gov.cn/,strict-transport-security,MISCONFIG.MISSING_HEADER.strict-transport-security,security-headers,0.85,否,new,浏览器端防护能力下降，可能被用于点击劫持、内容注入或降级攻击。,在 Web 服务器或 CDN 为全站响应补充 strict-transport-security 响应头并回归验证。
+P2,0.1642,misconfig,响应头泄露服务器版本,https://portal.example.gov.cn/,server,MISCONFIG.SERVER_VERSION_LEAK,security-headers,0.9,否,new,攻击者可据此匹配已知漏洞版本。,隐藏或泛化 Server 响应头中的版本信息。
+P2,0.1642,misconfig,响应头泄露服务器版本,https://portal.example.gov.cn/about.html,server,MISCONFIG.SERVER_VERSION_LEAK,security-headers,0.9,否,new,攻击者可据此匹配已知漏洞版本。,隐藏或泛化 Server 响应头中的版本信息。
+P2,0.1642,misconfig,响应头泄露服务器版本,https://portal.example.gov.cn/news.html,server,MISCONFIG.SERVER_VERSION_LEAK,security-headers,0.9,否,new,攻击者可据此匹配已知漏洞版本。,隐藏或泛化 Server 响应头中的版本信息。
+P2,0.1642,misconfig,响应头泄露服务器版本,https://portal.example.gov.cn/files/statistics.csv,server,MISCONFIG.SERVER_VERSION_LEAK,security-headers,0.9,否,new,攻击者可据此匹配已知漏洞版本。,隐藏或泛化 Server 响应头中的版本信息。
+P2,0.1598,misconfig,点击劫持防护头缺失：x-frame-options,https://portal.example.gov.cn/,x-frame-options,MISCONFIG.MISSING_HEADER.x-frame-options,security-headers,0.85,否,new,浏览器端防护能力下降，可能被用于点击劫持、内容注入或降级攻击。,在 Web 服务器或 CDN 为全站响应补充 x-frame-options 响应头并回归验证。
+P2,0.1598,misconfig,MIME 嗅探防护头缺失：x-content-type-options,https://portal.example.gov.cn/,x-content-type-options,MISCONFIG.MISSING_HEADER.x-content-type-options,security-headers,0.85,否,new,浏览器端防护能力下降，可能被用于点击劫持、内容注入或降级攻击。,在 Web 服务器或 CDN 为全站响应补充 x-content-type-options 响应头并回归验证。
+P3,0.0444,misconfig,Referrer-Policy 缺失：referrer-policy,https://portal.example.gov.cn/,referrer-policy,MISCONFIG.MISSING_HEADER.referrer-policy,security-headers,0.85,否,new,浏览器端防护能力下降，可能被用于点击劫持、内容注入或降级攻击。,在 Web 服务器或 CDN 为全站响应补充 referrer-policy 响应头并回归验证。

@@ -1,0 +1,7 @@
+[core]
+	repositoryformatversion = 0
+	filemode = false
+[remote "origin"]
+	url = https://git.lab.invalid/example/portal.git
+[lab]
+	note = synthetic repository metadata

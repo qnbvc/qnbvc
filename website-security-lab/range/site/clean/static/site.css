@@ -1,0 +1,42 @@
+:root {
+  color-scheme: light;
+  font-family: system-ui, "Microsoft YaHei", sans-serif;
+  color: #1f2937;
+  background: #f7f9fc;
+}
+
+body {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px;
+  line-height: 1.7;
+}
+
+header {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #d8e0ea;
+}
+
+nav {
+  display: flex;
+  gap: 16px;
+}
+
+a {
+  color: #075985;
+}
+
+main {
+  min-height: 340px;
+}
+
+footer {
+  padding-top: 20px;
+  border-top: 1px solid #d8e0ea;
+  color: #64748b;
+  font-size: 14px;
+}

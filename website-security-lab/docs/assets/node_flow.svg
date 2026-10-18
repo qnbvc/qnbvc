@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1160" viewBox="0 0 1500 1160"
+     font-family="Microsoft YaHei, Segoe UI, sans-serif">
+  <rect width="1500" height="1160" fill="#FFFFFF"/>
+
+  <text x="40" y="46" font-size="24" font-weight="bold" fill="#0F172A">网站安全智能巡检智能体 · 恒脑平台节点编排</text>
+  <text x="40" y="72" font-size="13" fill="#64748B">节点类型：开始 / 结束 · 模型节点 · 工具节点 · 智能体节点 · 交互节点 · 代码节点 · 自规划节点</text>
+
+  <!-- 图例 -->
+  <rect x="56" y="83" width="12" height="12" rx="3" fill="#64748B"/>
+  <text x="74" y="94" font-size="12.5" fill="#334155">开始/结束</text>
+  <rect x="162" y="83" width="12" height="12" rx="3" fill="#2563EB"/>
+  <text x="180" y="94" font-size="12.5" fill="#334155">模型节点</text>
+  <rect x="256" y="83" width="12" height="12" rx="3" fill="#7C3AED"/>
+  <text x="274" y="94" font-size="12.5" fill="#334155">工具节点</text>
+  <rect x="350" y="83" width="12" height="12" rx="3" fill="#DC2626"/>
+  <text x="368" y="94" font-size="12.5" fill="#334155">智能体节点</text>
+  <rect x="456" y="83" width="12" height="12" rx="3" fill="#EA580C"/>
+  <text x="474" y="94" font-size="12.5" fill="#334155">交互节点</text>
+  <rect x="550" y="83" width="12" height="12" rx="3" fill="#D97706"/>
+  <text x="568" y="94" font-size="12.5" fill="#334155">代码节点</text>
+  <rect x="644" y="83" width="12" height="12" rx="3" fill="#0891B2"/>
+  <text x="662" y="94" font-size="12.5" fill="#334155">自规划节点</text>
+
+  <!-- ================= 一、主流程 ================= -->
+  <text x="40" y="128" font-size="15.5" font-weight="bold" fill="#0F172A">一、主流程：一次周期巡检（主编排，由主智能体承载）</text>
+
+  <!-- 第一行 -->
+  <rect x="56" y="146" width="176" height="88" rx="8" fill="#F1F5F9" stroke="#CBD5E1"/>
+  <rect x="72" y="160" width="12" height="12" rx="3" fill="#64748B"/>
+  <text x="90" y="171" font-size="12" font-weight="bold" fill="#0F172A">开始 · 定时/手动</text>
+  <text x="72" y="198" font-size="10.5" fill="#475569">触发一次周期性巡检</text>
+
+  <rect x="258" y="146" width="176" height="88" rx="8" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <rect x="274" y="160" width="12" height="12" rx="3" fill="#EA580C"/>
+  <text x="292" y="171" font-size="12" font-weight="bold" fill="#0F172A">交互 · 授权录入</text>
+  <text x="274" y="198" font-size="10.5" fill="#475569">域名·范围·周期·敏感定义</text>
+
+  <rect x="460" y="146" width="176" height="88" rx="8" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <rect x="476" y="160" width="12" height="12" rx="3" fill="#D97706"/>
+  <text x="494" y="171" font-size="12" font-weight="bold" fill="#0F172A">代码 · 合规闸门</text>
+  <text x="476" y="198" font-size="10.5" fill="#475569">范围校验 + 预算与限速</text>
+
+  <rect x="662" y="146" width="176" height="88" rx="8" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <rect x="678" y="160" width="12" height="12" rx="3" fill="#0891B2"/>
+  <text x="696" y="171" font-size="12" font-weight="bold" fill="#0F172A">自规划 · 任务规划</text>
+  <text x="678" y="198" font-size="10.5" fill="#475569">按资产特征生成任务 DAG</text>
+
+  <rect x="864" y="146" width="176" height="88" rx="8" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <rect x="880" y="160" width="12" height="12" rx="3" fill="#DC2626"/>
+  <text x="898" y="171" font-size="12" font-weight="bold" fill="#0F172A">智能体 · 资产发现</text>
+  <text x="880" y="198" font-size="10.5" fill="#475569">子域·指纹·爬虫·资源清单</text>
+
+  <rect x="1066" y="146" width="176" height="88" rx="8" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <rect x="1082" y="160" width="12" height="12" rx="3" fill="#DC2626"/>
+  <text x="1100" y="171" font-size="12" font-weight="bold" fill="#0F172A">智能体 · 检测编排</text>
+  <text x="1082" y="198" font-size="10.5" fill="#475569">漏洞/篡改/泄露 三路并行</text>
+
+  <rect x="1268" y="146" width="176" height="88" rx="8" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <rect x="1284" y="160" width="12" height="12" rx="3" fill="#D97706"/>
+  <text x="1302" y="171" font-size="12" font-weight="bold" fill="#0F172A">代码 · 归一化去重</text>
+  <text x="1284" y="198" font-size="10.5" fill="#475569">统一 Finding + 跨工具合并</text>
+
+  <polygon points="241,184 249,190 241,196" fill="#94A3B8"/>
+  <polygon points="443,184 451,190 443,196" fill="#94A3B8"/>
+  <polygon points="645,184 653,190 645,196" fill="#94A3B8"/>
+  <polygon points="847,184 855,190 847,196" fill="#94A3B8"/>
+  <polygon points="1049,184 1057,190 1049,196" fill="#94A3B8"/>
+  <polygon points="1251,184 1259,190 1251,196" fill="#94A3B8"/>
+
+  <polygon points="1350,270 1356,276 1362,270" fill="#94A3B8"/>
+
+  <!-- 第二行（蛇形，自右向左） -->
+  <rect x="1268" y="276" width="176" height="88" rx="8" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <rect x="1284" y="290" width="12" height="12" rx="3" fill="#DC2626"/>
+  <text x="1302" y="301" font-size="12" font-weight="bold" fill="#0F172A">智能体 · 复核确证</text>
+  <text x="1284" y="328" font-size="10.5" fill="#475569">只读复采 · 非破坏性验证</text>
+
+  <rect x="1066" y="276" width="176" height="88" rx="8" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <rect x="1082" y="290" width="12" height="12" rx="3" fill="#2563EB"/>
+  <text x="1100" y="301" font-size="12" font-weight="bold" fill="#0F172A">模型 · 分级与解释</text>
+  <text x="1082" y="328" font-size="10.5" fill="#475569">分级 · 影响 · 修复建议</text>
+
+  <rect x="864" y="276" width="176" height="88" rx="8" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <rect x="880" y="290" width="12" height="12" rx="3" fill="#D97706"/>
+  <text x="898" y="301" font-size="12" font-weight="bold" fill="#0F172A">代码 · 基线状态机</text>
+  <text x="880" y="328" font-size="10.5" fill="#475569">新增/变更/修复/复现</text>
+
+  <rect x="662" y="276" width="176" height="88" rx="8" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <rect x="678" y="290" width="12" height="12" rx="3" fill="#7C3AED"/>
+  <text x="696" y="301" font-size="12" font-weight="bold" fill="#0F172A">工具 · 告警通道</text>
+  <text x="678" y="328" font-size="10.5" fill="#475569">P0/P1 即时 · 其余日报</text>
+
+  <rect x="460" y="276" width="176" height="88" rx="8" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <rect x="476" y="290" width="12" height="12" rx="3" fill="#2563EB"/>
+  <text x="494" y="301" font-size="12" font-weight="bold" fill="#0F172A">模型 · 报告生成</text>
+  <text x="476" y="328" font-size="10.5" fill="#475569">证据 · 整改建议 · 趋势图</text>
+
+  <rect x="258" y="276" width="176" height="88" rx="8" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <rect x="274" y="290" width="12" height="12" rx="3" fill="#EA580C"/>
+  <text x="292" y="301" font-size="12" font-weight="bold" fill="#0F172A">交互 · 人工复核</text>
+  <text x="274" y="328" font-size="10.5" fill="#475569">确认处置并导出报告</text>
+
+  <rect x="56" y="276" width="176" height="88" rx="8" fill="#F1F5F9" stroke="#CBD5E1"/>
+  <rect x="72" y="290" width="12" height="12" rx="3" fill="#64748B"/>
+  <text x="90" y="301" font-size="12" font-weight="bold" fill="#0F172A">结束 · 本轮闭环</text>
+  <text x="72" y="328" font-size="10.5" fill="#475569">结果反哺下一轮规划</text>
+
+  <polygon points="1246,314 1238,320 1246,326" fill="#94A3B8"/>
+  <polygon points="1044,314 1036,320 1044,326" fill="#94A3B8"/>
+  <polygon points="842,314 834,320 842,326" fill="#94A3B8"/>
+  <polygon points="640,314 632,320 640,326" fill="#94A3B8"/>
+  <polygon points="438,314 430,320 438,326" fill="#94A3B8"/>
+  <polygon points="236,314 228,320 236,326" fill="#94A3B8"/>
+
+  <!-- 闭环反哺 -->
+  <path d="M 144 364 L 144 392 L 24 392 L 24 190 L 48 190" stroke="#94A3B8" stroke-width="2"
+        fill="none"/>
+  <polygon points="48,184 56,190 48,196" fill="#94A3B8"/>
+  <text x="14" y="290" font-size="11.5" fill="#64748B" text-anchor="middle"
+        transform="rotate(-90 14 290)">闭环：基线 / 复测结果反哺 → 调整巡检策略与规则</text>
+
+  <!-- ================= 二、子流程 ================= -->
+  <text x="40" y="404" font-size="15.5" font-weight="bold" fill="#0F172A">二、子流程（由「智能体节点」封装，作为主流程中被调用的执行单元）</text>
+
+  <!-- 子流程① 授权与配置 -->
+  <rect x="40" y="418" width="690" height="168" rx="10" fill="#EFF6FF" stroke="#BFDBFE"/>
+  <text x="58" y="444" font-size="13.5" font-weight="bold" fill="#1D4ED8">子流程① 授权与配置（要求①：授权域名 / 范围 / 周期 / 敏感信息定义）</text>
+  <rect x="61" y="464" width="150" height="32" rx="6" fill="#FFFFFF" stroke="#BFDBFE"/>
+  <rect x="68" y="477" width="7" height="7" rx="2" fill="#64748B"/>
+  <text x="81" y="485" font-size="10.5" fill="#1F2A37">开始</text>
+  <rect x="227" y="464" width="150" height="32" rx="6" fill="#FFFFFF" stroke="#BFDBFE"/>
+  <rect x="234" y="477" width="7" height="7" rx="2" fill="#EA580C"/>
+  <text x="247" y="485" font-size="10.5" fill="#1F2A37">交互·录入授权与范围</text>
+  <rect x="393" y="464" width="150" height="32" rx="6" fill="#FFFFFF" stroke="#BFDBFE"/>
+  <rect x="400" y="477" width="7" height="7" rx="2" fill="#D97706"/>
+  <text x="413" y="485" font-size="10.5" fill="#1F2A37">代码·范围与格式校验</text>
+  <rect x="559" y="464" width="150" height="32" rx="6" fill="#FFFFFF" stroke="#BFDBFE"/>
+  <rect x="566" y="477" width="7" height="7" rx="2" fill="#2563EB"/>
+  <text x="579" y="485" font-size="10.5" fill="#1F2A37">模型·敏感定义转规则</text>
+  <polygon points="219,474 227,480 219,486" fill="#94A3B8"/>
+  <polygon points="385,474 393,480 385,486" fill="#94A3B8"/>
+  <polygon points="551,474 559,480 551,486" fill="#94A3B8"/>
+  <path d="M 634 496 L 634 508 L 136 508 L 136 514" stroke="#94A3B8" stroke-width="1.5" fill="none"/>
+  <polygon points="131,514 136,520 141,514" fill="#94A3B8"/>
+  <rect x="61" y="520" width="150" height="32" rx="6" fill="#FFFFFF" stroke="#BFDBFE"/>
+  <rect x="68" y="533" width="7" height="7" rx="2" fill="#D97706"/>
+  <text x="81" y="541" font-size="10.5" fill="#1F2A37">代码·写入配置规则库</text>
+  <rect x="227" y="520" width="150" height="32" rx="6" fill="#FFFFFF" stroke="#BFDBFE"/>
+  <rect x="234" y="533" width="7" height="7" rx="2" fill="#EA580C"/>
+  <text x="247" y="541" font-size="10.5" fill="#1F2A37">交互·回显确认</text>
+  <rect x="393" y="520" width="150" height="32" rx="6" fill="#FFFFFF" stroke="#BFDBFE"/>
+  <rect x="400" y="533" width="7" height="7" rx="2" fill="#64748B"/>
+  <text x="413" y="541" font-size="10.5" fill="#1F2A37">结束</text>
+  <polygon points="219,530 227,536 219,542" fill="#94A3B8"/>
+  <polygon points="385,530 393,536 385,542" fill="#94A3B8"/>
+
+  <!-- 子流程② 资产与页面发现 -->
+  <rect x="770" y="418" width="690" height="168" rx="10" fill="#ECFDF5" stroke="#A7F3D0"/>
+  <text x="788" y="444" font-size="13.5" font-weight="bold" fill="#047857">子流程② 资产与页面发现（要求②：自动发现站点页面与资源）</text>
+  <rect x="791" y="464" width="150" height="32" rx="6" fill="#FFFFFF" stroke="#A7F3D0"/>
+  <rect x="798" y="477" width="7" height="7" rx="2" fill="#64748B"/>
+  <text x="811" y="485" font-size="10.5" fill="#1F2A37">开始</text>
+  <rect x="957" y="464" width="150" height="32" rx="6" fill="#FFFFFF" stroke="#A7F3D0"/>
+  <rect x="964" y="477" width="7" height="7" rx="2" fill="#7C3AED"/>
+  <text x="977" y="485" font-size="10.5" fill="#1F2A37">工具·子域枚举/DNS</text>
+  <rect x="1123" y="464" width="150" height="32" rx="6" fill="#FFFFFF" stroke="#A7F3D0"/>
+  <rect x="1130" y="477" width="7" height="7" rx="2" fill="#7C3AED"/>
+  <text x="1143" y="485" font-size="10.5" fill="#1F2A37">工具·存活探测与指纹</text>
+  <rect x="1289" y="464" width="150" height="32" rx="6" fill="#FFFFFF" stroke="#A7F3D0"/>
+  <rect x="1296" y="477" width="7" height="7" rx="2" fill="#7C3AED"/>
+  <text x="1309" y="485" font-size="10.5" fill="#1F2A37">工具·爬虫+JS提取</text>
+  <polygon points="949,474 957,480 949,486" fill="#94A3B8"/>
+  <polygon points="1115,474 1123,480 1115,486" fill="#94A3B8"/>
+  <polygon points="1281,474 1289,480 1281,486" fill="#94A3B8"/>
+  <path d="M 1364 496 L 1364 508 L 866 508 L 866 514" stroke="#94A3B8" stroke-width="1.5" fill="none"/>
+  <polygon points="861,514 866,520 871,514" fill="#94A3B8"/>
+  <rect x="791" y="520" width="150" height="32" rx="6" fill="#FFFFFF" stroke="#A7F3D0"/>
+  <rect x="798" y="533" width="7" height="7" rx="2" fill="#D97706"/>
+  <text x="811" y="541" font-size="10.5" fill="#1F2A37">代码·URL归一化入库</text>
+  <rect x="957" y="520" width="150" height="32" rx="6" fill="#FFFFFF" stroke="#A7F3D0"/>
+  <rect x="964" y="533" width="7" height="7" rx="2" fill="#D97706"/>
+  <text x="977" y="541" font-size="10.5" fill="#1F2A37">代码·与上轮快照Diff</text>
+  <rect x="1123" y="520" width="150" height="32" rx="6" fill="#FFFFFF" stroke="#A7F3D0"/>
+  <rect x="1130" y="533" width="7" height="7" rx="2" fill="#2563EB"/>
+  <text x="1143" y="541" font-size="10.5" fill="#1F2A37">模型·技术栈研判</text>
+  <rect x="1289" y="520" width="150" height="32" rx="6" fill="#FFFFFF" stroke="#A7F3D0"/>
+  <rect x="1296" y="533" width="7" height="7" rx="2" fill="#64748B"/>
+  <text x="1309" y="541" font-size="10.5" fill="#1F2A37">结束</text>
+  <polygon points="949,530 957,536 949,542" fill="#94A3B8"/>
+  <polygon points="1115,530 1123,536 1115,542" fill="#94A3B8"/>
+  <polygon points="1281,530 1289,536 1281,542" fill="#94A3B8"/>
+
+  <!-- 子流程③ 漏洞与弱配置 -->
+  <rect x="40" y="596" width="690" height="168" rx="10" fill="#F5F3FF" stroke="#DDD6FE"/>
+  <text x="58" y="622" font-size="13.5" font-weight="bold" fill="#6D28D9">子流程③ 漏洞与弱配置检测（要求② · 工具节点为 T1 受控档）</text>
+  <rect x="61" y="642" width="150" height="32" rx="6" fill="#FFFFFF" stroke="#DDD6FE"/>
+  <rect x="68" y="655" width="7" height="7" rx="2" fill="#64748B"/>
+  <text x="81" y="663" font-size="10.5" fill="#1F2A37">开始</text>
+  <rect x="227" y="642" width="150" height="32" rx="6" fill="#FFFFFF" stroke="#DDD6FE"/>
+  <rect x="234" y="655" width="7" height="7" rx="2" fill="#7C3AED"/>
+  <text x="247" y="663" font-size="10.5" fill="#1F2A37">工具·组件CVE比对</text>
+  <rect x="393" y="642" width="150" height="32" rx="6" fill="#FFFFFF" stroke="#DDD6FE"/>
+  <rect x="400" y="655" width="7" height="7" rx="2" fill="#7C3AED"/>
+  <text x="413" y="663" font-size="10.5" fill="#1F2A37">工具·模板化POC</text>
+  <rect x="559" y="642" width="150" height="32" rx="6" fill="#FFFFFF" stroke="#DDD6FE"/>
+  <rect x="566" y="655" width="7" height="7" rx="2" fill="#7C3AED"/>
+  <text x="579" y="663" font-size="10.5" fill="#1F2A37">工具·安全头/CORS/TLS</text>
+  <polygon points="219,652 227,658 219,664" fill="#94A3B8"/>
+  <polygon points="385,652 393,658 385,664" fill="#94A3B8"/>
+  <polygon points="551,652 559,658 551,664" fill="#94A3B8"/>
+  <path d="M 634 674 L 634 686 L 136 686 L 136 692" stroke="#94A3B8" stroke-width="1.5" fill="none"/>
+  <polygon points="131,692 136,698 141,692" fill="#94A3B8"/>
+  <rect x="61" y="698" width="150" height="32" rx="6" fill="#FFFFFF" stroke="#DDD6FE"/>
+  <rect x="68" y="711" width="7" height="7" rx="2" fill="#7C3AED"/>
+  <text x="81" y="719" font-size="10.5" fill="#1F2A37">工具·备份/调试端点</text>
+  <rect x="227" y="698" width="150" height="32" rx="6" fill="#FFFFFF" stroke="#DDD6FE"/>
+  <rect x="234" y="711" width="7" height="7" rx="2" fill="#D97706"/>
+  <text x="247" y="719" font-size="10.5" fill="#1F2A37">代码·标准化为Finding</text>
+  <rect x="393" y="698" width="150" height="32" rx="6" fill="#FFFFFF" stroke="#DDD6FE"/>
+  <rect x="400" y="711" width="7" height="7" rx="2" fill="#2563EB"/>
+  <text x="413" y="719" font-size="10.5" fill="#1F2A37">模型·误报初判与定级</text>
+  <rect x="559" y="698" width="150" height="32" rx="6" fill="#FFFFFF" stroke="#DDD6FE"/>
+  <rect x="566" y="711" width="7" height="7" rx="2" fill="#64748B"/>
+  <text x="579" y="719" font-size="10.5" fill="#1F2A37">结束</text>
+  <polygon points="219,708 227,714 219,720" fill="#94A3B8"/>
+  <polygon points="385,708 393,714 385,720" fill="#94A3B8"/>
+  <polygon points="551,708 559,714 551,720" fill="#94A3B8"/>
+
+  <!-- 子流程④ 篡改与挂马 -->
+  <rect x="770" y="596" width="690" height="168" rx="10" fill="#FFF1F2" stroke="#FECDD3"/>
+  <text x="788" y="622" font-size="13.5" font-weight="bold" fill="#BE123C">子流程④ 篡改 / 挂马 / 恶意外链检测（要求② · 依赖基线快照）</text>
+  <rect x="791" y="642" width="150" height="32" rx="6" fill="#FFFFFF" stroke="#FECDD3"/>
+  <rect x="798" y="655" width="7" height="7" rx="2" fill="#64748B"/>
+  <text x="811" y="663" font-size="10.5" fill="#1F2A37">开始</text>
+  <rect x="957" y="642" width="150" height="32" rx="6" fill="#FFFFFF" stroke="#FECDD3"/>
+  <rect x="964" y="655" width="7" height="7" rx="2" fill="#7C3AED"/>
+  <text x="977" y="663" font-size="10.5" fill="#1F2A37">工具·整页渲染截图</text>
+  <rect x="1123" y="642" width="150" height="32" rx="6" fill="#FFFFFF" stroke="#FECDD3"/>
+  <rect x="1130" y="655" width="7" height="7" rx="2" fill="#D97706"/>
+  <text x="1143" y="663" font-size="10.5" fill="#1F2A37">代码·正文/DOM基线比对</text>
+  <rect x="1289" y="642" width="150" height="32" rx="6" fill="#FFFFFF" stroke="#FECDD3"/>
+  <rect x="1296" y="655" width="7" height="7" rx="2" fill="#7C3AED"/>
+  <text x="1309" y="663" font-size="10.5" fill="#1F2A37">工具·YARA/ClamAV特征</text>
+  <polygon points="949,652 957,658 949,664" fill="#94A3B8"/>
+  <polygon points="1115,652 1123,658 1115,664" fill="#94A3B8"/>
+  <polygon points="1281,652 1289,658 1281,664" fill="#94A3B8"/>
+  <path d="M 1364 674 L 1364 686 L 866 686 L 866 692" stroke="#94A3B8" stroke-width="1.5" fill="none"/>
+  <polygon points="861,692 866,698 871,692" fill="#94A3B8"/>
+  <rect x="791" y="698" width="150" height="32" rx="6" fill="#FFFFFF" stroke="#FECDD3"/>
+  <rect x="798" y="711" width="7" height="7" rx="2" fill="#7C3AED"/>
+  <text x="811" y="719" font-size="10.5" fill="#1F2A37">工具·外链信誉比对</text>
+  <rect x="957" y="698" width="150" height="32" rx="6" fill="#FFFFFF" stroke="#FECDD3"/>
+  <rect x="964" y="711" width="7" height="7" rx="2" fill="#2563EB"/>
+  <text x="977" y="719" font-size="10.5" fill="#1F2A37">模型·篡改类型与证据</text>
+  <rect x="1123" y="698" width="150" height="32" rx="6" fill="#FFFFFF" stroke="#FECDD3"/>
+  <rect x="1130" y="711" width="7" height="7" rx="2" fill="#64748B"/>
+  <text x="1143" y="719" font-size="10.5" fill="#1F2A37">结束</text>
+  <polygon points="949,708 957,714 949,720" fill="#94A3B8"/>
+  <polygon points="1115,708 1123,714 1115,720" fill="#94A3B8"/>
+
+  <!-- 子流程⑤ 敏感信息 -->
+  <rect x="40" y="774" width="690" height="168" rx="10" fill="#FFF7ED" stroke="#FED7AA"/>
+  <text x="58" y="800" font-size="13.5" font-weight="bold" fill="#C2410C">子流程⑤ 敏感信息泄露检测（要求② · 规则全部来自用户自定义）</text>
+  <rect x="61" y="820" width="150" height="32" rx="6" fill="#FFFFFF" stroke="#FED7AA"/>
+  <rect x="68" y="833" width="7" height="7" rx="2" fill="#64748B"/>
+  <text x="81" y="841" font-size="10.5" fill="#1F2A37">开始</text>
+  <rect x="227" y="820" width="150" height="32" rx="6" fill="#FFFFFF" stroke="#FED7AA"/>
+  <rect x="234" y="833" width="7" height="7" rx="2" fill="#7C3AED"/>
+  <text x="247" y="841" font-size="10.5" fill="#1F2A37">工具·文档与内容抽取</text>
+  <rect x="393" y="820" width="150" height="32" rx="6" fill="#FFFFFF" stroke="#FED7AA"/>
+  <rect x="400" y="833" width="7" height="7" rx="2" fill="#D97706"/>
+  <text x="413" y="841" font-size="10.5" fill="#1F2A37">代码·关键词/正则/样例</text>
+  <rect x="559" y="820" width="150" height="32" rx="6" fill="#FFFFFF" stroke="#FED7AA"/>
+  <rect x="566" y="833" width="7" height="7" rx="2" fill="#D97706"/>
+  <text x="579" y="841" font-size="10.5" fill="#1F2A37">代码·白名单过滤+脱敏</text>
+  <polygon points="219,830 227,836 219,842" fill="#94A3B8"/>
+  <polygon points="385,830 393,836 385,842" fill="#94A3B8"/>
+  <polygon points="551,830 559,836 551,842" fill="#94A3B8"/>
+  <path d="M 634 852 L 634 864 L 136 864 L 136 870" stroke="#94A3B8" stroke-width="1.5" fill="none"/>
+  <polygon points="131,870 136,876 141,870" fill="#94A3B8"/>
+  <rect x="61" y="876" width="150" height="32" rx="6" fill="#FFFFFF" stroke="#FED7AA"/>
+  <rect x="68" y="889" width="7" height="7" rx="2" fill="#2563EB"/>
+  <text x="81" y="897" font-size="10.5" fill="#1F2A37">模型·敏感性上下文判定</text>
+  <rect x="227" y="876" width="150" height="32" rx="6" fill="#FFFFFF" stroke="#FED7AA"/>
+  <rect x="234" y="889" width="7" height="7" rx="2" fill="#64748B"/>
+  <text x="247" y="897" font-size="10.5" fill="#1F2A37">结束</text>
+  <polygon points="219,886 227,892 219,898" fill="#94A3B8"/>
+
+  <!-- 子流程⑥ 去重验证分级解释 -->
+  <rect x="770" y="774" width="690" height="168" rx="10" fill="#F0F9FF" stroke="#BAE6FD"/>
+  <text x="788" y="800" font-size="13.5" font-weight="bold" fill="#0369A1">子流程⑥ 去重 · 验证 · 分级 · 解释（要求③）</text>
+  <rect x="791" y="820" width="150" height="32" rx="6" fill="#FFFFFF" stroke="#BAE6FD"/>
+  <rect x="798" y="833" width="7" height="7" rx="2" fill="#64748B"/>
+  <text x="811" y="841" font-size="10.5" fill="#1F2A37">开始</text>
+  <rect x="957" y="820" width="150" height="32" rx="6" fill="#FFFFFF" stroke="#BAE6FD"/>
+  <rect x="964" y="833" width="7" height="7" rx="2" fill="#D97706"/>
+  <text x="977" y="841" font-size="10.5" fill="#1F2A37">代码·跨工具去重合并</text>
+  <rect x="1123" y="820" width="150" height="32" rx="6" fill="#FFFFFF" stroke="#BAE6FD"/>
+  <rect x="1130" y="833" width="7" height="7" rx="2" fill="#DC2626"/>
+  <text x="1143" y="841" font-size="10.5" fill="#1F2A37">智能体·非破坏性确证</text>
+  <rect x="1289" y="820" width="150" height="32" rx="6" fill="#FFFFFF" stroke="#BAE6FD"/>
+  <rect x="1296" y="833" width="7" height="7" rx="2" fill="#2563EB"/>
+  <text x="1309" y="841" font-size="10.5" fill="#1F2A37">模型·风险分级定级</text>
+  <polygon points="949,830 957,836 949,842" fill="#94A3B8"/>
+  <polygon points="1115,830 1123,836 1115,842" fill="#94A3B8"/>
+  <polygon points="1281,830 1289,836 1281,842" fill="#94A3B8"/>
+  <path d="M 1364 852 L 1364 864 L 866 864 L 866 870" stroke="#94A3B8" stroke-width="1.5" fill="none"/>
+  <polygon points="861,870 866,876 871,870" fill="#94A3B8"/>
+  <rect x="791" y="876" width="150" height="32" rx="6" fill="#FFFFFF" stroke="#BAE6FD"/>
+  <rect x="798" y="889" width="7" height="7" rx="2" fill="#2563EB"/>
+  <text x="811" y="897" font-size="10.5" fill="#1F2A37">模型·影响与修复建议</text>
+  <rect x="957" y="876" width="150" height="32" rx="6" fill="#FFFFFF" stroke="#BAE6FD"/>
+  <rect x="964" y="889" width="7" height="7" rx="2" fill="#EA580C"/>
+  <text x="977" y="897" font-size="10.5" fill="#1F2A37">交互·低置信度裁决</text>
+  <rect x="1123" y="876" width="150" height="32" rx="6" fill="#FFFFFF" stroke="#BAE6FD"/>
+  <rect x="1130" y="889" width="7" height="7" rx="2" fill="#64748B"/>
+  <text x="1143" y="897" font-size="10.5" fill="#1F2A37">结束</text>
+  <polygon points="949,886 957,892 949,898" fill="#94A3B8"/>
+  <polygon points="1115,886 1123,892 1115,898" fill="#94A3B8"/>
+
+  <!-- 子流程⑦ 闭环运营 -->
+  <rect x="40" y="952" width="690" height="168" rx="10" fill="#FDF2F8" stroke="#FBCFE8"/>
+  <text x="58" y="978" font-size="13.5" font-weight="bold" fill="#BE185D">子流程⑦ 闭环运营：基线 / 告警 / 复测 / 报告（要求④）</text>
+  <rect x="61" y="998" width="150" height="32" rx="6" fill="#FFFFFF" stroke="#FBCFE8"/>
+  <rect x="68" y="1011" width="7" height="7" rx="2" fill="#64748B"/>
+  <text x="81" y="1019" font-size="10.5" fill="#1F2A37">开始</text>
+  <rect x="227" y="998" width="150" height="32" rx="6" fill="#FFFFFF" stroke="#FBCFE8"/>
+  <rect x="234" y="1011" width="7" height="7" rx="2" fill="#D97706"/>
+  <text x="247" y="1019" font-size="10.5" fill="#1F2A37">代码·基线对比与状态机</text>
+  <rect x="393" y="998" width="150" height="32" rx="6" fill="#FFFFFF" stroke="#FBCFE8"/>
+  <rect x="400" y="1011" width="7" height="7" rx="2" fill="#2563EB"/>
+  <text x="413" y="1019" font-size="10.5" fill="#1F2A37">模型·告警分级与摘要</text>
+  <rect x="559" y="998" width="150" height="32" rx="6" fill="#FFFFFF" stroke="#FBCFE8"/>
+  <rect x="566" y="1011" width="7" height="7" rx="2" fill="#7C3AED"/>
+  <text x="579" y="1019" font-size="10.5" fill="#1F2A37">工具·告警通道推送</text>
+  <polygon points="219,1008 227,1014 219,1020" fill="#94A3B8"/>
+  <polygon points="385,1008 393,1014 385,1020" fill="#94A3B8"/>
+  <polygon points="551,1008 559,1014 551,1020" fill="#94A3B8"/>
+  <path d="M 634 1030 L 634 1042 L 136 1042 L 136 1048" stroke="#94A3B8" stroke-width="1.5" fill="none"/>
+  <polygon points="131,1048 136,1054 141,1048" fill="#94A3B8"/>
+  <rect x="61" y="1054" width="150" height="32" rx="6" fill="#FFFFFF" stroke="#FBCFE8"/>
+  <rect x="68" y="1067" width="7" height="7" rx="2" fill="#EA580C"/>
+  <text x="81" y="1075" font-size="10.5" fill="#1F2A37">交互·工单分派与确认</text>
+  <rect x="227" y="1054" width="150" height="32" rx="6" fill="#FFFFFF" stroke="#FBCFE8"/>
+  <rect x="234" y="1067" width="7" height="7" rx="2" fill="#7C3AED"/>
+  <text x="247" y="1075" font-size="10.5" fill="#1F2A37">工具·复测重放检测项</text>
+  <rect x="393" y="1054" width="150" height="32" rx="6" fill="#FFFFFF" stroke="#FBCFE8"/>
+  <rect x="400" y="1067" width="7" height="7" rx="2" fill="#2563EB"/>
+  <text x="413" y="1075" font-size="10.5" fill="#1F2A37">模型·报告生成与导出</text>
+  <rect x="559" y="1054" width="150" height="32" rx="6" fill="#FFFFFF" stroke="#FBCFE8"/>
+  <rect x="566" y="1067" width="7" height="7" rx="2" fill="#64748B"/>
+  <text x="579" y="1075" font-size="10.5" fill="#1F2A37">结束</text>
+  <polygon points="219,1064 227,1070 219,1076" fill="#94A3B8"/>
+  <polygon points="385,1064 393,1070 385,1076" fill="#94A3B8"/>
+  <polygon points="551,1064 559,1070 551,1076" fill="#94A3B8"/>
+
+  <!-- 子流程⑧ 合规与审计 -->
+  <rect x="770" y="952" width="690" height="168" rx="10" fill="#F8FAFC" stroke="#CBD5E1"/>
+  <text x="788" y="978" font-size="13.5" font-weight="bold" fill="#334155">子流程⑧ 合规与审计（贯穿所有检测 / 评分项：安全合规 10%）</text>
+  <rect x="791" y="998" width="150" height="32" rx="6" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <rect x="798" y="1011" width="7" height="7" rx="2" fill="#64748B"/>
+  <text x="811" y="1019" font-size="10.5" fill="#1F2A37">开始</text>
+  <rect x="957" y="998" width="150" height="32" rx="6" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <rect x="964" y="1011" width="7" height="7" rx="2" fill="#D97706"/>
+  <text x="977" y="1019" font-size="10.5" fill="#1F2A37">代码·Scope校验与限速</text>
+  <rect x="1123" y="998" width="150" height="32" rx="6" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <rect x="1130" y="1011" width="7" height="7" rx="2" fill="#7C3AED"/>
+  <text x="1143" y="1019" font-size="10.5" fill="#1F2A37">工具·出站请求代理</text>
+  <rect x="1289" y="998" width="150" height="32" rx="6" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <rect x="1296" y="1011" width="7" height="7" rx="2" fill="#D97706"/>
+  <text x="1309" y="1019" font-size="10.5" fill="#1F2A37">代码·审计日志落库</text>
+  <polygon points="949,1008 957,1014 949,1020" fill="#94A3B8"/>
+  <polygon points="1115,1008 1123,1014 1115,1020" fill="#94A3B8"/>
+  <polygon points="1281,1008 1289,1014 1281,1020" fill="#94A3B8"/>
+  <path d="M 1364 1030 L 1364 1042 L 866 1042 L 866 1048" stroke="#94A3B8" stroke-width="1.5" fill="none"/>
+  <polygon points="861,1048 866,1054 871,1048" fill="#94A3B8"/>
+  <rect x="791" y="1054" width="150" height="32" rx="6" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <rect x="798" y="1067" width="7" height="7" rx="2" fill="#EA580C"/>
+  <text x="811" y="1075" font-size="10.5" fill="#1F2A37">交互·越界拦截告警</text>
+  <rect x="957" y="1054" width="150" height="32" rx="6" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <rect x="964" y="1067" width="7" height="7" rx="2" fill="#64748B"/>
+  <text x="977" y="1075" font-size="10.5" fill="#1F2A37">结束</text>
+  <polygon points="949,1064 957,1070 949,1076" fill="#94A3B8"/>
+
+  <text x="40" y="1148" font-size="11.5" fill="#64748B">说明：子流程⑧ 作为合规闸门被所有检测子流程前置调用；工具节点的全部出站请求统一经由「工具·出站请求代理」出口，实现范围校验、限速与审计留痕。</text>
+</svg>

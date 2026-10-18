@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1340" height="1560" viewBox="0 0 1340 1560"
+     font-family="Microsoft YaHei, Segoe UI, sans-serif">
+  <rect width="1340" height="1560" fill="#FFFFFF"/>
+
+  <text x="40" y="46" font-size="23" font-weight="bold" fill="#0F172A">子流程① 授权与配置 · 完整流程（13 个节点）</text>
+  <text x="40" y="72" font-size="13" fill="#64748B">触发：平台表单 / 对话指令 / 变更申请　　产出：ScopeSnapshot + SensitiveRuleSet + 校验报告 + 审计记录</text>
+
+  <!-- 数据契约栏 -->
+  <rect x="820" y="100" width="480" height="1400" rx="10" fill="#F8FAFC" stroke="#E2E8F0"/>
+  <text x="838" y="122" font-size="13" font-weight="bold" fill="#334155">数据契约：输入 → 输出</text>
+
+  <!-- ① 开始 -->
+  <rect x="170" y="110" width="620" height="84" rx="8" fill="#F1F5F9" stroke="#CBD5E1"/>
+  <rect x="186" y="126" width="14" height="14" rx="3" fill="#64748B"/>
+  <text x="210" y="140" font-size="13.5" font-weight="bold" fill="#0F172A">① 开始 · 发起授权配置</text>
+  <text x="186" y="164" font-size="11" fill="#475569">触发：平台表单 / 对话指令 / 变更申请 / 批量导入</text>
+  <text x="186" y="183" font-size="11" fill="#475569">入参：申请人 · 单位 · 操作类型 · request_id（幂等键）</text>
+  <text x="838" y="150" font-size="11" fill="#475569">入：申请人、单位、操作类型（新建/变更/停用）</text>
+  <text x="838" y="174" font-size="11" fill="#0F172A">出：流程上下文 + request_id</text>
+  <polygon points="475,196 480,206 485,196" fill="#94A3B8"/>
+
+  <!-- ② 权限校验 -->
+  <rect x="170" y="218" width="620" height="84" rx="8" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <rect x="186" y="234" width="14" height="14" rx="3" fill="#D97706"/>
+  <text x="210" y="248" font-size="13.5" font-weight="bold" fill="#0F172A">② 代码 · 权限与角色校验</text>
+  <text x="186" y="272" font-size="11" fill="#475569">角色矩阵：管理员 / 运营 / 只读 / 审批人</text>
+  <text x="186" y="291" font-size="11" fill="#475569">无权限 → 直接拒绝并写审计（不进入后续录入）</text>
+  <text x="838" y="258" font-size="11" fill="#475569">入：申请人角色、目标动作</text>
+  <text x="838" y="282" font-size="11" fill="#0F172A">出：放行标志 / 拒绝原因</text>
+  <polygon points="475,304 480,314 485,304" fill="#94A3B8"/>
+
+  <!-- ③ 授权基础信息 -->
+  <rect x="170" y="326" width="620" height="84" rx="8" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <rect x="186" y="342" width="14" height="14" rx="3" fill="#EA580C"/>
+  <text x="210" y="356" font-size="13.5" font-weight="bold" fill="#0F172A">③ 交互 · 授权基础信息录入</text>
+  <text x="186" y="380" font-size="11" fill="#475569">授权编号 · 授权主体 · 域名 / 通配子域 · IP 段 · URL 前缀</text>
+  <text x="186" y="399" font-size="11" fill="#475569">有效期 · 责任人 · 授权书附件（哈希查重）· 备注</text>
+  <text x="838" y="366" font-size="11" fill="#475569">入：授权编号、主体、资产、有效期、附件</text>
+  <text x="838" y="390" font-size="11" fill="#0F172A">出：授权信息草稿（含附件哈希）</text>
+  <polygon points="475,412 480,422 485,412" fill="#94A3B8"/>
+
+  <!-- ④ 范围与策略 -->
+  <rect x="170" y="434" width="620" height="84" rx="8" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <rect x="186" y="450" width="14" height="14" rx="3" fill="#EA580C"/>
+  <text x="210" y="464" font-size="13.5" font-weight="bold" fill="#0F172A">④ 交互 · 巡检范围与策略录入</text>
+  <text x="186" y="488" font-size="11" fill="#475569">含 / 排除路径 · 排除规则 · 端口 · 爬取深度 · 并发 · 单次请求预算</text>
+  <text x="186" y="507" font-size="11" fill="#475569">时间窗 · 冻结期 · 默认档位（T0）· T1 白名单 · T2 白名单</text>
+  <text x="838" y="474" font-size="11" fill="#475569">入：含/排除规则、深度、并发、预算、时间窗、档位</text>
+  <text x="838" y="498" font-size="11" fill="#0F172A">出：范围与策略草稿</text>
+  <polygon points="475,520 480,530 485,520" fill="#94A3B8"/>
+
+  <!-- ⑤ 敏感信息定义 -->
+  <rect x="170" y="542" width="620" height="84" rx="8" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <rect x="186" y="558" width="14" height="14" rx="3" fill="#EA580C"/>
+  <text x="210" y="572" font-size="13.5" font-weight="bold" fill="#0F172A">⑤ 交互 · 敏感信息定义录入</text>
+  <text x="186" y="596" font-size="11" fill="#475569">关键词 · 正则 · 文件类型 · 样例上传（自动生成指纹）</text>
+  <text x="186" y="615" font-size="11" fill="#475569">白名单 · 脱敏策略 · 生效范围（全站 / 指定路径）</text>
+  <text x="838" y="582" font-size="11" fill="#475569">入：关键词、正则、文件类型、样例、白名单</text>
+  <text x="838" y="606" font-size="11" fill="#0F172A">出：敏感规则草稿（原始形态）</text>
+  <polygon points="475,628 480,638 485,628" fill="#94A3B8"/>
+
+  <!-- ⑥ 输入校验 -->
+  <rect x="170" y="650" width="620" height="84" rx="8" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <rect x="186" y="666" width="14" height="14" rx="3" fill="#D97706"/>
+  <text x="210" y="680" font-size="13.5" font-weight="bold" fill="#0F172A">⑥ 代码 · 输入规范化与格式校验</text>
+  <text x="186" y="704" font-size="11" fill="#475569">域名语法 · 禁止裸通配 · CIDR · URL 前缀必须 https · cron 五段 · 时间窗格式</text>
+  <text x="186" y="723" font-size="11" fill="#475569">数值边界（并发/深度/预算）· 正则可编译 · 文件类型白名单 · 排除路径覆盖检查</text>
+  <text x="838" y="690" font-size="11" fill="#475569">入：三份草稿（授权 / 范围 / 敏感规则）</text>
+  <text x="838" y="714" font-size="11" fill="#0F172A">出：规范化配置 + 错误/警告清单（含错误码）</text>
+  <polygon points="475,736 480,746 485,736" fill="#94A3B8"/>
+
+  <!-- ⑦ 授权书核对 -->
+  <rect x="170" y="758" width="620" height="84" rx="8" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <rect x="186" y="774" width="14" height="14" rx="3" fill="#2563EB"/>
+  <text x="210" y="788" font-size="13.5" font-weight="bold" fill="#0F172A">⑦ 模型 · 授权书要素抽取与交叉核对</text>
+  <text x="186" y="812" font-size="11" fill="#475569">从授权书 PDF / 图片抽取：授权主体 · 授权范围 · 有效期 · 盖章状态</text>
+  <text x="186" y="831" font-size="11" fill="#475569">硬约束：以授权书为准；不一致 → 回退人工裁决，不允许"先扫了再说"</text>
+  <text x="838" y="798" font-size="11" fill="#475569">入：授权书文件 + 人工录入的范围</text>
+  <text x="838" y="822" font-size="11" fill="#0F172A">出：抽取要素 + 一致性结论（mismatch 列表）</text>
+  <polygon points="475,844 480,854 485,844" fill="#94A3B8"/>
+
+  <!-- ⑧ 敏感定义转规则 -->
+  <rect x="170" y="866" width="620" height="84" rx="8" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <rect x="186" y="882" width="14" height="14" rx="3" fill="#2563EB"/>
+  <text x="210" y="896" font-size="13.5" font-weight="bold" fill="#0F172A">⑧ 模型 · 敏感定义转检测规则</text>
+  <text x="186" y="920" font-size="11" fill="#475569">自然语言 + 样例 → 关键词 / 正则 / 文件类型 / 样例指纹（结构化 JSON）</text>
+  <text x="186" y="939" font-size="11" fill="#475569">必须输出：匹配理由 · 误报风险提示 · 白名单建议</text>
+  <text x="838" y="906" font-size="11" fill="#475569">入：自然语言描述 + 样例文本/文件</text>
+  <text x="838" y="930" font-size="11" fill="#0F172A">出：结构化规则 + 理由 + 误报风险 + 白名单建议</text>
+  <polygon points="475,952 480,962 485,952" fill="#94A3B8"/>
+
+  <!-- ⑨ 规则编译 -->
+  <rect x="170" y="974" width="620" height="84" rx="8" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <rect x="186" y="990" width="14" height="14" rx="3" fill="#D97706"/>
+  <text x="210" y="1004" font-size="13.5" font-weight="bold" fill="#0F172A">⑨ 代码 · 规则编译与冲突检测</text>
+  <text x="186" y="1028" font-size="11" fill="#475569">正则编译（拒绝灾难性回溯）· 样例指纹生成 · 与白名单/排除路径冲突检测 · 规则查重</text>
+  <text x="186" y="1047" font-size="11" fill="#475569">过宽规则告警（如 `.*`、单个汉字）· 历史页面离线试跑给出命中预估</text>
+  <text x="838" y="1014" font-size="11" fill="#475569">入：结构化规则</text>
+  <text x="838" y="1038" font-size="11" fill="#0F172A">出：可运行规则集 + 冲突报告 + 命中预估</text>
+  <polygon points="475,1060 480,1070 485,1060" fill="#94A3B8"/>
+
+  <!-- ⑩ 回显确认 -->
+  <rect x="170" y="1082" width="620" height="84" rx="8" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <rect x="186" y="1098" width="14" height="14" rx="3" fill="#EA580C"/>
+  <text x="210" y="1112" font-size="13.5" font-weight="bold" fill="#0F172A">⑩ 交互 · 回显确认（含红黄线提示）</text>
+  <text x="186" y="1136" font-size="11" fill="#475569">展示：生效范围（含/排除）· 周期与档位 · 敏感规则命中预览</text>
+  <text x="186" y="1155" font-size="11" fill="#475569">红线：开启 T2 主动档 / 范围扩大超 30% 需管理员二次确认</text>
+  <text x="838" y="1122" font-size="11" fill="#475569">入：生效对象 + 命中预览 + 风险提示</text>
+  <text x="838" y="1146" font-size="11" fill="#0F172A">出：确认标志 / 退回意见</text>
+  <polygon points="475,1168 480,1178 485,1168" fill="#94A3B8"/>
+
+  <!-- ⑪ 入库与快照 -->
+  <rect x="170" y="1190" width="620" height="84" rx="8" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <rect x="186" y="1206" width="14" height="14" rx="3" fill="#D97706"/>
+  <text x="210" y="1220" font-size="13.5" font-weight="bold" fill="#0F172A">⑪ 代码 · 配置入库与版本快照</text>
+  <text x="186" y="1244" font-size="11" fill="#475569">生成 ScopeSnapshot 与 SensitiveRuleSet 的新版本号</text>
+  <text x="186" y="1263" font-size="11" fill="#475569">变更 diff 可见 · 支持回滚 · 审计留痕（谁/何时/改了什么/依据哪份授权书）</text>
+  <text x="838" y="1230" font-size="11" fill="#475569">入：已确认配置 + 审批记录</text>
+  <text x="838" y="1254" font-size="11" fill="#0F172A">出：ScopeSnapshot vN + 变更 diff + 审计 ID</text>
+  <polygon points="475,1276 480,1286 485,1276" fill="#94A3B8"/>
+
+  <!-- ⑫ 生效下发 -->
+  <rect x="170" y="1298" width="620" height="84" rx="8" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <rect x="186" y="1314" width="14" height="14" rx="3" fill="#D97706"/>
+  <text x="210" y="1328" font-size="13.5" font-weight="bold" fill="#0F172A">⑫ 代码 · 生效下发与下游通知</text>
+  <text x="186" y="1352" font-size="11" fill="#475569">刷新授权与规则缓存 · 通知调度器按新周期重排任务</text>
+  <text x="186" y="1371" font-size="11" fill="#475569">把规则版本号下发给检测子流程（避免新旧规则混用）· 失败重试并告警</text>
+  <text x="838" y="1338" font-size="11" fill="#475569">入：快照版本号</text>
+  <text x="838" y="1362" font-size="11" fill="#0F172A">出：缓存刷新结果 + 调度重排结果 + 下发回执</text>
+  <polygon points="475,1384 480,1394 485,1384" fill="#94A3B8"/>
+
+  <!-- ⑬ 结束 -->
+  <rect x="170" y="1406" width="620" height="84" rx="8" fill="#F1F5F9" stroke="#CBD5E1"/>
+  <rect x="186" y="1422" width="14" height="14" rx="3" fill="#64748B"/>
+  <text x="210" y="1436" font-size="13.5" font-weight="bold" fill="#0F172A">⑬ 结束 · 返回配置对象与校验报告</text>
+  <text x="186" y="1460" font-size="11" fill="#475569">成功：ScopeSnapshot 版本号 + SensitiveRuleSet 版本号 + 校验报告 + 审计 ID</text>
+  <text x="186" y="1479" font-size="11" fill="#475569">失败：拒绝原因（无权限 / 校验不通过 / 授权书不一致），保留草稿可再编辑</text>
+  <text x="838" y="1446" font-size="11" fill="#475569">入：全部产物</text>
+  <text x="838" y="1470" font-size="11" fill="#0F172A">出：配置对象 / 拒绝原因（供平台与下一轮巡检消费）</text>
+
+  <!-- 异常回退：⑥ 校验失败 → ④ -->
+  <path d="M 170 692 L 140 692 L 140 476 L 158 476" stroke="#94A3B8" stroke-width="1.6"
+        stroke-dasharray="6 4" fill="none"/>
+  <polygon points="158,470 166,476 158,482" fill="#94A3B8"/>
+  <text x="152" y="584" font-size="10.5" fill="#64748B" text-anchor="middle"
+        transform="rotate(-90 152 584)">⑥ 校验失败 → 回退 ③/④/⑤</text>
+
+  <!-- 异常回退：⑨ 规则冲突 → ⑤ -->
+  <path d="M 170 1016 L 110 1016 L 110 584 L 158 584" stroke="#94A3B8" stroke-width="1.6"
+        stroke-dasharray="6 4" fill="none"/>
+  <polygon points="158,578 166,584 158,590" fill="#94A3B8"/>
+  <text x="122" y="800" font-size="10.5" fill="#64748B" text-anchor="middle"
+        transform="rotate(-90 122 800)">⑨ 规则冲突 / 过宽 → 回退 ⑤</text>
+
+  <!-- 拒绝分支：② 无权限 → ⑬ -->
+  <path d="M 170 260 L 60 260 L 60 1448 L 158 1448" stroke="#C0554E" stroke-width="1.6"
+        stroke-dasharray="6 4" fill="none"/>
+  <polygon points="158,1442 166,1448 158,1454" fill="#C0554E"/>
+  <text x="90" y="850" font-size="10.5" fill="#C0554E" text-anchor="middle"
+        transform="rotate(-90 90 850)">② 无权限 → 直接拒绝</text>
+
+  <text x="40" y="1532" font-size="11.5" fill="#64748B">说明：虚线为异常回退与拒绝分支；⑪ 产出的 ScopeSnapshot 版本号与 ⑫ 下发的规则版本号会随检测任务一起记录，保证风险结论可追溯。</text>
+</svg>

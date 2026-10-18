@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0A1F3C"/>
+      <stop offset="1" stop-color="#164A73"/>
+    </linearGradient>
+    <linearGradient id="shield" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5AC8FA"/>
+      <stop offset="1" stop-color="#2E8BD6"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="512" height="512" rx="112" fill="url(#bg)"/>
+
+  <!-- 扫描弧线：体现"巡检"语义 -->
+  <g opacity="0.35" fill="none" stroke="#5AC8FA">
+    <circle cx="256" cy="250" r="150" stroke-width="3" stroke-dasharray="10 14"/>
+    <circle cx="256" cy="250" r="196" stroke-width="3" stroke-dasharray="8 20"/>
+  </g>
+
+  <!-- 盾牌 -->
+  <path d="M 256 92 L 400 146 V 268 C 400 356 330 412 256 432 C 182 412 112 356 112 268 V 146 Z"
+        fill="none" stroke="url(#shield)" stroke-width="18" stroke-linejoin="round"/>
+
+  <!-- 放大镜：体现"检测与取证"语义 -->
+  <circle cx="238" cy="238" r="56" fill="none" stroke="#EAF6FF" stroke-width="18"/>
+  <line x1="280" y1="280" x2="336" y2="336" stroke="#EAF6FF" stroke-width="20"
+        stroke-linecap="round"/>
+
+  <!-- 镜内命中点 -->
+  <circle cx="222" cy="224" r="9" fill="#5AC8FA"/>
+  <circle cx="256" cy="252" r="7" fill="#9BE38A"/>
+  <circle cx="222" cy="262" r="7" fill="#F5C451"/>
+</svg>

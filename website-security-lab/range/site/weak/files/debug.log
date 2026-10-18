@@ -1,0 +1,7 @@
+2026-10-18T01:02:03Z INFO synthetic-lab started
+2026-10-18T01:02:04Z WARN debug mode enabled
+2026-10-18T01:02:05Z ERROR database connection failed
+Traceback (most recent call last):
+  File "fake_admin.py", line 42, in connect
+    password = "FAKE_DB_PASSWORD_NOT_REAL"
+ValueError: synthetic error for authorized lab testing

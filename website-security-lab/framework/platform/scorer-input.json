@@ -1,0 +1,34 @@
+{
+  "findings": [
+    {
+      "id": "F-001",
+      "url": "http://127.0.0.1:8899/",
+      "title": "CSP 缺失：content-security-policy",
+      "type": "misconfig",
+      "rule_id": "MISCONFIG.MISSING_HEADER.content-security-policy",
+      "level": "高",
+      "severity_original": "medium",
+      "evidence": "响应头中未出现 content-security-policy",
+      "cwe": "CWE-16",
+      "status": "confirmed",
+      "tool": "headers-baseline",
+      "risk_score": "",
+      "source_line": "passive"
+    },
+    {
+      "id": "F-002",
+      "url": "http://127.0.0.1:8899/backup/db.sql",
+      "title": "敏感文件可公开访问：/backup/db.sql",
+      "type": "leak",
+      "rule_id": "EXPOSURE.SENSITIVE_FILE.backup",
+      "level": "严重",
+      "severity_original": "critical",
+      "evidence": "GET /backup/db.sql → HTTP 200，返回 10240 字节",
+      "cwe": "CWE-538",
+      "status": "confirmed",
+      "tool": "exposure-probe",
+      "risk_score": "",
+      "source_line": "both"
+    }
+  ]
+}

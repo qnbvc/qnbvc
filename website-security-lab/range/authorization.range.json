@@ -1,0 +1,72 @@
+{
+  "authorization": {
+    "id": "AUTH-LAB-2026-001",
+    "owner": "参赛队靶场负责人",
+    "valid_from": "2026-10-01",
+    "valid_until": "2099-12-31",
+    "document": "range/README.md#授权声明"
+  },
+  "scope": {
+    "domains": ["127.0.0.1", "localhost"],
+    "ip_ranges": ["127.0.0.0/8", "100.64.0.0/10"],
+    "url_prefixes": [],
+    "exclude": {
+      "paths": [],
+      "patterns": []
+    },
+    "max_depth": 3,
+    "max_concurrency": 2,
+    "max_requests_per_run": 300,
+    "follow_redirects_offsite": false
+  },
+  "schedule": {
+    "cron": "0 2 * * *",
+    "window": "00:00-23:59",
+    "freeze_dates": []
+  },
+  "rate_limit": {
+    "per_domain_qps": 20,
+    "global_qps": 50,
+    "user_agent": "SecurityInspector-Lab/1.0 (+authorized-lab)"
+  },
+  "safety": {
+    "default_tier": "T0",
+    "active_assets": ["127.0.0.1:8080", "localhost:8080"],
+    "allow_active_tier": [],
+    "deny_actions": ["bruteforce", "sqli_dump", "file_upload", "dos"]
+  },
+  "trusted_domains": ["www.gov.cn"],
+  "asset_criticality": {
+    "127.0.0.1:8080": 0.9,
+    "localhost:8080": 0.9
+  },
+  "sensitive_rules": {
+    "keywords": ["内部资料", "仅供内部使用", "PROJECT-INTERNAL-ONLY-2026"],
+    "regex": [
+      {
+        "name": "中国大陆手机号",
+        "pattern": "(?<!\\d)1[3-9]\\d{9}(?!\\d)"
+      },
+      {
+        "name": "身份证号",
+        "pattern": "[1-9]\\d{5}(19|20)\\d{2}(0[1-9]|1[0-2])(0[1-9]|[12]\\d|3[01])\\d{3}[\\dXx]"
+      },
+      {
+        "name": "AccessKeyId",
+        "pattern": "(?i)(access[-_]?key[-_]?id)\\s*[=:]\\s*[A-Za-z0-9]{16,}"
+      },
+      {
+        "name": "疑似数据库口令",
+        "pattern": "(?i)(password|passwd)\\s*[=:]\\s*[A-Za-z0-9_@.-]{8,}"
+      }
+    ],
+    "file_types": ["csv", "sql", "bak", "env", "log", "map"],
+    "samples": ["PROJECT-INTERNAL-ONLY-2026"],
+    "whitelist": ["13800000000"],
+    "masking": "partial"
+  },
+  "notify": {
+    "channels": [],
+    "quiet_hours": "22:00-07:00"
+  }
+}

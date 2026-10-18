@@ -1,0 +1,7 @@
+lab:
+  adapter: postgresql
+  host: db.lab.invalid
+  database: fake_portal
+  username: lab_admin
+  password: FAKE_DB_PASSWORD_NOT_REAL
+  note: Synthetic configuration file for exposure testing only.

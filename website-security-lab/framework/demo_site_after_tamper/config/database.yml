@@ -1,0 +1,6 @@
+production:
+  adapter: mysql2
+  host: db.example.gov.cn
+  username: portal_rw
+  password: P@ssw0rd-2026
+  database: portal

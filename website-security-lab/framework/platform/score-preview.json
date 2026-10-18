@@ -1,0 +1,275 @@
+{
+  "target": "http://127.0.0.1:8899",
+  "findingsInput": 2,
+  "groundTruth": {
+    "issues": 34,
+    "benign": 10,
+    "baselineRequired": 1
+  },
+  "recall": 0.058823529411764705,
+  "precisionStrict": 1,
+  "precisionLoose": 1,
+  "falsePositiveRate": 0,
+  "counts": {
+    "truePositive": 2,
+    "falseNegative": 32,
+    "falsePositive": 0,
+    "unknown": 0
+  },
+  "byCategory": {
+    "漏洞": {
+      "total": 4,
+      "hit": 0
+    },
+    "配置缺陷": {
+      "total": 12,
+      "hit": 1
+    },
+    "组件风险": {
+      "total": 2,
+      "hit": 0
+    },
+    "敏感信息": {
+      "total": 11,
+      "hit": 1
+    },
+    "挂马篡改": {
+      "total": 5,
+      "hit": 0
+    }
+  },
+  "bySeverity": {
+    "高": {
+      "total": 12,
+      "hit": 0
+    },
+    "中": {
+      "total": 9,
+      "hit": 0
+    },
+    "严重": {
+      "total": 10,
+      "hit": 1
+    },
+    "低": {
+      "total": 3,
+      "hit": 1
+    }
+  },
+  "byDetectionMode": {
+    "active": {
+      "total": 5,
+      "hit": 0
+    },
+    "passive": {
+      "total": 29,
+      "hit": 2
+    }
+  },
+  "levelConsistency": 0.5,
+  "baselineRequired": [
+    {
+      "id": "TAMPER-001",
+      "type": "页面篡改",
+      "severity": "严重",
+      "url": "/notice",
+      "note": "页面篡改无法在单轮扫描中判定，必须与上一次基线对比。评分时该项不计入单轮召回率，单独统计。"
+    }
+  ],
+  "missed": [
+    {
+      "id": "VULN-001",
+      "type": "SQL注入",
+      "severity": "高",
+      "url": "/news/detail?id=1'"
+    },
+    {
+      "id": "VULN-002",
+      "type": "反射型XSS",
+      "severity": "中",
+      "url": "/search?q=<script>alert(1)</script>"
+    },
+    {
+      "id": "VULN-003",
+      "type": "路径遍历/任意文件读取",
+      "severity": "高",
+      "url": "/download?file=../../../../etc/passwd"
+    },
+    {
+      "id": "VULN-004",
+      "type": "任意文件上传",
+      "severity": "严重",
+      "url": "/upload"
+    },
+    {
+      "id": "CONF-001",
+      "type": "后台未授权访问",
+      "severity": "高",
+      "url": "/admin/"
+    },
+    {
+      "id": "CONF-002",
+      "type": "弱口令",
+      "severity": "高",
+      "url": "/admin/login"
+    },
+    {
+      "id": "CONF-003",
+      "type": "Git 目录泄露",
+      "severity": "高",
+      "url": "/.git/config"
+    },
+    {
+      "id": "CONF-004",
+      "type": "配置文件泄露(.env)",
+      "severity": "严重",
+      "url": "/.env"
+    },
+    {
+      "id": "CONF-005",
+      "type": "SVN 元数据泄露",
+      "severity": "中",
+      "url": "/.svn/entries"
+    },
+    {
+      "id": "CONF-006",
+      "type": "目录浏览",
+      "severity": "中",
+      "url": "/backup/"
+    },
+    {
+      "id": "CONF-007",
+      "type": "错误堆栈信息泄露",
+      "severity": "中",
+      "url": "/error"
+    },
+    {
+      "id": "CONF-009",
+      "type": "配置端点未授权暴露",
+      "severity": "严重",
+      "url": "/actuator/env"
+    },
+    {
+      "id": "CONF-010",
+      "type": "Cookie 安全属性缺失",
+      "severity": "低",
+      "url": "/"
+    },
+    {
+      "id": "CONF-011",
+      "type": "CORS 配置过宽",
+      "severity": "中",
+      "url": "/api/v1/users"
+    },
+    {
+      "id": "CONF-012",
+      "type": "管理接口未授权",
+      "severity": "高",
+      "url": "/api/v1/admin/export"
+    },
+    {
+      "id": "COMP-001",
+      "type": "过时组件版本暴露",
+      "severity": "中",
+      "url": "/"
+    },
+    {
+      "id": "COMP-002",
+      "type": "停止维护的语言版本暴露",
+      "severity": "中",
+      "url": "/"
+    },
+    {
+      "id": "SENS-001",
+      "type": "云平台 AK/SK 硬编码",
+      "severity": "严重",
+      "url": "/static/js/app.js"
+    },
+    {
+      "id": "SENS-002",
+      "type": "SourceMap 源码泄露",
+      "severity": "高",
+      "url": "/static/js/app.js.map"
+    },
+    {
+      "id": "SENS-004",
+      "type": "业务数据导出泄露",
+      "severity": "严重",
+      "url": "/backup/orders.csv"
+    },
+    {
+      "id": "SENS-005",
+      "type": "源码包可下载",
+      "severity": "高",
+      "url": "/www.zip"
+    },
+    {
+      "id": "SENS-006",
+      "type": "后端源码可读取",
+      "severity": "高",
+      "url": "/src/main/java/com/gov/portal/util/DBUtil.java"
+    },
+    {
+      "id": "SENS-007",
+      "type": "备份源码文件泄露",
+      "severity": "高",
+      "url": "/index.jsp.bak"
+    },
+    {
+      "id": "SENS-008",
+      "type": "个人信息批量泄露",
+      "severity": "严重",
+      "url": "/api/v1/users"
+    },
+    {
+      "id": "SENS-009",
+      "type": "页面注释遗留凭据",
+      "severity": "中",
+      "url": "/"
+    },
+    {
+      "id": "SENS-010",
+      "type": "Git 日志泄露凭据线索",
+      "severity": "中",
+      "url": "/.git/logs/HEAD"
+    },
+    {
+      "id": "SENS-011",
+      "type": "内网 IP 与拓扑泄露",
+      "severity": "低",
+      "url": "/error"
+    },
+    {
+      "id": "MAL-001",
+      "type": "隐藏 iframe 挂马",
+      "severity": "严重",
+      "url": "/"
+    },
+    {
+      "id": "MAL-002",
+      "type": "暗链（隐藏外链）",
+      "severity": "高",
+      "url": "/"
+    },
+    {
+      "id": "MAL-003",
+      "type": "混淆 JS 加载挖矿脚本",
+      "severity": "严重",
+      "url": "/"
+    },
+    {
+      "id": "MAL-004",
+      "type": "内联注入恶意推广链接",
+      "severity": "高",
+      "url": "/"
+    },
+    {
+      "id": "MAL-005",
+      "type": "WebShell 文件",
+      "severity": "严重",
+      "url": "/upload/shell.php"
+    }
+  ],
+  "falsePositives": [],
+  "unknownFindings": []
+}

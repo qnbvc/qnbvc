@@ -1,0 +1,59 @@
+{
+  "findings": [
+    {
+      "asset": "range.example",
+      "url": "http://127.0.0.1:8899/",
+      "type": "misconfig",
+      "rule_id": "MISCONFIG.MISSING_HEADER.content-security-policy",
+      "title": "CSP 缺失：content-security-policy",
+      "severity": "medium",
+      "level": "P1",
+      "location": "content-security-policy",
+      "evidence": ["响应头中未出现 content-security-policy"],
+      "confidence": 0.95,
+      "verified": true,
+      "status": "confirmed",
+      "cwe": "CWE-16",
+      "tool": "headers-baseline",
+      "source_line": "passive",
+      "affected_urls": ["http://127.0.0.1:8899/"]
+    },
+    {
+      "asset": "range.example",
+      "url": "http://127.0.0.1:8899/backup/db.sql",
+      "type": "leak",
+      "rule_id": "EXPOSURE.SENSITIVE_FILE.backup",
+      "title": "敏感文件可公开访问：/backup/db.sql",
+      "severity": "critical",
+      "level": "P0",
+      "location": "/backup/db.sql",
+      "evidence": ["GET /backup/db.sql → HTTP 200，返回 10240 字节"],
+      "confidence": 0.9,
+      "verified": true,
+      "status": "confirmed",
+      "cwe": "CWE-538",
+      "tool": "exposure-probe",
+      "source_line": "both",
+      "affected_urls": ["http://127.0.0.1:8899/backup/db.sql"]
+    },
+    {
+      "asset": "range.example",
+      "url": "http://127.0.0.1:8899/about",
+      "type": "leak",
+      "rule_id": "LEAK.KEYWORD.个人信息",
+      "title": "命中自定义敏感关键词：个人信息",
+      "severity": "high",
+      "level": "P1",
+      "location": "页面内容",
+      "evidence": ["命中关键词（已脱敏）：个**息"],
+      "confidence": 0.8,
+      "verified": false,
+      "status": "suppressed",
+      "suppress_reason": "该页面为联调环境，样例数据属已知例外",
+      "cwe": "CWE-200",
+      "tool": "sensitive-scan",
+      "source_line": "passive",
+      "affected_urls": ["http://127.0.0.1:8899/about"]
+    }
+  ]
+}

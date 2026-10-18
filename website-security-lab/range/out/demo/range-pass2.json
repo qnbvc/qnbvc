@@ -1,0 +1,3012 @@
+{
+  "asset": "127.0.0.1:55774",
+  "authorization": "AUTH-LAB-2026-001",
+  "finished_at": "2026-10-18T23:19:31+08:00",
+  "request_count": 143,
+  "raw_count": 109,
+  "summary": {
+    "total": 71,
+    "by_level": {
+      "P0": 23,
+      "P1": 16,
+      "P2": 24,
+      "P3": 8
+    },
+    "by_type": {
+      "vuln": 3,
+      "leak": 13,
+      "malware": 5,
+      "tamper": 2,
+      "misconfig": 48
+    }
+  },
+  "changes": {
+    "new": [
+      "混淆脚本：eval + 解码链",
+      "页面内容与基线不一致",
+      "页面内容与基线不一致",
+      "页面引入未授权外部链接：cdn.badcdn.invalid",
+      "页面引入未授权外部链接：cdn.badcdn.invalid",
+      "隐藏 iframe（0 尺寸）",
+      "隐藏元素（暗链特征）"
+    ],
+    "reopened": [
+      "敏感文件可公开访问：/backup.zip",
+      "敏感文件可公开访问：/config/database.yml",
+      "敏感文件可公开访问：/.env",
+      "命中样例样本指纹",
+      "命中样例样本指纹",
+      "命中自定义敏感关键词：内部资料",
+      "命中自定义敏感关键词：PROJECT-INTERNAL-ONLY-2026",
+      "命中敏感信息规则：中国大陆手机号",
+      "命中敏感信息规则：AccessKeyId",
+      "命中敏感信息规则：疑似数据库口令",
+      "命中自定义敏感关键词：内部资料",
+      "命中敏感信息规则：中国大陆手机号",
+      "命中敏感信息规则：身份证号",
+      "命中自定义敏感关键词：内部资料",
+      "命中自定义敏感关键词：PROJECT-INTERNAL-ONLY-2026",
+      "命中敏感信息规则：中国大陆手机号",
+      "CSP 缺失：content-security-policy",
+      "HSTS 缺失：strict-transport-security",
+      "CSP 缺失：content-security-policy",
+      "HSTS 缺失：strict-transport-security",
+      "CSP 缺失：content-security-policy",
+      "HSTS 缺失：strict-transport-security",
+      "CSP 缺失：content-security-policy",
+      "HSTS 缺失：strict-transport-security",
+      "CSP 缺失：content-security-policy",
+      "HSTS 缺失：strict-transport-security",
+      "CSP 缺失：content-security-policy",
+      "HSTS 缺失：strict-transport-security",
+      "CSP 缺失：content-security-policy",
+      "HSTS 缺失：strict-transport-security",
+      "CSP 缺失：content-security-policy",
+      "HSTS 缺失：strict-transport-security",
+      "响应头泄露服务器版本",
+      "响应头泄露服务器版本",
+      "响应头泄露服务器版本",
+      "响应头泄露服务器版本",
+      "响应头泄露服务器版本",
+      "响应头泄露服务器版本",
+      "响应头泄露服务器版本",
+      "响应头泄露服务器版本",
+      "点击劫持防护头缺失：x-frame-options",
+      "MIME 嗅探防护头缺失：x-content-type-options",
+      "点击劫持防护头缺失：x-frame-options",
+      "MIME 嗅探防护头缺失：x-content-type-options",
+      "点击劫持防护头缺失：x-frame-options",
+      "MIME 嗅探防护头缺失：x-content-type-options",
+      "点击劫持防护头缺失：x-frame-options",
+      "MIME 嗅探防护头缺失：x-content-type-options",
+      "点击劫持防护头缺失：x-frame-options",
+      "MIME 嗅探防护头缺失：x-content-type-options",
+      "点击劫持防护头缺失：x-frame-options",
+      "MIME 嗅探防护头缺失：x-content-type-options",
+      "点击劫持防护头缺失：x-frame-options",
+      "MIME 嗅探防护头缺失：x-content-type-options",
+      "点击劫持防护头缺失：x-frame-options",
+      "MIME 嗅探防护头缺失：x-content-type-options",
+      "Referrer-Policy 缺失：referrer-policy",
+      "Referrer-Policy 缺失：referrer-policy",
+      "Referrer-Policy 缺失：referrer-policy",
+      "Referrer-Policy 缺失：referrer-policy",
+      "Referrer-Policy 缺失：referrer-policy",
+      "Referrer-Policy 缺失：referrer-policy",
+      "Referrer-Policy 缺失：referrer-policy",
+      "Referrer-Policy 缺失：referrer-policy"
+    ],
+    "fixed": [
+      "命中自定义敏感关键词：内部资料",
+      "命中自定义敏感关键词：仅供内部使用",
+      "命中敏感信息规则：中国大陆手机号",
+      "命中敏感信息规则：AccessKeyId"
+    ]
+  },
+  "plan": [
+    {
+      "capability": "misconfig",
+      "tier": "T0",
+      "target": "page",
+      "reason": "站点存活且可获取响应，执行安全响应头与配置基线检查"
+    },
+    {
+      "capability": "leak",
+      "tier": "T0",
+      "target": "page",
+      "reason": "已配置敏感信息规则（关键词/正则/文件类型/样例），执行内容泄露检查"
+    },
+    {
+      "capability": "malware",
+      "tier": "T0",
+      "target": "page",
+      "reason": "执行外链白名单与挂马特征比对（含隐藏元素与混淆脚本）"
+    },
+    {
+      "capability": "tamper",
+      "tier": "T0",
+      "target": "page",
+      "reason": "存在历史基线，执行内容完整性 diff"
+    },
+    {
+      "capability": "vuln",
+      "tier": "T1",
+      "target": "asset",
+      "reason": "资产 127.0.0.1:55774 已在授权白名单开启 T1 受控探测，执行备份文件与调试端点检查"
+    }
+  ],
+  "trace": [
+    {
+      "tool": "security-headers",
+      "target": "http://127.0.0.1:55774/",
+      "status": "ok",
+      "detail": "命中 0 条"
+    },
+    {
+      "tool": "security-headers",
+      "target": "http://127.0.0.1:55774/about.html",
+      "status": "ok",
+      "detail": "命中 0 条"
+    },
+    {
+      "tool": "security-headers",
+      "target": "http://127.0.0.1:55774/leaks/",
+      "status": "ok",
+      "detail": "命中 6 条"
+    },
+    {
+      "tool": "security-headers",
+      "target": "http://127.0.0.1:55774/news.html",
+      "status": "ok",
+      "detail": "命中 0 条"
+    },
+    {
+      "tool": "security-headers",
+      "target": "http://127.0.0.1:55774/weak/",
+      "status": "ok",
+      "detail": "命中 6 条"
+    },
+    {
+      "tool": "security-headers",
+      "target": "http://127.0.0.1:55774/leaks/internal-note.txt",
+      "status": "ok",
+      "detail": "命中 6 条"
+    },
+    {
+      "tool": "security-headers",
+      "target": "http://127.0.0.1:55774/leaks/staff.csv",
+      "status": "ok",
+      "detail": "命中 6 条"
+    },
+    {
+      "tool": "security-headers",
+      "target": "http://127.0.0.1:55774/files/statistics.csv",
+      "status": "ok",
+      "detail": "命中 0 条"
+    },
+    {
+      "tool": "security-headers",
+      "target": "http://127.0.0.1:55774/weak/admin/",
+      "status": "ok",
+      "detail": "命中 6 条"
+    },
+    {
+      "tool": "security-headers",
+      "target": "http://127.0.0.1:55774/weak/api/debug",
+      "status": "ok",
+      "detail": "命中 6 条"
+    },
+    {
+      "tool": "security-headers",
+      "target": "http://127.0.0.1:55774/weak/files/",
+      "status": "ok",
+      "detail": "命中 6 条"
+    },
+    {
+      "tool": "security-headers",
+      "target": "http://127.0.0.1:55774/weak/files/debug.log",
+      "status": "ok",
+      "detail": "命中 6 条"
+    },
+    {
+      "tool": "sensitive-scan",
+      "target": "http://127.0.0.1:55774/",
+      "status": "ok",
+      "detail": "命中 0 条"
+    },
+    {
+      "tool": "sensitive-scan",
+      "target": "http://127.0.0.1:55774/about.html",
+      "status": "ok",
+      "detail": "命中 0 条"
+    },
+    {
+      "tool": "sensitive-scan",
+      "target": "http://127.0.0.1:55774/leaks/",
+      "status": "ok",
+      "detail": "命中 0 条"
+    },
+    {
+      "tool": "sensitive-scan",
+      "target": "http://127.0.0.1:55774/news.html",
+      "status": "ok",
+      "detail": "命中 0 条"
+    },
+    {
+      "tool": "sensitive-scan",
+      "target": "http://127.0.0.1:55774/weak/",
+      "status": "ok",
+      "detail": "命中 0 条"
+    },
+    {
+      "tool": "sensitive-scan",
+      "target": "http://127.0.0.1:55774/leaks/internal-note.txt",
+      "status": "ok",
+      "detail": "命中 6 条"
+    },
+    {
+      "tool": "sensitive-scan",
+      "target": "http://127.0.0.1:55774/leaks/staff.csv",
+      "status": "ok",
+      "detail": "命中 7 条"
+    },
+    {
+      "tool": "sensitive-scan",
+      "target": "http://127.0.0.1:55774/files/statistics.csv",
+      "status": "ok",
+      "detail": "命中 4 条"
+    },
+    {
+      "tool": "sensitive-scan",
+      "target": "http://127.0.0.1:55774/weak/admin/",
+      "status": "ok",
+      "detail": "命中 0 条"
+    },
+    {
+      "tool": "sensitive-scan",
+      "target": "http://127.0.0.1:55774/weak/api/debug",
+      "status": "ok",
+      "detail": "命中 0 条"
+    },
+    {
+      "tool": "sensitive-scan",
+      "target": "http://127.0.0.1:55774/weak/files/",
+      "status": "ok",
+      "detail": "命中 0 条"
+    },
+    {
+      "tool": "sensitive-scan",
+      "target": "http://127.0.0.1:55774/weak/files/debug.log",
+      "status": "ok",
+      "detail": "命中 0 条"
+    },
+    {
+      "tool": "malware-link",
+      "target": "http://127.0.0.1:55774/",
+      "status": "ok",
+      "detail": "命中 5 条"
+    },
+    {
+      "tool": "malware-link",
+      "target": "http://127.0.0.1:55774/about.html",
+      "status": "ok",
+      "detail": "命中 0 条"
+    },
+    {
+      "tool": "malware-link",
+      "target": "http://127.0.0.1:55774/leaks/",
+      "status": "ok",
+      "detail": "命中 0 条"
+    },
+    {
+      "tool": "malware-link",
+      "target": "http://127.0.0.1:55774/news.html",
+      "status": "ok",
+      "detail": "命中 1 条"
+    },
+    {
+      "tool": "malware-link",
+      "target": "http://127.0.0.1:55774/weak/",
+      "status": "ok",
+      "detail": "命中 0 条"
+    },
+    {
+      "tool": "malware-link",
+      "target": "http://127.0.0.1:55774/leaks/internal-note.txt",
+      "status": "ok",
+      "detail": "命中 0 条"
+    },
+    {
+      "tool": "malware-link",
+      "target": "http://127.0.0.1:55774/leaks/staff.csv",
+      "status": "ok",
+      "detail": "命中 0 条"
+    },
+    {
+      "tool": "malware-link",
+      "target": "http://127.0.0.1:55774/files/statistics.csv",
+      "status": "ok",
+      "detail": "命中 0 条"
+    },
+    {
+      "tool": "malware-link",
+      "target": "http://127.0.0.1:55774/weak/admin/",
+      "status": "ok",
+      "detail": "命中 0 条"
+    },
+    {
+      "tool": "malware-link",
+      "target": "http://127.0.0.1:55774/weak/api/debug",
+      "status": "ok",
+      "detail": "命中 0 条"
+    },
+    {
+      "tool": "malware-link",
+      "target": "http://127.0.0.1:55774/weak/files/",
+      "status": "ok",
+      "detail": "命中 0 条"
+    },
+    {
+      "tool": "malware-link",
+      "target": "http://127.0.0.1:55774/weak/files/debug.log",
+      "status": "ok",
+      "detail": "命中 0 条"
+    },
+    {
+      "tool": "integrity-baseline",
+      "target": "http://127.0.0.1:55774/",
+      "status": "ok",
+      "detail": "命中 1 条"
+    },
+    {
+      "tool": "integrity-baseline",
+      "target": "http://127.0.0.1:55774/about.html",
+      "status": "ok",
+      "detail": "命中 0 条"
+    },
+    {
+      "tool": "integrity-baseline",
+      "target": "http://127.0.0.1:55774/leaks/",
+      "status": "ok",
+      "detail": "命中 0 条"
+    },
+    {
+      "tool": "integrity-baseline",
+      "target": "http://127.0.0.1:55774/news.html",
+      "status": "ok",
+      "detail": "命中 1 条"
+    },
+    {
+      "tool": "integrity-baseline",
+      "target": "http://127.0.0.1:55774/weak/",
+      "status": "ok",
+      "detail": "命中 0 条"
+    },
+    {
+      "tool": "integrity-baseline",
+      "target": "http://127.0.0.1:55774/leaks/internal-note.txt",
+      "status": "ok",
+      "detail": "命中 0 条"
+    },
+    {
+      "tool": "integrity-baseline",
+      "target": "http://127.0.0.1:55774/leaks/staff.csv",
+      "status": "ok",
+      "detail": "命中 0 条"
+    },
+    {
+      "tool": "integrity-baseline",
+      "target": "http://127.0.0.1:55774/files/statistics.csv",
+      "status": "ok",
+      "detail": "命中 0 条"
+    },
+    {
+      "tool": "integrity-baseline",
+      "target": "http://127.0.0.1:55774/weak/admin/",
+      "status": "ok",
+      "detail": "命中 0 条"
+    },
+    {
+      "tool": "integrity-baseline",
+      "target": "http://127.0.0.1:55774/weak/api/debug",
+      "status": "ok",
+      "detail": "命中 0 条"
+    },
+    {
+      "tool": "integrity-baseline",
+      "target": "http://127.0.0.1:55774/weak/files/",
+      "status": "ok",
+      "detail": "命中 0 条"
+    },
+    {
+      "tool": "integrity-baseline",
+      "target": "http://127.0.0.1:55774/weak/files/debug.log",
+      "status": "ok",
+      "detail": "命中 0 条"
+    },
+    {
+      "tool": "exposure-path",
+      "target": "http://127.0.0.1:55774/",
+      "status": "ok",
+      "detail": "命中 3 条"
+    },
+    {
+      "tool": "exposure-path",
+      "target": "http://127.0.0.1:55774/about.html",
+      "status": "ok",
+      "detail": "命中 3 条"
+    },
+    {
+      "tool": "exposure-path",
+      "target": "http://127.0.0.1:55774/leaks/",
+      "status": "ok",
+      "detail": "命中 3 条"
+    },
+    {
+      "tool": "exposure-path",
+      "target": "http://127.0.0.1:55774/news.html",
+      "status": "ok",
+      "detail": "命中 3 条"
+    },
+    {
+      "tool": "exposure-path",
+      "target": "http://127.0.0.1:55774/weak/",
+      "status": "ok",
+      "detail": "命中 3 条"
+    },
+    {
+      "tool": "exposure-path",
+      "target": "http://127.0.0.1:55774/leaks/internal-note.txt",
+      "status": "ok",
+      "detail": "命中 3 条"
+    },
+    {
+      "tool": "exposure-path",
+      "target": "http://127.0.0.1:55774/leaks/staff.csv",
+      "status": "ok",
+      "detail": "命中 3 条"
+    },
+    {
+      "tool": "exposure-path",
+      "target": "http://127.0.0.1:55774/files/statistics.csv",
+      "status": "ok",
+      "detail": "命中 3 条"
+    },
+    {
+      "tool": "exposure-path",
+      "target": "http://127.0.0.1:55774/weak/admin/",
+      "status": "ok",
+      "detail": "命中 3 条"
+    },
+    {
+      "tool": "exposure-path",
+      "target": "http://127.0.0.1:55774/weak/api/debug",
+      "status": "ok",
+      "detail": "命中 3 条"
+    },
+    {
+      "tool": "exposure-path",
+      "target": "http://127.0.0.1:55774/weak/files/",
+      "status": "ok",
+      "detail": "命中 3 条"
+    },
+    {
+      "tool": "exposure-path",
+      "target": "http://127.0.0.1:55774/weak/files/debug.log",
+      "status": "ok",
+      "detail": "命中 3 条"
+    }
+  ],
+  "findings": [
+    {
+      "asset": "127.0.0.1:55774",
+      "url": "http://127.0.0.1:55774/backup.zip",
+      "ftype": "vuln",
+      "rule_id": "EXPOSURE.SENSITIVE_FILE.BACKUP_ZIP",
+      "title": "敏感文件可公开访问：/backup.zip",
+      "severity": "critical",
+      "tool": "exposure-path",
+      "tier": "T1",
+      "location": "/backup.zip",
+      "cwe": "CWE-538",
+      "evidence": [
+        {
+          "kind": "request_response",
+          "summary": "GET http://127.0.0.1:55774/backup.zip -> HTTP 200，返回 394 字节",
+          "raw_ref": "http://127.0.0.1:55774/backup.zip"
+        }
+      ],
+      "confidence": 0.98,
+      "reachability": 1.0,
+      "asset_criticality": 0.9,
+      "impact": "备份或配置文件可被匿名下载，可能导致凭据或业务数据整体泄露。",
+      "remediation": "在 Web 服务器或网关屏蔽 /backup.zip 的公开访问并清理该类文件。",
+      "status": "new",
+      "first_seen": "2026-10-18T23:19:30+08:00",
+      "last_seen": "2026-10-18T23:19:31+08:00",
+      "sources": [
+        "exposure-path"
+      ],
+      "verified": true,
+      "verify_hint": "/backup.zip",
+      "dedup_key": "7bec6ebb26d4f61a",
+      "risk_score": 0.9504,
+      "level": "P0"
+    },
+    {
+      "asset": "127.0.0.1:55774",
+      "url": "http://127.0.0.1:55774/config/database.yml",
+      "ftype": "vuln",
+      "rule_id": "EXPOSURE.SENSITIVE_FILE.CONFIG_DATABASE_YML",
+      "title": "敏感文件可公开访问：/config/database.yml",
+      "severity": "critical",
+      "tool": "exposure-path",
+      "tier": "T1",
+      "location": "/config/database.yml",
+      "cwe": "CWE-538",
+      "evidence": [
+        {
+          "kind": "request_response",
+          "summary": "GET http://127.0.0.1:55774/config/database.yml -> HTTP 200，返回 205 字节",
+          "raw_ref": "http://127.0.0.1:55774/config/database.yml"
+        }
+      ],
+      "confidence": 0.98,
+      "reachability": 1.0,
+      "asset_criticality": 0.9,
+      "impact": "备份或配置文件可被匿名下载，可能导致凭据或业务数据整体泄露。",
+      "remediation": "在 Web 服务器或网关屏蔽 /config/database.yml 的公开访问并清理该类文件。",
+      "status": "new",
+      "first_seen": "2026-10-18T23:19:30+08:00",
+      "last_seen": "2026-10-18T23:19:31+08:00",
+      "sources": [
+        "exposure-path"
+      ],
+      "verified": true,
+      "verify_hint": "/config/database.yml",
+      "dedup_key": "e6be465cc34fbebc",
+      "risk_score": 0.9504,
+      "level": "P0"
+    },
+    {
+      "asset": "127.0.0.1:55774",
+      "url": "http://127.0.0.1:55774/.env",
+      "ftype": "vuln",
+      "rule_id": "EXPOSURE.SENSITIVE_FILE._ENV",
+      "title": "敏感文件可公开访问：/.env",
+      "severity": "critical",
+      "tool": "exposure-path",
+      "tier": "T1",
+      "location": "/.env",
+      "cwe": "CWE-538",
+      "evidence": [
+        {
+          "kind": "request_response",
+          "summary": "GET http://127.0.0.1:55774/.env -> HTTP 200，返回 181 字节",
+          "raw_ref": "http://127.0.0.1:55774/.env"
+        }
+      ],
+      "confidence": 0.98,
+      "reachability": 1.0,
+      "asset_criticality": 0.9,
+      "impact": "备份或配置文件可被匿名下载，可能导致凭据或业务数据整体泄露。",
+      "remediation": "在 Web 服务器或网关屏蔽 /.env 的公开访问并清理该类文件。",
+      "status": "new",
+      "first_seen": "2026-10-18T23:19:30+08:00",
+      "last_seen": "2026-10-18T23:19:31+08:00",
+      "sources": [
+        "exposure-path"
+      ],
+      "verified": true,
+      "verify_hint": "/.env",
+      "dedup_key": "0405e24b40972e68",
+      "risk_score": 0.9504,
+      "level": "P0"
+    },
+    {
+      "asset": "127.0.0.1:55774",
+      "url": "http://127.0.0.1:55774/leaks/internal-note.txt",
+      "ftype": "leak",
+      "rule_id": "LEAK.SAMPLE.MATCH",
+      "title": "命中样例样本指纹",
+      "severity": "critical",
+      "tool": "sensitive-scan",
+      "tier": "T0",
+      "location": "页面内容",
+      "cwe": "CWE-200",
+      "evidence": [
+        {
+          "kind": "match_context",
+          "summary": "命中值（已脱敏）：PRO********************026",
+          "raw_ref": "http://127.0.0.1:55774/leaks/internal-note.txt#LEAK.SAMPLE.MATCH"
+        }
+      ],
+      "confidence": 0.95,
+      "reachability": 1.0,
+      "asset_criticality": 0.9,
+      "impact": "敏感信息对公网可见，可能违反数据保护要求并造成信息泄露。",
+      "remediation": "下线或加密该内容、补充访问控制，并排查同类页面与模板。",
+      "status": "new",
+      "first_seen": "2026-10-18T23:19:30+08:00",
+      "last_seen": "2026-10-18T23:19:31+08:00",
+      "sources": [
+        "sensitive-scan"
+      ],
+      "verified": true,
+      "verify_hint": "PROJECT-INTERNAL-ONLY-2026",
+      "dedup_key": "85c7d752197ef10b",
+      "risk_score": 0.936,
+      "level": "P0"
+    },
+    {
+      "asset": "127.0.0.1:55774",
+      "url": "http://127.0.0.1:55774/files/statistics.csv",
+      "ftype": "leak",
+      "rule_id": "LEAK.SAMPLE.MATCH",
+      "title": "命中样例样本指纹",
+      "severity": "critical",
+      "tool": "sensitive-scan",
+      "tier": "T0",
+      "location": "页面内容",
+      "cwe": "CWE-200",
+      "evidence": [
+        {
+          "kind": "match_context",
+          "summary": "命中值（已脱敏）：PRO********************026",
+          "raw_ref": "http://127.0.0.1:55774/files/statistics.csv#LEAK.SAMPLE.MATCH"
+        }
+      ],
+      "confidence": 0.95,
+      "reachability": 1.0,
+      "asset_criticality": 0.9,
+      "impact": "敏感信息对公网可见，可能违反数据保护要求并造成信息泄露。",
+      "remediation": "下线或加密该内容、补充访问控制，并排查同类页面与模板。",
+      "status": "new",
+      "first_seen": "2026-10-18T23:19:30+08:00",
+      "last_seen": "2026-10-18T23:19:31+08:00",
+      "sources": [
+        "sensitive-scan"
+      ],
+      "verified": true,
+      "verify_hint": "PROJECT-INTERNAL-ONLY-2026",
+      "dedup_key": "bee31dce8953527b",
+      "risk_score": 0.936,
+      "level": "P0"
+    },
+    {
+      "asset": "127.0.0.1:55774",
+      "url": "http://127.0.0.1:55774/",
+      "ftype": "malware",
+      "rule_id": "MALWARE.EVAL_DECODE_CHAIN",
+      "title": "混淆脚本：eval + 解码链",
+      "severity": "critical",
+      "tool": "malware-link",
+      "tier": "T0",
+      "location": "HTML 源码",
+      "cwe": "CWE-506",
+      "evidence": [
+        {
+          "kind": "match_context",
+          "summary": "命中片段：eval(unescape（规则 MALWARE.EVAL_DECODE_CHAIN）",
+          "raw_ref": ""
+        }
+      ],
+      "confidence": 0.8,
+      "reachability": 1.0,
+      "asset_criticality": 0.9,
+      "impact": "疑似挂马脚本或暗链，可能在用户浏览器执行恶意逻辑。",
+      "remediation": "隔离并人工审计该段脚本，确认后清理并排查写入路径。",
+      "status": "new",
+      "first_seen": "2026-10-18T23:19:30+08:00",
+      "last_seen": "2026-10-18T23:19:31+08:00",
+      "sources": [
+        "malware-link"
+      ],
+      "verified": true,
+      "verify_hint": "eval(unescape",
+      "dedup_key": "3a39916fb61bde78",
+      "risk_score": 0.864,
+      "level": "P0"
+    },
+    {
+      "asset": "127.0.0.1:55774",
+      "url": "http://127.0.0.1:55774/leaks/internal-note.txt",
+      "ftype": "leak",
+      "rule_id": "LEAK.KEYWORD.内部资料",
+      "title": "命中自定义敏感关键词：内部资料",
+      "severity": "high",
+      "tool": "sensitive-scan",
+      "tier": "T0",
+      "location": "页面内容",
+      "cwe": "CWE-200",
+      "evidence": [
+        {
+          "kind": "match_context",
+          "summary": "命中值（已脱敏）：内**料",
+          "raw_ref": "http://127.0.0.1:55774/leaks/internal-note.txt#LEAK.KEYWORD.内部资料"
+        }
+      ],
+      "confidence": 0.95,
+      "reachability": 1.0,
+      "asset_criticality": 0.9,
+      "impact": "敏感信息对公网可见，可能违反数据保护要求并造成信息泄露。",
+      "remediation": "下线或加密该内容、补充访问控制，并排查同类页面与模板。",
+      "status": "new",
+      "first_seen": "2026-10-18T23:19:30+08:00",
+      "last_seen": "2026-10-18T23:19:31+08:00",
+      "sources": [
+        "sensitive-scan"
+      ],
+      "verified": true,
+      "verify_hint": "内部资料",
+      "dedup_key": "627c54bf29e33299",
+      "risk_score": 0.6552,
+      "level": "P0"
+    },
+    {
+      "asset": "127.0.0.1:55774",
+      "url": "http://127.0.0.1:55774/leaks/internal-note.txt",
+      "ftype": "leak",
+      "rule_id": "LEAK.KEYWORD.PROJECT-INTERNAL-ONLY-2026",
+      "title": "命中自定义敏感关键词：PROJECT-INTERNAL-ONLY-2026",
+      "severity": "high",
+      "tool": "sensitive-scan",
+      "tier": "T0",
+      "location": "页面内容",
+      "cwe": "CWE-200",
+      "evidence": [
+        {
+          "kind": "match_context",
+          "summary": "命中值（已脱敏）：PRO********************026",
+          "raw_ref": "http://127.0.0.1:55774/leaks/internal-note.txt#LEAK.KEYWORD.PROJECT-INTERNAL-ONLY-2026"
+        }
+      ],
+      "confidence": 0.95,
+      "reachability": 1.0,
+      "asset_criticality": 0.9,
+      "impact": "敏感信息对公网可见，可能违反数据保护要求并造成信息泄露。",
+      "remediation": "下线或加密该内容、补充访问控制，并排查同类页面与模板。",
+      "status": "new",
+      "first_seen": "2026-10-18T23:19:30+08:00",
+      "last_seen": "2026-10-18T23:19:31+08:00",
+      "sources": [
+        "sensitive-scan"
+      ],
+      "verified": true,
+      "verify_hint": "PROJECT-INTERNAL-ONLY-2026",
+      "dedup_key": "c0c479f1f51d13e0",
+      "risk_score": 0.6552,
+      "level": "P0"
+    },
+    {
+      "asset": "127.0.0.1:55774",
+      "url": "http://127.0.0.1:55774/leaks/internal-note.txt",
+      "ftype": "leak",
+      "rule_id": "LEAK.REGEX.中国大陆手机号",
+      "title": "命中敏感信息规则：中国大陆手机号",
+      "severity": "high",
+      "tool": "sensitive-scan",
+      "tier": "T0",
+      "location": "页面内容",
+      "cwe": "CWE-200",
+      "evidence": [
+        {
+          "kind": "match_context",
+          "summary": "命中值（已脱敏）：139*****222",
+          "raw_ref": "http://127.0.0.1:55774/leaks/internal-note.txt#LEAK.REGEX.中国大陆手机号"
+        }
+      ],
+      "confidence": 0.95,
+      "reachability": 1.0,
+      "asset_criticality": 0.9,
+      "impact": "敏感信息对公网可见，可能违反数据保护要求并造成信息泄露。",
+      "remediation": "下线或加密该内容、补充访问控制，并排查同类页面与模板。",
+      "status": "new",
+      "first_seen": "2026-10-18T23:19:30+08:00",
+      "last_seen": "2026-10-18T23:19:31+08:00",
+      "sources": [
+        "sensitive-scan"
+      ],
+      "verified": true,
+      "verify_hint": "13911112222",
+      "dedup_key": "478903c76f05c475",
+      "risk_score": 0.6552,
+      "level": "P0"
+    },
+    {
+      "asset": "127.0.0.1:55774",
+      "url": "http://127.0.0.1:55774/leaks/internal-note.txt",
+      "ftype": "leak",
+      "rule_id": "LEAK.REGEX.AccessKeyId",
+      "title": "命中敏感信息规则：AccessKeyId",
+      "severity": "high",
+      "tool": "sensitive-scan",
+      "tier": "T0",
+      "location": "页面内容",
+      "cwe": "CWE-200",
+      "evidence": [
+        {
+          "kind": "match_context",
+          "summary": "命中值（已脱敏）：acc******************************PLE",
+          "raw_ref": "http://127.0.0.1:55774/leaks/internal-note.txt#LEAK.REGEX.AccessKeyId"
+        }
+      ],
+      "confidence": 0.95,
+      "reachability": 1.0,
+      "asset_criticality": 0.9,
+      "impact": "敏感信息对公网可见，可能违反数据保护要求并造成信息泄露。",
+      "remediation": "下线或加密该内容、补充访问控制，并排查同类页面与模板。",
+      "status": "new",
+      "first_seen": "2026-10-18T23:19:30+08:00",
+      "last_seen": "2026-10-18T23:19:31+08:00",
+      "sources": [
+        "sensitive-scan"
+      ],
+      "verified": true,
+      "verify_hint": "access_key_id = AKIAIOSFODNN7EXAMPLE",
+      "dedup_key": "61ba728b17aa5f6d",
+      "risk_score": 0.6552,
+      "level": "P0"
+    },
+    {
+      "asset": "127.0.0.1:55774",
+      "url": "http://127.0.0.1:55774/leaks/internal-note.txt",
+      "ftype": "leak",
+      "rule_id": "LEAK.REGEX.疑似数据库口令",
+      "title": "命中敏感信息规则：疑似数据库口令",
+      "severity": "high",
+      "tool": "sensitive-scan",
+      "tier": "T0",
+      "location": "页面内容",
+      "cwe": "CWE-200",
+      "evidence": [
+        {
+          "kind": "match_context",
+          "summary": "命中值（已脱敏）：pas******************************EAL",
+          "raw_ref": "http://127.0.0.1:55774/leaks/internal-note.txt#LEAK.REGEX.疑似数据库口令"
+        }
+      ],
+      "confidence": 0.95,
+      "reachability": 1.0,
+      "asset_criticality": 0.9,
+      "impact": "敏感信息对公网可见，可能违反数据保护要求并造成信息泄露。",
+      "remediation": "下线或加密该内容、补充访问控制，并排查同类页面与模板。",
+      "status": "new",
+      "first_seen": "2026-10-18T23:19:30+08:00",
+      "last_seen": "2026-10-18T23:19:31+08:00",
+      "sources": [
+        "sensitive-scan"
+      ],
+      "verified": true,
+      "verify_hint": "password = FAKE_DB_PASSWORD_NOT_REAL",
+      "dedup_key": "a78f9f45663033d1",
+      "risk_score": 0.6552,
+      "level": "P0"
+    },
+    {
+      "asset": "127.0.0.1:55774",
+      "url": "http://127.0.0.1:55774/leaks/staff.csv",
+      "ftype": "leak",
+      "rule_id": "LEAK.KEYWORD.内部资料",
+      "title": "命中自定义敏感关键词：内部资料",
+      "severity": "high",
+      "tool": "sensitive-scan",
+      "tier": "T0",
+      "location": "页面内容",
+      "cwe": "CWE-200",
+      "evidence": [
+        {
+          "kind": "match_context",
+          "summary": "命中值（已脱敏）：内**料",
+          "raw_ref": "http://127.0.0.1:55774/leaks/staff.csv#LEAK.KEYWORD.内部资料"
+        }
+      ],
+      "confidence": 0.95,
+      "reachability": 1.0,
+      "asset_criticality": 0.9,
+      "impact": "敏感信息对公网可见，可能违反数据保护要求并造成信息泄露。",
+      "remediation": "下线或加密该内容、补充访问控制，并排查同类页面与模板。",
+      "status": "new",
+      "first_seen": "2026-10-18T23:19:30+08:00",
+      "last_seen": "2026-10-18T23:19:31+08:00",
+      "sources": [
+        "sensitive-scan"
+      ],
+      "verified": true,
+      "verify_hint": "内部资料",
+      "dedup_key": "29939c2f87d3272b",
+      "risk_score": 0.6552,
+      "level": "P0"
+    },
+    {
+      "asset": "127.0.0.1:55774",
+      "url": "http://127.0.0.1:55774/leaks/staff.csv",
+      "ftype": "leak",
+      "rule_id": "LEAK.REGEX.中国大陆手机号",
+      "title": "命中敏感信息规则：中国大陆手机号",
+      "severity": "high",
+      "tool": "sensitive-scan",
+      "tier": "T0",
+      "location": "页面内容",
+      "cwe": "CWE-200",
+      "evidence": [
+        {
+          "kind": "match_context",
+          "summary": "命中值（已脱敏）：139*****222",
+          "raw_ref": "http://127.0.0.1:55774/leaks/staff.csv#LEAK.REGEX.中国大陆手机号"
+        },
+        {
+          "kind": "match_context",
+          "summary": "命中值（已脱敏）：137*****333",
+          "raw_ref": "http://127.0.0.1:55774/leaks/staff.csv#LEAK.REGEX.中国大陆手机号"
+        },
+        {
+          "kind": "match_context",
+          "summary": "命中值（已脱敏）：136*****444",
+          "raw_ref": "http://127.0.0.1:55774/leaks/staff.csv#LEAK.REGEX.中国大陆手机号"
+        }
+      ],
+      "confidence": 0.95,
+      "reachability": 1.0,
+      "asset_criticality": 0.9,
+      "impact": "敏感信息对公网可见，可能违反数据保护要求并造成信息泄露。",
+      "remediation": "下线或加密该内容、补充访问控制，并排查同类页面与模板。",
+      "status": "new",
+      "first_seen": "2026-10-18T23:19:30+08:00",
+      "last_seen": "2026-10-18T23:19:31+08:00",
+      "sources": [
+        "sensitive-scan"
+      ],
+      "verified": true,
+      "verify_hint": "13911112222",
+      "dedup_key": "82bc811c84a5a8f5",
+      "risk_score": 0.6552,
+      "level": "P0"
+    },
+    {
+      "asset": "127.0.0.1:55774",
+      "url": "http://127.0.0.1:55774/leaks/staff.csv",
+      "ftype": "leak",
+      "rule_id": "LEAK.REGEX.身份证号",
+      "title": "命中敏感信息规则：身份证号",
+      "severity": "high",
+      "tool": "sensitive-scan",
+      "tier": "T0",
+      "location": "页面内容",
+      "cwe": "CWE-200",
+      "evidence": [
+        {
+          "kind": "match_context",
+          "summary": "命中值（已脱敏）：110************234",
+          "raw_ref": "http://127.0.0.1:55774/leaks/staff.csv#LEAK.REGEX.身份证号"
+        },
+        {
+          "kind": "match_context",
+          "summary": "命中值（已脱敏）：110************345",
+          "raw_ref": "http://127.0.0.1:55774/leaks/staff.csv#LEAK.REGEX.身份证号"
+        },
+        {
+          "kind": "match_context",
+          "summary": "命中值（已脱敏）：110************456",
+          "raw_ref": "http://127.0.0.1:55774/leaks/staff.csv#LEAK.REGEX.身份证号"
+        }
+      ],
+      "confidence": 0.95,
+      "reachability": 1.0,
+      "asset_criticality": 0.9,
+      "impact": "敏感信息对公网可见，可能违反数据保护要求并造成信息泄露。",
+      "remediation": "下线或加密该内容、补充访问控制，并排查同类页面与模板。",
+      "status": "new",
+      "first_seen": "2026-10-18T23:19:30+08:00",
+      "last_seen": "2026-10-18T23:19:31+08:00",
+      "sources": [
+        "sensitive-scan"
+      ],
+      "verified": true,
+      "verify_hint": "110101199001011234",
+      "dedup_key": "e092d37ac9a7c0ff",
+      "risk_score": 0.6552,
+      "level": "P0"
+    },
+    {
+      "asset": "127.0.0.1:55774",
+      "url": "http://127.0.0.1:55774/files/statistics.csv",
+      "ftype": "leak",
+      "rule_id": "LEAK.KEYWORD.内部资料",
+      "title": "命中自定义敏感关键词：内部资料",
+      "severity": "high",
+      "tool": "sensitive-scan",
+      "tier": "T0",
+      "location": "页面内容",
+      "cwe": "CWE-200",
+      "evidence": [
+        {
+          "kind": "match_context",
+          "summary": "命中值（已脱敏）：内**料",
+          "raw_ref": "http://127.0.0.1:55774/files/statistics.csv#LEAK.KEYWORD.内部资料"
+        }
+      ],
+      "confidence": 0.95,
+      "reachability": 1.0,
+      "asset_criticality": 0.9,
+      "impact": "敏感信息对公网可见，可能违反数据保护要求并造成信息泄露。",
+      "remediation": "下线或加密该内容、补充访问控制，并排查同类页面与模板。",
+      "status": "new",
+      "first_seen": "2026-10-18T23:19:30+08:00",
+      "last_seen": "2026-10-18T23:19:31+08:00",
+      "sources": [
+        "sensitive-scan"
+      ],
+      "verified": true,
+      "verify_hint": "内部资料",
+      "dedup_key": "1d5a01d8263be07a",
+      "risk_score": 0.6552,
+      "level": "P0"
+    },
+    {
+      "asset": "127.0.0.1:55774",
+      "url": "http://127.0.0.1:55774/files/statistics.csv",
+      "ftype": "leak",
+      "rule_id": "LEAK.KEYWORD.PROJECT-INTERNAL-ONLY-2026",
+      "title": "命中自定义敏感关键词：PROJECT-INTERNAL-ONLY-2026",
+      "severity": "high",
+      "tool": "sensitive-scan",
+      "tier": "T0",
+      "location": "页面内容",
+      "cwe": "CWE-200",
+      "evidence": [
+        {
+          "kind": "match_context",
+          "summary": "命中值（已脱敏）：PRO********************026",
+          "raw_ref": "http://127.0.0.1:55774/files/statistics.csv#LEAK.KEYWORD.PROJECT-INTERNAL-ONLY-2026"
+        }
+      ],
+      "confidence": 0.95,
+      "reachability": 1.0,
+      "asset_criticality": 0.9,
+      "impact": "敏感信息对公网可见，可能违反数据保护要求并造成信息泄露。",
+      "remediation": "下线或加密该内容、补充访问控制，并排查同类页面与模板。",
+      "status": "new",
+      "first_seen": "2026-10-18T23:19:30+08:00",
+      "last_seen": "2026-10-18T23:19:31+08:00",
+      "sources": [
+        "sensitive-scan"
+      ],
+      "verified": true,
+      "verify_hint": "PROJECT-INTERNAL-ONLY-2026",
+      "dedup_key": "66c86ce192dc9b54",
+      "risk_score": 0.6552,
+      "level": "P0"
+    },
+    {
+      "asset": "127.0.0.1:55774",
+      "url": "http://127.0.0.1:55774/files/statistics.csv",
+      "ftype": "leak",
+      "rule_id": "LEAK.REGEX.中国大陆手机号",
+      "title": "命中敏感信息规则：中国大陆手机号",
+      "severity": "high",
+      "tool": "sensitive-scan",
+      "tier": "T0",
+      "location": "页面内容",
+      "cwe": "CWE-200",
+      "evidence": [
+        {
+          "kind": "match_context",
+          "summary": "命中值（已脱敏）：139*****222",
+          "raw_ref": "http://127.0.0.1:55774/files/statistics.csv#LEAK.REGEX.中国大陆手机号"
+        }
+      ],
+      "confidence": 0.95,
+      "reachability": 1.0,
+      "asset_criticality": 0.9,
+      "impact": "敏感信息对公网可见，可能违反数据保护要求并造成信息泄露。",
+      "remediation": "下线或加密该内容、补充访问控制，并排查同类页面与模板。",
+      "status": "new",
+      "first_seen": "2026-10-18T23:19:30+08:00",
+      "last_seen": "2026-10-18T23:19:31+08:00",
+      "sources": [
+        "sensitive-scan"
+      ],
+      "verified": true,
+      "verify_hint": "13911112222",
+      "dedup_key": "e496432b8ac15e61",
+      "risk_score": 0.6552,
+      "level": "P0"
+    },
+    {
+      "asset": "127.0.0.1:55774",
+      "url": "http://127.0.0.1:55774/",
+      "ftype": "tamper",
+      "rule_id": "TAMPER.CONTENT_CHANGED",
+      "title": "页面内容与基线不一致",
+      "severity": "high",
+      "tool": "integrity-baseline",
+      "tier": "T0",
+      "location": "正文",
+      "cwe": "CWE-345",
+      "evidence": [
+        {
+          "kind": "diff",
+          "summary": "@@ -5,3 +5,3 @@\n   <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n-  <title>滨江市政务服务中心</title>\n+  <title>系统升级中 · 滨江市政务服务中心</title>\n   <link rel=\"stylesheet\" href=\"/static/site.css\">\n@@ -20,13 +20,9 @@",
+          "raw_ref": "http://127.0.0.1:55774/#diff"
+        }
+      ],
+      "confidence": 0.9,
+      "reachability": 1.0,
+      "asset_criticality": 0.9,
+      "impact": "页面可能被非授权修改（挂马、暗链、内容篡改或误发布）。",
+      "remediation": "核对发布流水线确认变更来源；若非授权修改，立即回滚并排查入侵路径。",
+      "status": "new",
+      "first_seen": "2026-10-18T23:19:30+08:00",
+      "last_seen": "2026-10-18T23:19:31+08:00",
+      "sources": [
+        "integrity-baseline"
+      ],
+      "verified": true,
+      "verify_hint": "",
+      "dedup_key": "e00cec4e65247ffe",
+      "risk_score": 0.6384,
+      "level": "P0"
+    },
+    {
+      "asset": "127.0.0.1:55774",
+      "url": "http://127.0.0.1:55774/news.html",
+      "ftype": "tamper",
+      "rule_id": "TAMPER.CONTENT_CHANGED",
+      "title": "页面内容与基线不一致",
+      "severity": "high",
+      "tool": "integrity-baseline",
+      "tier": "T0",
+      "location": "正文",
+      "cwe": "CWE-345",
+      "evidence": [
+        {
+          "kind": "diff",
+          "summary": "@@ -5,3 +5,3 @@\n   <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n-  <title>新闻动态 · 滨江市政务服务中心</title>\n+  <title>紧急通知 · 滨江市政务服务中心</title>\n   <link rel=\"stylesheet\" href=\"/static/site.css\">\n@@ -18,11 +18,6 @@",
+          "raw_ref": "http://127.0.0.1:55774/news.html#diff"
+        }
+      ],
+      "confidence": 0.9,
+      "reachability": 1.0,
+      "asset_criticality": 0.9,
+      "impact": "页面可能被非授权修改（挂马、暗链、内容篡改或误发布）。",
+      "remediation": "核对发布流水线确认变更来源；若非授权修改，立即回滚并排查入侵路径。",
+      "status": "new",
+      "first_seen": "2026-10-18T23:19:30+08:00",
+      "last_seen": "2026-10-18T23:19:31+08:00",
+      "sources": [
+        "integrity-baseline"
+      ],
+      "verified": true,
+      "verify_hint": "",
+      "dedup_key": "83985038f9f36399",
+      "risk_score": 0.6384,
+      "level": "P0"
+    },
+    {
+      "asset": "127.0.0.1:55774",
+      "url": "http://127.0.0.1:55774/",
+      "ftype": "malware",
+      "rule_id": "MALWARE.EXTERNAL_LINK",
+      "title": "页面引入未授权外部链接：cdn.badcdn.invalid",
+      "severity": "high",
+      "tool": "malware-link",
+      "tier": "T0",
+      "location": "cdn.badcdn.invalid",
+      "cwe": "CWE-829",
+      "evidence": [
+        {
+          "kind": "match_context",
+          "summary": "外链：https://cdn.badcdn.invalid/pixel.gif",
+          "raw_ref": ""
+        },
+        {
+          "kind": "match_context",
+          "summary": "外链：https://cdn.badcdn.invalid/theme.js",
+          "raw_ref": ""
+        }
+      ],
+      "confidence": 0.85,
+      "reachability": 1.0,
+      "asset_criticality": 0.9,
+      "impact": "外部资源可被第三方替换，导致挂马、暗链或流量劫持。",
+      "remediation": "将外部资源本地化，或在 CSP 白名单中仅放行可信域名。",
+      "status": "new",
+      "first_seen": "2026-10-18T23:19:30+08:00",
+      "last_seen": "2026-10-18T23:19:31+08:00",
+      "sources": [
+        "malware-link"
+      ],
+      "verified": true,
+      "verify_hint": "https://cdn.badcdn.invalid/pixel.gif",
+      "dedup_key": "371af671c504978e",
+      "risk_score": 0.6216,
+      "level": "P0"
+    },
+    {
+      "asset": "127.0.0.1:55774",
+      "url": "http://127.0.0.1:55774/news.html",
+      "ftype": "malware",
+      "rule_id": "MALWARE.EXTERNAL_LINK",
+      "title": "页面引入未授权外部链接：cdn.badcdn.invalid",
+      "severity": "high",
+      "tool": "malware-link",
+      "tier": "T0",
+      "location": "cdn.badcdn.invalid",
+      "cwe": "CWE-829",
+      "evidence": [
+        {
+          "kind": "match_context",
+          "summary": "外链：https://cdn.badcdn.invalid/notice",
+          "raw_ref": ""
+        }
+      ],
+      "confidence": 0.85,
+      "reachability": 1.0,
+      "asset_criticality": 0.9,
+      "impact": "外部资源可被第三方替换，导致挂马、暗链或流量劫持。",
+      "remediation": "将外部资源本地化，或在 CSP 白名单中仅放行可信域名。",
+      "status": "new",
+      "first_seen": "2026-10-18T23:19:30+08:00",
+      "last_seen": "2026-10-18T23:19:31+08:00",
+      "sources": [
+        "malware-link"
+      ],
+      "verified": true,
+      "verify_hint": "https://cdn.badcdn.invalid/notice",
+      "dedup_key": "692ccb31f3b067f3",
+      "risk_score": 0.6216,
+      "level": "P0"
+    },
+    {
+      "asset": "127.0.0.1:55774",
+      "url": "http://127.0.0.1:55774/",
+      "ftype": "malware",
+      "rule_id": "MALWARE.HIDDEN_IFRAME",
+      "title": "隐藏 iframe（0 尺寸）",
+      "severity": "high",
+      "tool": "malware-link",
+      "tier": "T0",
+      "location": "HTML 源码",
+      "cwe": "CWE-506",
+      "evidence": [
+        {
+          "kind": "match_context",
+          "summary": "命中片段：<iframe src=\"https://cdn.badcdn.invalid/pixel.gif\" width=\"0\" height=\"0（规则 MALWARE.HIDDEN_IFRAME）",
+          "raw_ref": ""
+        }
+      ],
+      "confidence": 0.8,
+      "reachability": 1.0,
+      "asset_criticality": 0.9,
+      "impact": "疑似挂马脚本或暗链，可能在用户浏览器执行恶意逻辑。",
+      "remediation": "隔离并人工审计该段脚本，确认后清理并排查写入路径。",
+      "status": "new",
+      "first_seen": "2026-10-18T23:19:30+08:00",
+      "last_seen": "2026-10-18T23:19:31+08:00",
+      "sources": [
+        "malware-link"
+      ],
+      "verified": true,
+      "verify_hint": "<iframe src=\"https://cdn.badcdn.invalid/pixel.gif\" width=\"0\"",
+      "dedup_key": "f471800ac9f7630c",
+      "risk_score": 0.6048,
+      "level": "P0"
+    },
+    {
+      "asset": "127.0.0.1:55774",
+      "url": "http://127.0.0.1:55774/",
+      "ftype": "malware",
+      "rule_id": "MALWARE.HIDDEN_ELEMENT_LINK",
+      "title": "隐藏元素（暗链特征）",
+      "severity": "high",
+      "tool": "malware-link",
+      "tier": "T0",
+      "location": "HTML 源码",
+      "cwe": "CWE-506",
+      "evidence": [
+        {
+          "kind": "match_context",
+          "summary": "命中片段：style=\"display:none;font-size:0（规则 MALWARE.HIDDEN_ELEMENT_LINK）",
+          "raw_ref": ""
+        }
+      ],
+      "confidence": 0.8,
+      "reachability": 1.0,
+      "asset_criticality": 0.9,
+      "impact": "疑似挂马脚本或暗链，可能在用户浏览器执行恶意逻辑。",
+      "remediation": "隔离并人工审计该段脚本，确认后清理并排查写入路径。",
+      "status": "new",
+      "first_seen": "2026-10-18T23:19:30+08:00",
+      "last_seen": "2026-10-18T23:19:31+08:00",
+      "sources": [
+        "malware-link"
+      ],
+      "verified": true,
+      "verify_hint": "style=\"display:none;font-size:0",
+      "dedup_key": "bb969c0817b46c2f",
+      "risk_score": 0.6048,
+      "level": "P0"
+    },
+    {
+      "asset": "127.0.0.1:55774",
+      "url": "http://127.0.0.1:55774/leaks/",
+      "ftype": "misconfig",
+      "rule_id": "MISCONFIG.MISSING_HEADER.content-security-policy",
+      "title": "CSP 缺失：content-security-policy",
+      "severity": "medium",
+      "tool": "security-headers",
+      "tier": "T0",
+      "location": "content-security-policy",
+      "cwe": "CWE-1021",
+      "evidence": [
+        {
+          "kind": "request_response",
+          "summary": "响应头中未出现 content-security-policy",
+          "raw_ref": "http://127.0.0.1:55774/leaks/"
+        }
+      ],
+      "confidence": 0.85,
+      "reachability": 1.0,
+      "asset_criticality": 0.9,
+      "impact": "浏览器端防护能力下降，可能被用于点击劫持、内容注入或降级攻击。",
+      "remediation": "在 Web 服务器或 CDN 为全站响应补充 content-security-policy 响应头并回归验证。",
+      "status": "new",
+      "first_seen": "2026-10-18T23:19:30+08:00",
+      "last_seen": "2026-10-18T23:19:31+08:00",
+      "sources": [
+        "security-headers"
+      ],
+      "verified": false,
+      "verify_hint": "",
+      "dedup_key": "008582d349002960",
+      "risk_score": 0.3996,
+      "level": "P1"
+    },
+    {
+      "asset": "127.0.0.1:55774",
+      "url": "http://127.0.0.1:55774/leaks/",
+      "ftype": "misconfig",
+      "rule_id": "MISCONFIG.MISSING_HEADER.strict-transport-security",
+      "title": "HSTS 缺失：strict-transport-security",
+      "severity": "medium",
+      "tool": "security-headers",
+      "tier": "T0",
+      "location": "strict-transport-security",
+      "cwe": "CWE-319",
+      "evidence": [
+        {
+          "kind": "request_response",
+          "summary": "响应头中未出现 strict-transport-security",
+          "raw_ref": "http://127.0.0.1:55774/leaks/"
+        }
+      ],
+      "confidence": 0.85,
+      "reachability": 1.0,
+      "asset_criticality": 0.9,
+      "impact": "浏览器端防护能力下降，可能被用于点击劫持、内容注入或降级攻击。",
+      "remediation": "在 Web 服务器或 CDN 为全站响应补充 strict-transport-security 响应头并回归验证。",
+      "status": "new",
+      "first_seen": "2026-10-18T23:19:30+08:00",
+      "last_seen": "2026-10-18T23:19:31+08:00",
+      "sources": [
+        "security-headers"
+      ],
+      "verified": false,
+      "verify_hint": "",
+      "dedup_key": "fad96beb42b58680",
+      "risk_score": 0.3996,
+      "level": "P1"
+    },
+    {
+      "asset": "127.0.0.1:55774",
+      "url": "http://127.0.0.1:55774/weak/",
+      "ftype": "misconfig",
+      "rule_id": "MISCONFIG.MISSING_HEADER.content-security-policy",
+      "title": "CSP 缺失：content-security-policy",
+      "severity": "medium",
+      "tool": "security-headers",
+      "tier": "T0",
+      "location": "content-security-policy",
+      "cwe": "CWE-1021",
+      "evidence": [
+        {
+          "kind": "request_response",
+          "summary": "响应头中未出现 content-security-policy",
+          "raw_ref": "http://127.0.0.1:55774/weak/"
+        }
+      ],
+      "confidence": 0.85,
+      "reachability": 1.0,
+      "asset_criticality": 0.9,
+      "impact": "浏览器端防护能力下降，可能被用于点击劫持、内容注入或降级攻击。",
+      "remediation": "在 Web 服务器或 CDN 为全站响应补充 content-security-policy 响应头并回归验证。",
+      "status": "new",
+      "first_seen": "2026-10-18T23:19:30+08:00",
+      "last_seen": "2026-10-18T23:19:31+08:00",
+      "sources": [
+        "security-headers"
+      ],
+      "verified": false,
+      "verify_hint": "",
+      "dedup_key": "af43553ee1059936",
+      "risk_score": 0.3996,
+      "level": "P1"
+    },
+    {
+      "asset": "127.0.0.1:55774",
+      "url": "http://127.0.0.1:55774/weak/",
+      "ftype": "misconfig",
+      "rule_id": "MISCONFIG.MISSING_HEADER.strict-transport-security",
+      "title": "HSTS 缺失：strict-transport-security",
+      "severity": "medium",
+      "tool": "security-headers",
+      "tier": "T0",
+      "location": "strict-transport-security",
+      "cwe": "CWE-319",
+      "evidence": [
+        {
+          "kind": "request_response",
+          "summary": "响应头中未出现 strict-transport-security",
+          "raw_ref": "http://127.0.0.1:55774/weak/"
+        }
+      ],
+      "confidence": 0.85,
+      "reachability": 1.0,
+      "asset_criticality": 0.9,
+      "impact": "浏览器端防护能力下降，可能被用于点击劫持、内容注入或降级攻击。",
+      "remediation": "在 Web 服务器或 CDN 为全站响应补充 strict-transport-security 响应头并回归验证。",
+      "status": "new",
+      "first_seen": "2026-10-18T23:19:30+08:00",
+      "last_seen": "2026-10-18T23:19:31+08:00",
+      "sources": [
+        "security-headers"
+      ],
+      "verified": false,
+      "verify_hint": "",
+      "dedup_key": "09e0113087bdbb30",
+      "risk_score": 0.3996,
+      "level": "P1"
+    },
+    {
+      "asset": "127.0.0.1:55774",
+      "url": "http://127.0.0.1:55774/leaks/internal-note.txt",
+      "ftype": "misconfig",
+      "rule_id": "MISCONFIG.MISSING_HEADER.content-security-policy",
+      "title": "CSP 缺失：content-security-policy",
+      "severity": "medium",
+      "tool": "security-headers",
+      "tier": "T0",
+      "location": "content-security-policy",
+      "cwe": "CWE-1021",
+      "evidence": [
+        {
+          "kind": "request_response",
+          "summary": "响应头中未出现 content-security-policy",
+          "raw_ref": "http://127.0.0.1:55774/leaks/internal-note.txt"
+        }
+      ],
+      "confidence": 0.85,
+      "reachability": 1.0,
+      "asset_criticality": 0.9,
+      "impact": "浏览器端防护能力下降，可能被用于点击劫持、内容注入或降级攻击。",
+      "remediation": "在 Web 服务器或 CDN 为全站响应补充 content-security-policy 响应头并回归验证。",
+      "status": "new",
+      "first_seen": "2026-10-18T23:19:30+08:00",
+      "last_seen": "2026-10-18T23:19:31+08:00",
+      "sources": [
+        "security-headers"
+      ],
+      "verified": false,
+      "verify_hint": "",
+      "dedup_key": "26990fd66ee32259",
+      "risk_score": 0.3996,
+      "level": "P1"
+    },
+    {
+      "asset": "127.0.0.1:55774",
+      "url": "http://127.0.0.1:55774/leaks/internal-note.txt",
+      "ftype": "misconfig",
+      "rule_id": "MISCONFIG.MISSING_HEADER.strict-transport-security",
+      "title": "HSTS 缺失：strict-transport-security",
+      "severity": "medium",
+      "tool": "security-headers",
+      "tier": "T0",
+      "location": "strict-transport-security",
+      "cwe": "CWE-319",
+      "evidence": [
+        {
+          "kind": "request_response",
+          "summary": "响应头中未出现 strict-transport-security",
+          "raw_ref": "http://127.0.0.1:55774/leaks/internal-note.txt"
+        }
+      ],
+      "confidence": 0.85,
+      "reachability": 1.0,
+      "asset_criticality": 0.9,
+      "impact": "浏览器端防护能力下降，可能被用于点击劫持、内容注入或降级攻击。",
+      "remediation": "在 Web 服务器或 CDN 为全站响应补充 strict-transport-security 响应头并回归验证。",
+      "status": "new",
+      "first_seen": "2026-10-18T23:19:30+08:00",
+      "last_seen": "2026-10-18T23:19:31+08:00",
+      "sources": [
+        "security-headers"
+      ],
+      "verified": false,
+      "verify_hint": "",
+      "dedup_key": "7fd94adc9853ab28",
+      "risk_score": 0.3996,
+      "level": "P1"
+    },
+    {
+      "asset": "127.0.0.1:55774",
+      "url": "http://127.0.0.1:55774/leaks/staff.csv",
+      "ftype": "misconfig",
+      "rule_id": "MISCONFIG.MISSING_HEADER.content-security-policy",
+      "title": "CSP 缺失：content-security-policy",
+      "severity": "medium",
+      "tool": "security-headers",
+      "tier": "T0",
+      "location": "content-security-policy",
+      "cwe": "CWE-1021",
+      "evidence": [
+        {
+          "kind": "request_response",
+          "summary": "响应头中未出现 content-security-policy",
+          "raw_ref": "http://127.0.0.1:55774/leaks/staff.csv"
+        }
+      ],
+      "confidence": 0.85,
+      "reachability": 1.0,
+      "asset_criticality": 0.9,
+      "impact": "浏览器端防护能力下降，可能被用于点击劫持、内容注入或降级攻击。",
+      "remediation": "在 Web 服务器或 CDN 为全站响应补充 content-security-policy 响应头并回归验证。",
+      "status": "new",
+      "first_seen": "2026-10-18T23:19:30+08:00",
+      "last_seen": "2026-10-18T23:19:31+08:00",
+      "sources": [
+        "security-headers"
+      ],
+      "verified": false,
+      "verify_hint": "",
+      "dedup_key": "8842de2fb40523bd",
+      "risk_score": 0.3996,
+      "level": "P1"
+    },
+    {
+      "asset": "127.0.0.1:55774",
+      "url": "http://127.0.0.1:55774/leaks/staff.csv",
+      "ftype": "misconfig",
+      "rule_id": "MISCONFIG.MISSING_HEADER.strict-transport-security",
+      "title": "HSTS 缺失：strict-transport-security",
+      "severity": "medium",
+      "tool": "security-headers",
+      "tier": "T0",
+      "location": "strict-transport-security",
+      "cwe": "CWE-319",
+      "evidence": [
+        {
+          "kind": "request_response",
+          "summary": "响应头中未出现 strict-transport-security",
+          "raw_ref": "http://127.0.0.1:55774/leaks/staff.csv"
+        }
+      ],
+      "confidence": 0.85,
+      "reachability": 1.0,
+      "asset_criticality": 0.9,
+      "impact": "浏览器端防护能力下降，可能被用于点击劫持、内容注入或降级攻击。",
+      "remediation": "在 Web 服务器或 CDN 为全站响应补充 strict-transport-security 响应头并回归验证。",
+      "status": "new",
+      "first_seen": "2026-10-18T23:19:30+08:00",
+      "last_seen": "2026-10-18T23:19:31+08:00",
+      "sources": [
+        "security-headers"
+      ],
+      "verified": false,
+      "verify_hint": "",
+      "dedup_key": "1048c67afa2d1a17",
+      "risk_score": 0.3996,
+      "level": "P1"
+    },
+    {
+      "asset": "127.0.0.1:55774",
+      "url": "http://127.0.0.1:55774/weak/admin/",
+      "ftype": "misconfig",
+      "rule_id": "MISCONFIG.MISSING_HEADER.content-security-policy",
+      "title": "CSP 缺失：content-security-policy",
+      "severity": "medium",
+      "tool": "security-headers",
+      "tier": "T0",
+      "location": "content-security-policy",
+      "cwe": "CWE-1021",
+      "evidence": [
+        {
+          "kind": "request_response",
+          "summary": "响应头中未出现 content-security-policy",
+          "raw_ref": "http://127.0.0.1:55774/weak/admin/"
+        }
+      ],
+      "confidence": 0.85,
+      "reachability": 1.0,
+      "asset_criticality": 0.9,
+      "impact": "浏览器端防护能力下降，可能被用于点击劫持、内容注入或降级攻击。",
+      "remediation": "在 Web 服务器或 CDN 为全站响应补充 content-security-policy 响应头并回归验证。",
+      "status": "new",
+      "first_seen": "2026-10-18T23:19:30+08:00",
+      "last_seen": "2026-10-18T23:19:31+08:00",
+      "sources": [
+        "security-headers"
+      ],
+      "verified": false,
+      "verify_hint": "",
+      "dedup_key": "88c69b5f4824847f",
+      "risk_score": 0.3996,
+      "level": "P1"
+    },
+    {
+      "asset": "127.0.0.1:55774",
+      "url": "http://127.0.0.1:55774/weak/admin/",
+      "ftype": "misconfig",
+      "rule_id": "MISCONFIG.MISSING_HEADER.strict-transport-security",
+      "title": "HSTS 缺失：strict-transport-security",
+      "severity": "medium",
+      "tool": "security-headers",
+      "tier": "T0",
+      "location": "strict-transport-security",
+      "cwe": "CWE-319",
+      "evidence": [
+        {
+          "kind": "request_response",
+          "summary": "响应头中未出现 strict-transport-security",
+          "raw_ref": "http://127.0.0.1:55774/weak/admin/"
+        }
+      ],
+      "confidence": 0.85,
+      "reachability": 1.0,
+      "asset_criticality": 0.9,
+      "impact": "浏览器端防护能力下降，可能被用于点击劫持、内容注入或降级攻击。",
+      "remediation": "在 Web 服务器或 CDN 为全站响应补充 strict-transport-security 响应头并回归验证。",
+      "status": "new",
+      "first_seen": "2026-10-18T23:19:30+08:00",
+      "last_seen": "2026-10-18T23:19:31+08:00",
+      "sources": [
+        "security-headers"
+      ],
+      "verified": false,
+      "verify_hint": "",
+      "dedup_key": "bc47e8a6de8855c9",
+      "risk_score": 0.3996,
+      "level": "P1"
+    },
+    {
+      "asset": "127.0.0.1:55774",
+      "url": "http://127.0.0.1:55774/weak/api/debug",
+      "ftype": "misconfig",
+      "rule_id": "MISCONFIG.MISSING_HEADER.content-security-policy",
+      "title": "CSP 缺失：content-security-policy",
+      "severity": "medium",
+      "tool": "security-headers",
+      "tier": "T0",
+      "location": "content-security-policy",
+      "cwe": "CWE-1021",
+      "evidence": [
+        {
+          "kind": "request_response",
+          "summary": "响应头中未出现 content-security-policy",
+          "raw_ref": "http://127.0.0.1:55774/weak/api/debug"
+        }
+      ],
+      "confidence": 0.85,
+      "reachability": 1.0,
+      "asset_criticality": 0.9,
+      "impact": "浏览器端防护能力下降，可能被用于点击劫持、内容注入或降级攻击。",
+      "remediation": "在 Web 服务器或 CDN 为全站响应补充 content-security-policy 响应头并回归验证。",
+      "status": "new",
+      "first_seen": "2026-10-18T23:19:30+08:00",
+      "last_seen": "2026-10-18T23:19:31+08:00",
+      "sources": [
+        "security-headers"
+      ],
+      "verified": false,
+      "verify_hint": "",
+      "dedup_key": "bffd40a46bafebd5",
+      "risk_score": 0.3996,
+      "level": "P1"
+    },
+    {
+      "asset": "127.0.0.1:55774",
+      "url": "http://127.0.0.1:55774/weak/api/debug",
+      "ftype": "misconfig",
+      "rule_id": "MISCONFIG.MISSING_HEADER.strict-transport-security",
+      "title": "HSTS 缺失：strict-transport-security",
+      "severity": "medium",
+      "tool": "security-headers",
+      "tier": "T0",
+      "location": "strict-transport-security",
+      "cwe": "CWE-319",
+      "evidence": [
+        {
+          "kind": "request_response",
+          "summary": "响应头中未出现 strict-transport-security",
+          "raw_ref": "http://127.0.0.1:55774/weak/api/debug"
+        }
+      ],
+      "confidence": 0.85,
+      "reachability": 1.0,
+      "asset_criticality": 0.9,
+      "impact": "浏览器端防护能力下降，可能被用于点击劫持、内容注入或降级攻击。",
+      "remediation": "在 Web 服务器或 CDN 为全站响应补充 strict-transport-security 响应头并回归验证。",
+      "status": "new",
+      "first_seen": "2026-10-18T23:19:30+08:00",
+      "last_seen": "2026-10-18T23:19:31+08:00",
+      "sources": [
+        "security-headers"
+      ],
+      "verified": false,
+      "verify_hint": "",
+      "dedup_key": "6aeb1adc722ef17d",
+      "risk_score": 0.3996,
+      "level": "P1"
+    },
+    {
+      "asset": "127.0.0.1:55774",
+      "url": "http://127.0.0.1:55774/weak/files/",
+      "ftype": "misconfig",
+      "rule_id": "MISCONFIG.MISSING_HEADER.content-security-policy",
+      "title": "CSP 缺失：content-security-policy",
+      "severity": "medium",
+      "tool": "security-headers",
+      "tier": "T0",
+      "location": "content-security-policy",
+      "cwe": "CWE-1021",
+      "evidence": [
+        {
+          "kind": "request_response",
+          "summary": "响应头中未出现 content-security-policy",
+          "raw_ref": "http://127.0.0.1:55774/weak/files/"
+        }
+      ],
+      "confidence": 0.85,
+      "reachability": 1.0,
+      "asset_criticality": 0.9,
+      "impact": "浏览器端防护能力下降，可能被用于点击劫持、内容注入或降级攻击。",
+      "remediation": "在 Web 服务器或 CDN 为全站响应补充 content-security-policy 响应头并回归验证。",
+      "status": "new",
+      "first_seen": "2026-10-18T23:19:30+08:00",
+      "last_seen": "2026-10-18T23:19:31+08:00",
+      "sources": [
+        "security-headers"
+      ],
+      "verified": false,
+      "verify_hint": "",
+      "dedup_key": "e1983f4473522609",
+      "risk_score": 0.3996,
+      "level": "P1"
+    },
+    {
+      "asset": "127.0.0.1:55774",
+      "url": "http://127.0.0.1:55774/weak/files/",
+      "ftype": "misconfig",
+      "rule_id": "MISCONFIG.MISSING_HEADER.strict-transport-security",
+      "title": "HSTS 缺失：strict-transport-security",
+      "severity": "medium",
+      "tool": "security-headers",
+      "tier": "T0",
+      "location": "strict-transport-security",
+      "cwe": "CWE-319",
+      "evidence": [
+        {
+          "kind": "request_response",
+          "summary": "响应头中未出现 strict-transport-security",
+          "raw_ref": "http://127.0.0.1:55774/weak/files/"
+        }
+      ],
+      "confidence": 0.85,
+      "reachability": 1.0,
+      "asset_criticality": 0.9,
+      "impact": "浏览器端防护能力下降，可能被用于点击劫持、内容注入或降级攻击。",
+      "remediation": "在 Web 服务器或 CDN 为全站响应补充 strict-transport-security 响应头并回归验证。",
+      "status": "new",
+      "first_seen": "2026-10-18T23:19:30+08:00",
+      "last_seen": "2026-10-18T23:19:31+08:00",
+      "sources": [
+        "security-headers"
+      ],
+      "verified": false,
+      "verify_hint": "",
+      "dedup_key": "758506c25aab59f2",
+      "risk_score": 0.3996,
+      "level": "P1"
+    },
+    {
+      "asset": "127.0.0.1:55774",
+      "url": "http://127.0.0.1:55774/weak/files/debug.log",
+      "ftype": "misconfig",
+      "rule_id": "MISCONFIG.MISSING_HEADER.content-security-policy",
+      "title": "CSP 缺失：content-security-policy",
+      "severity": "medium",
+      "tool": "security-headers",
+      "tier": "T0",
+      "location": "content-security-policy",
+      "cwe": "CWE-1021",
+      "evidence": [
+        {
+          "kind": "request_response",
+          "summary": "响应头中未出现 content-security-policy",
+          "raw_ref": "http://127.0.0.1:55774/weak/files/debug.log"
+        }
+      ],
+      "confidence": 0.85,
+      "reachability": 1.0,
+      "asset_criticality": 0.9,
+      "impact": "浏览器端防护能力下降，可能被用于点击劫持、内容注入或降级攻击。",
+      "remediation": "在 Web 服务器或 CDN 为全站响应补充 content-security-policy 响应头并回归验证。",
+      "status": "new",
+      "first_seen": "2026-10-18T23:19:30+08:00",
+      "last_seen": "2026-10-18T23:19:31+08:00",
+      "sources": [
+        "security-headers"
+      ],
+      "verified": false,
+      "verify_hint": "",
+      "dedup_key": "4577f89ce31f872d",
+      "risk_score": 0.3996,
+      "level": "P1"
+    },
+    {
+      "asset": "127.0.0.1:55774",
+      "url": "http://127.0.0.1:55774/weak/files/debug.log",
+      "ftype": "misconfig",
+      "rule_id": "MISCONFIG.MISSING_HEADER.strict-transport-security",
+      "title": "HSTS 缺失：strict-transport-security",
+      "severity": "medium",
+      "tool": "security-headers",
+      "tier": "T0",
+      "location": "strict-transport-security",
+      "cwe": "CWE-319",
+      "evidence": [
+        {
+          "kind": "request_response",
+          "summary": "响应头中未出现 strict-transport-security",
+          "raw_ref": "http://127.0.0.1:55774/weak/files/debug.log"
+        }
+      ],
+      "confidence": 0.85,
+      "reachability": 1.0,
+      "asset_criticality": 0.9,
+      "impact": "浏览器端防护能力下降，可能被用于点击劫持、内容注入或降级攻击。",
+      "remediation": "在 Web 服务器或 CDN 为全站响应补充 strict-transport-security 响应头并回归验证。",
+      "status": "new",
+      "first_seen": "2026-10-18T23:19:30+08:00",
+      "last_seen": "2026-10-18T23:19:31+08:00",
+      "sources": [
+        "security-headers"
+      ],
+      "verified": false,
+      "verify_hint": "",
+      "dedup_key": "72fa4702d60efc56",
+      "risk_score": 0.3996,
+      "level": "P1"
+    },
+    {
+      "asset": "127.0.0.1:55774",
+      "url": "http://127.0.0.1:55774/leaks/",
+      "ftype": "misconfig",
+      "rule_id": "MISCONFIG.SERVER_VERSION_LEAK",
+      "title": "响应头泄露服务器版本",
+      "severity": "low",
+      "tool": "security-headers",
+      "tier": "T0",
+      "location": "server",
+      "cwe": "CWE-200",
+      "evidence": [
+        {
+          "kind": "request_response",
+          "summary": "Server: Lab**********0.0",
+          "raw_ref": ""
+        }
+      ],
+      "confidence": 0.9,
+      "reachability": 1.0,
+      "asset_criticality": 0.9,
+      "impact": "攻击者可据此匹配已知漏洞版本。",
+      "remediation": "隐藏或泛化 Server 响应头中的版本信息。",
+      "status": "new",
+      "first_seen": "2026-10-18T23:19:30+08:00",
+      "last_seen": "2026-10-18T23:19:31+08:00",
+      "sources": [
+        "security-headers"
+      ],
+      "verified": false,
+      "verify_hint": "",
+      "dedup_key": "574f8f112e8aa110",
+      "risk_score": 0.1642,
+      "level": "P2"
+    },
+    {
+      "asset": "127.0.0.1:55774",
+      "url": "http://127.0.0.1:55774/weak/",
+      "ftype": "misconfig",
+      "rule_id": "MISCONFIG.SERVER_VERSION_LEAK",
+      "title": "响应头泄露服务器版本",
+      "severity": "low",
+      "tool": "security-headers",
+      "tier": "T0",
+      "location": "server",
+      "cwe": "CWE-200",
+      "evidence": [
+        {
+          "kind": "request_response",
+          "summary": "Server: Lab**********0.0",
+          "raw_ref": ""
+        }
+      ],
+      "confidence": 0.9,
+      "reachability": 1.0,
+      "asset_criticality": 0.9,
+      "impact": "攻击者可据此匹配已知漏洞版本。",
+      "remediation": "隐藏或泛化 Server 响应头中的版本信息。",
+      "status": "new",
+      "first_seen": "2026-10-18T23:19:30+08:00",
+      "last_seen": "2026-10-18T23:19:31+08:00",
+      "sources": [
+        "security-headers"
+      ],
+      "verified": false,
+      "verify_hint": "",
+      "dedup_key": "b9b533b707673bb1",
+      "risk_score": 0.1642,
+      "level": "P2"
+    },
+    {
+      "asset": "127.0.0.1:55774",
+      "url": "http://127.0.0.1:55774/leaks/internal-note.txt",
+      "ftype": "misconfig",
+      "rule_id": "MISCONFIG.SERVER_VERSION_LEAK",
+      "title": "响应头泄露服务器版本",
+      "severity": "low",
+      "tool": "security-headers",
+      "tier": "T0",
+      "location": "server",
+      "cwe": "CWE-200",
+      "evidence": [
+        {
+          "kind": "request_response",
+          "summary": "Server: Lab**********0.0",
+          "raw_ref": ""
+        }
+      ],
+      "confidence": 0.9,
+      "reachability": 1.0,
+      "asset_criticality": 0.9,
+      "impact": "攻击者可据此匹配已知漏洞版本。",
+      "remediation": "隐藏或泛化 Server 响应头中的版本信息。",
+      "status": "new",
+      "first_seen": "2026-10-18T23:19:30+08:00",
+      "last_seen": "2026-10-18T23:19:31+08:00",
+      "sources": [
+        "security-headers"
+      ],
+      "verified": false,
+      "verify_hint": "",
+      "dedup_key": "ecbb62a43c9098ee",
+      "risk_score": 0.1642,
+      "level": "P2"
+    },
+    {
+      "asset": "127.0.0.1:55774",
+      "url": "http://127.0.0.1:55774/leaks/staff.csv",
+      "ftype": "misconfig",
+      "rule_id": "MISCONFIG.SERVER_VERSION_LEAK",
+      "title": "响应头泄露服务器版本",
+      "severity": "low",
+      "tool": "security-headers",
+      "tier": "T0",
+      "location": "server",
+      "cwe": "CWE-200",
+      "evidence": [
+        {
+          "kind": "request_response",
+          "summary": "Server: Lab**********0.0",
+          "raw_ref": ""
+        }
+      ],
+      "confidence": 0.9,
+      "reachability": 1.0,
+      "asset_criticality": 0.9,
+      "impact": "攻击者可据此匹配已知漏洞版本。",
+      "remediation": "隐藏或泛化 Server 响应头中的版本信息。",
+      "status": "new",
+      "first_seen": "2026-10-18T23:19:30+08:00",
+      "last_seen": "2026-10-18T23:19:31+08:00",
+      "sources": [
+        "security-headers"
+      ],
+      "verified": false,
+      "verify_hint": "",
+      "dedup_key": "3e8a29d908e21e75",
+      "risk_score": 0.1642,
+      "level": "P2"
+    },
+    {
+      "asset": "127.0.0.1:55774",
+      "url": "http://127.0.0.1:55774/weak/admin/",
+      "ftype": "misconfig",
+      "rule_id": "MISCONFIG.SERVER_VERSION_LEAK",
+      "title": "响应头泄露服务器版本",
+      "severity": "low",
+      "tool": "security-headers",
+      "tier": "T0",
+      "location": "server",
+      "cwe": "CWE-200",
+      "evidence": [
+        {
+          "kind": "request_response",
+          "summary": "Server: Lab**********0.0",
+          "raw_ref": ""
+        }
+      ],
+      "confidence": 0.9,
+      "reachability": 1.0,
+      "asset_criticality": 0.9,
+      "impact": "攻击者可据此匹配已知漏洞版本。",
+      "remediation": "隐藏或泛化 Server 响应头中的版本信息。",
+      "status": "new",
+      "first_seen": "2026-10-18T23:19:30+08:00",
+      "last_seen": "2026-10-18T23:19:31+08:00",
+      "sources": [
+        "security-headers"
+      ],
+      "verified": false,
+      "verify_hint": "",
+      "dedup_key": "fb0bbc1940b375da",
+      "risk_score": 0.1642,
+      "level": "P2"
+    },
+    {
+      "asset": "127.0.0.1:55774",
+      "url": "http://127.0.0.1:55774/weak/api/debug",
+      "ftype": "misconfig",
+      "rule_id": "MISCONFIG.SERVER_VERSION_LEAK",
+      "title": "响应头泄露服务器版本",
+      "severity": "low",
+      "tool": "security-headers",
+      "tier": "T0",
+      "location": "server",
+      "cwe": "CWE-200",
+      "evidence": [
+        {
+          "kind": "request_response",
+          "summary": "Server: Lab**********0.0",
+          "raw_ref": ""
+        }
+      ],
+      "confidence": 0.9,
+      "reachability": 1.0,
+      "asset_criticality": 0.9,
+      "impact": "攻击者可据此匹配已知漏洞版本。",
+      "remediation": "隐藏或泛化 Server 响应头中的版本信息。",
+      "status": "new",
+      "first_seen": "2026-10-18T23:19:30+08:00",
+      "last_seen": "2026-10-18T23:19:31+08:00",
+      "sources": [
+        "security-headers"
+      ],
+      "verified": false,
+      "verify_hint": "",
+      "dedup_key": "a16f1e4f55d4295e",
+      "risk_score": 0.1642,
+      "level": "P2"
+    },
+    {
+      "asset": "127.0.0.1:55774",
+      "url": "http://127.0.0.1:55774/weak/files/",
+      "ftype": "misconfig",
+      "rule_id": "MISCONFIG.SERVER_VERSION_LEAK",
+      "title": "响应头泄露服务器版本",
+      "severity": "low",
+      "tool": "security-headers",
+      "tier": "T0",
+      "location": "server",
+      "cwe": "CWE-200",
+      "evidence": [
+        {
+          "kind": "request_response",
+          "summary": "Server: Lab**********0.0",
+          "raw_ref": ""
+        }
+      ],
+      "confidence": 0.9,
+      "reachability": 1.0,
+      "asset_criticality": 0.9,
+      "impact": "攻击者可据此匹配已知漏洞版本。",
+      "remediation": "隐藏或泛化 Server 响应头中的版本信息。",
+      "status": "new",
+      "first_seen": "2026-10-18T23:19:30+08:00",
+      "last_seen": "2026-10-18T23:19:31+08:00",
+      "sources": [
+        "security-headers"
+      ],
+      "verified": false,
+      "verify_hint": "",
+      "dedup_key": "6a597398ee093fb3",
+      "risk_score": 0.1642,
+      "level": "P2"
+    },
+    {
+      "asset": "127.0.0.1:55774",
+      "url": "http://127.0.0.1:55774/weak/files/debug.log",
+      "ftype": "misconfig",
+      "rule_id": "MISCONFIG.SERVER_VERSION_LEAK",
+      "title": "响应头泄露服务器版本",
+      "severity": "low",
+      "tool": "security-headers",
+      "tier": "T0",
+      "location": "server",
+      "cwe": "CWE-200",
+      "evidence": [
+        {
+          "kind": "request_response",
+          "summary": "Server: Lab**********0.0",
+          "raw_ref": ""
+        }
+      ],
+      "confidence": 0.9,
+      "reachability": 1.0,
+      "asset_criticality": 0.9,
+      "impact": "攻击者可据此匹配已知漏洞版本。",
+      "remediation": "隐藏或泛化 Server 响应头中的版本信息。",
+      "status": "new",
+      "first_seen": "2026-10-18T23:19:30+08:00",
+      "last_seen": "2026-10-18T23:19:31+08:00",
+      "sources": [
+        "security-headers"
+      ],
+      "verified": false,
+      "verify_hint": "",
+      "dedup_key": "4675e345e9474c04",
+      "risk_score": 0.1642,
+      "level": "P2"
+    },
+    {
+      "asset": "127.0.0.1:55774",
+      "url": "http://127.0.0.1:55774/leaks/",
+      "ftype": "misconfig",
+      "rule_id": "MISCONFIG.MISSING_HEADER.x-frame-options",
+      "title": "点击劫持防护头缺失：x-frame-options",
+      "severity": "low",
+      "tool": "security-headers",
+      "tier": "T0",
+      "location": "x-frame-options",
+      "cwe": "CWE-1021",
+      "evidence": [
+        {
+          "kind": "request_response",
+          "summary": "响应头中未出现 x-frame-options",
+          "raw_ref": "http://127.0.0.1:55774/leaks/"
+        }
+      ],
+      "confidence": 0.85,
+      "reachability": 1.0,
+      "asset_criticality": 0.9,
+      "impact": "浏览器端防护能力下降，可能被用于点击劫持、内容注入或降级攻击。",
+      "remediation": "在 Web 服务器或 CDN 为全站响应补充 x-frame-options 响应头并回归验证。",
+      "status": "new",
+      "first_seen": "2026-10-18T23:19:30+08:00",
+      "last_seen": "2026-10-18T23:19:31+08:00",
+      "sources": [
+        "security-headers"
+      ],
+      "verified": false,
+      "verify_hint": "",
+      "dedup_key": "33f06ed500272d4f",
+      "risk_score": 0.1598,
+      "level": "P2"
+    },
+    {
+      "asset": "127.0.0.1:55774",
+      "url": "http://127.0.0.1:55774/leaks/",
+      "ftype": "misconfig",
+      "rule_id": "MISCONFIG.MISSING_HEADER.x-content-type-options",
+      "title": "MIME 嗅探防护头缺失：x-content-type-options",
+      "severity": "low",
+      "tool": "security-headers",
+      "tier": "T0",
+      "location": "x-content-type-options",
+      "cwe": "CWE-16",
+      "evidence": [
+        {
+          "kind": "request_response",
+          "summary": "响应头中未出现 x-content-type-options",
+          "raw_ref": "http://127.0.0.1:55774/leaks/"
+        }
+      ],
+      "confidence": 0.85,
+      "reachability": 1.0,
+      "asset_criticality": 0.9,
+      "impact": "浏览器端防护能力下降，可能被用于点击劫持、内容注入或降级攻击。",
+      "remediation": "在 Web 服务器或 CDN 为全站响应补充 x-content-type-options 响应头并回归验证。",
+      "status": "new",
+      "first_seen": "2026-10-18T23:19:30+08:00",
+      "last_seen": "2026-10-18T23:19:31+08:00",
+      "sources": [
+        "security-headers"
+      ],
+      "verified": false,
+      "verify_hint": "",
+      "dedup_key": "aa830e49ac0c64b8",
+      "risk_score": 0.1598,
+      "level": "P2"
+    },
+    {
+      "asset": "127.0.0.1:55774",
+      "url": "http://127.0.0.1:55774/weak/",
+      "ftype": "misconfig",
+      "rule_id": "MISCONFIG.MISSING_HEADER.x-frame-options",
+      "title": "点击劫持防护头缺失：x-frame-options",
+      "severity": "low",
+      "tool": "security-headers",
+      "tier": "T0",
+      "location": "x-frame-options",
+      "cwe": "CWE-1021",
+      "evidence": [
+        {
+          "kind": "request_response",
+          "summary": "响应头中未出现 x-frame-options",
+          "raw_ref": "http://127.0.0.1:55774/weak/"
+        }
+      ],
+      "confidence": 0.85,
+      "reachability": 1.0,
+      "asset_criticality": 0.9,
+      "impact": "浏览器端防护能力下降，可能被用于点击劫持、内容注入或降级攻击。",
+      "remediation": "在 Web 服务器或 CDN 为全站响应补充 x-frame-options 响应头并回归验证。",
+      "status": "new",
+      "first_seen": "2026-10-18T23:19:30+08:00",
+      "last_seen": "2026-10-18T23:19:31+08:00",
+      "sources": [
+        "security-headers"
+      ],
+      "verified": false,
+      "verify_hint": "",
+      "dedup_key": "248682baa5281f8b",
+      "risk_score": 0.1598,
+      "level": "P2"
+    },
+    {
+      "asset": "127.0.0.1:55774",
+      "url": "http://127.0.0.1:55774/weak/",
+      "ftype": "misconfig",
+      "rule_id": "MISCONFIG.MISSING_HEADER.x-content-type-options",
+      "title": "MIME 嗅探防护头缺失：x-content-type-options",
+      "severity": "low",
+      "tool": "security-headers",
+      "tier": "T0",
+      "location": "x-content-type-options",
+      "cwe": "CWE-16",
+      "evidence": [
+        {
+          "kind": "request_response",
+          "summary": "响应头中未出现 x-content-type-options",
+          "raw_ref": "http://127.0.0.1:55774/weak/"
+        }
+      ],
+      "confidence": 0.85,
+      "reachability": 1.0,
+      "asset_criticality": 0.9,
+      "impact": "浏览器端防护能力下降，可能被用于点击劫持、内容注入或降级攻击。",
+      "remediation": "在 Web 服务器或 CDN 为全站响应补充 x-content-type-options 响应头并回归验证。",
+      "status": "new",
+      "first_seen": "2026-10-18T23:19:30+08:00",
+      "last_seen": "2026-10-18T23:19:31+08:00",
+      "sources": [
+        "security-headers"
+      ],
+      "verified": false,
+      "verify_hint": "",
+      "dedup_key": "1882f16568c42ad9",
+      "risk_score": 0.1598,
+      "level": "P2"
+    },
+    {
+      "asset": "127.0.0.1:55774",
+      "url": "http://127.0.0.1:55774/leaks/internal-note.txt",
+      "ftype": "misconfig",
+      "rule_id": "MISCONFIG.MISSING_HEADER.x-frame-options",
+      "title": "点击劫持防护头缺失：x-frame-options",
+      "severity": "low",
+      "tool": "security-headers",
+      "tier": "T0",
+      "location": "x-frame-options",
+      "cwe": "CWE-1021",
+      "evidence": [
+        {
+          "kind": "request_response",
+          "summary": "响应头中未出现 x-frame-options",
+          "raw_ref": "http://127.0.0.1:55774/leaks/internal-note.txt"
+        }
+      ],
+      "confidence": 0.85,
+      "reachability": 1.0,
+      "asset_criticality": 0.9,
+      "impact": "浏览器端防护能力下降，可能被用于点击劫持、内容注入或降级攻击。",
+      "remediation": "在 Web 服务器或 CDN 为全站响应补充 x-frame-options 响应头并回归验证。",
+      "status": "new",
+      "first_seen": "2026-10-18T23:19:30+08:00",
+      "last_seen": "2026-10-18T23:19:31+08:00",
+      "sources": [
+        "security-headers"
+      ],
+      "verified": false,
+      "verify_hint": "",
+      "dedup_key": "8692589f4e0eb9f4",
+      "risk_score": 0.1598,
+      "level": "P2"
+    },
+    {
+      "asset": "127.0.0.1:55774",
+      "url": "http://127.0.0.1:55774/leaks/internal-note.txt",
+      "ftype": "misconfig",
+      "rule_id": "MISCONFIG.MISSING_HEADER.x-content-type-options",
+      "title": "MIME 嗅探防护头缺失：x-content-type-options",
+      "severity": "low",
+      "tool": "security-headers",
+      "tier": "T0",
+      "location": "x-content-type-options",
+      "cwe": "CWE-16",
+      "evidence": [
+        {
+          "kind": "request_response",
+          "summary": "响应头中未出现 x-content-type-options",
+          "raw_ref": "http://127.0.0.1:55774/leaks/internal-note.txt"
+        }
+      ],
+      "confidence": 0.85,
+      "reachability": 1.0,
+      "asset_criticality": 0.9,
+      "impact": "浏览器端防护能力下降，可能被用于点击劫持、内容注入或降级攻击。",
+      "remediation": "在 Web 服务器或 CDN 为全站响应补充 x-content-type-options 响应头并回归验证。",
+      "status": "new",
+      "first_seen": "2026-10-18T23:19:30+08:00",
+      "last_seen": "2026-10-18T23:19:31+08:00",
+      "sources": [
+        "security-headers"
+      ],
+      "verified": false,
+      "verify_hint": "",
+      "dedup_key": "61ad0fed37f7509c",
+      "risk_score": 0.1598,
+      "level": "P2"
+    },
+    {
+      "asset": "127.0.0.1:55774",
+      "url": "http://127.0.0.1:55774/leaks/staff.csv",
+      "ftype": "misconfig",
+      "rule_id": "MISCONFIG.MISSING_HEADER.x-frame-options",
+      "title": "点击劫持防护头缺失：x-frame-options",
+      "severity": "low",
+      "tool": "security-headers",
+      "tier": "T0",
+      "location": "x-frame-options",
+      "cwe": "CWE-1021",
+      "evidence": [
+        {
+          "kind": "request_response",
+          "summary": "响应头中未出现 x-frame-options",
+          "raw_ref": "http://127.0.0.1:55774/leaks/staff.csv"
+        }
+      ],
+      "confidence": 0.85,
+      "reachability": 1.0,
+      "asset_criticality": 0.9,
+      "impact": "浏览器端防护能力下降，可能被用于点击劫持、内容注入或降级攻击。",
+      "remediation": "在 Web 服务器或 CDN 为全站响应补充 x-frame-options 响应头并回归验证。",
+      "status": "new",
+      "first_seen": "2026-10-18T23:19:30+08:00",
+      "last_seen": "2026-10-18T23:19:31+08:00",
+      "sources": [
+        "security-headers"
+      ],
+      "verified": false,
+      "verify_hint": "",
+      "dedup_key": "b0651c6c309d0160",
+      "risk_score": 0.1598,
+      "level": "P2"
+    },
+    {
+      "asset": "127.0.0.1:55774",
+      "url": "http://127.0.0.1:55774/leaks/staff.csv",
+      "ftype": "misconfig",
+      "rule_id": "MISCONFIG.MISSING_HEADER.x-content-type-options",
+      "title": "MIME 嗅探防护头缺失：x-content-type-options",
+      "severity": "low",
+      "tool": "security-headers",
+      "tier": "T0",
+      "location": "x-content-type-options",
+      "cwe": "CWE-16",
+      "evidence": [
+        {
+          "kind": "request_response",
+          "summary": "响应头中未出现 x-content-type-options",
+          "raw_ref": "http://127.0.0.1:55774/leaks/staff.csv"
+        }
+      ],
+      "confidence": 0.85,
+      "reachability": 1.0,
+      "asset_criticality": 0.9,
+      "impact": "浏览器端防护能力下降，可能被用于点击劫持、内容注入或降级攻击。",
+      "remediation": "在 Web 服务器或 CDN 为全站响应补充 x-content-type-options 响应头并回归验证。",
+      "status": "new",
+      "first_seen": "2026-10-18T23:19:30+08:00",
+      "last_seen": "2026-10-18T23:19:31+08:00",
+      "sources": [
+        "security-headers"
+      ],
+      "verified": false,
+      "verify_hint": "",
+      "dedup_key": "2e28cbfbb1947335",
+      "risk_score": 0.1598,
+      "level": "P2"
+    },
+    {
+      "asset": "127.0.0.1:55774",
+      "url": "http://127.0.0.1:55774/weak/admin/",
+      "ftype": "misconfig",
+      "rule_id": "MISCONFIG.MISSING_HEADER.x-frame-options",
+      "title": "点击劫持防护头缺失：x-frame-options",
+      "severity": "low",
+      "tool": "security-headers",
+      "tier": "T0",
+      "location": "x-frame-options",
+      "cwe": "CWE-1021",
+      "evidence": [
+        {
+          "kind": "request_response",
+          "summary": "响应头中未出现 x-frame-options",
+          "raw_ref": "http://127.0.0.1:55774/weak/admin/"
+        }
+      ],
+      "confidence": 0.85,
+      "reachability": 1.0,
+      "asset_criticality": 0.9,
+      "impact": "浏览器端防护能力下降，可能被用于点击劫持、内容注入或降级攻击。",
+      "remediation": "在 Web 服务器或 CDN 为全站响应补充 x-frame-options 响应头并回归验证。",
+      "status": "new",
+      "first_seen": "2026-10-18T23:19:30+08:00",
+      "last_seen": "2026-10-18T23:19:31+08:00",
+      "sources": [
+        "security-headers"
+      ],
+      "verified": false,
+      "verify_hint": "",
+      "dedup_key": "d0061e1c177b6a36",
+      "risk_score": 0.1598,
+      "level": "P2"
+    },
+    {
+      "asset": "127.0.0.1:55774",
+      "url": "http://127.0.0.1:55774/weak/admin/",
+      "ftype": "misconfig",
+      "rule_id": "MISCONFIG.MISSING_HEADER.x-content-type-options",
+      "title": "MIME 嗅探防护头缺失：x-content-type-options",
+      "severity": "low",
+      "tool": "security-headers",
+      "tier": "T0",
+      "location": "x-content-type-options",
+      "cwe": "CWE-16",
+      "evidence": [
+        {
+          "kind": "request_response",
+          "summary": "响应头中未出现 x-content-type-options",
+          "raw_ref": "http://127.0.0.1:55774/weak/admin/"
+        }
+      ],
+      "confidence": 0.85,
+      "reachability": 1.0,
+      "asset_criticality": 0.9,
+      "impact": "浏览器端防护能力下降，可能被用于点击劫持、内容注入或降级攻击。",
+      "remediation": "在 Web 服务器或 CDN 为全站响应补充 x-content-type-options 响应头并回归验证。",
+      "status": "new",
+      "first_seen": "2026-10-18T23:19:30+08:00",
+      "last_seen": "2026-10-18T23:19:31+08:00",
+      "sources": [
+        "security-headers"
+      ],
+      "verified": false,
+      "verify_hint": "",
+      "dedup_key": "a5bf2479bd48fac2",
+      "risk_score": 0.1598,
+      "level": "P2"
+    },
+    {
+      "asset": "127.0.0.1:55774",
+      "url": "http://127.0.0.1:55774/weak/api/debug",
+      "ftype": "misconfig",
+      "rule_id": "MISCONFIG.MISSING_HEADER.x-frame-options",
+      "title": "点击劫持防护头缺失：x-frame-options",
+      "severity": "low",
+      "tool": "security-headers",
+      "tier": "T0",
+      "location": "x-frame-options",
+      "cwe": "CWE-1021",
+      "evidence": [
+        {
+          "kind": "request_response",
+          "summary": "响应头中未出现 x-frame-options",
+          "raw_ref": "http://127.0.0.1:55774/weak/api/debug"
+        }
+      ],
+      "confidence": 0.85,
+      "reachability": 1.0,
+      "asset_criticality": 0.9,
+      "impact": "浏览器端防护能力下降，可能被用于点击劫持、内容注入或降级攻击。",
+      "remediation": "在 Web 服务器或 CDN 为全站响应补充 x-frame-options 响应头并回归验证。",
+      "status": "new",
+      "first_seen": "2026-10-18T23:19:30+08:00",
+      "last_seen": "2026-10-18T23:19:31+08:00",
+      "sources": [
+        "security-headers"
+      ],
+      "verified": false,
+      "verify_hint": "",
+      "dedup_key": "0640c0922b7f7f89",
+      "risk_score": 0.1598,
+      "level": "P2"
+    },
+    {
+      "asset": "127.0.0.1:55774",
+      "url": "http://127.0.0.1:55774/weak/api/debug",
+      "ftype": "misconfig",
+      "rule_id": "MISCONFIG.MISSING_HEADER.x-content-type-options",
+      "title": "MIME 嗅探防护头缺失：x-content-type-options",
+      "severity": "low",
+      "tool": "security-headers",
+      "tier": "T0",
+      "location": "x-content-type-options",
+      "cwe": "CWE-16",
+      "evidence": [
+        {
+          "kind": "request_response",
+          "summary": "响应头中未出现 x-content-type-options",
+          "raw_ref": "http://127.0.0.1:55774/weak/api/debug"
+        }
+      ],
+      "confidence": 0.85,
+      "reachability": 1.0,
+      "asset_criticality": 0.9,
+      "impact": "浏览器端防护能力下降，可能被用于点击劫持、内容注入或降级攻击。",
+      "remediation": "在 Web 服务器或 CDN 为全站响应补充 x-content-type-options 响应头并回归验证。",
+      "status": "new",
+      "first_seen": "2026-10-18T23:19:30+08:00",
+      "last_seen": "2026-10-18T23:19:31+08:00",
+      "sources": [
+        "security-headers"
+      ],
+      "verified": false,
+      "verify_hint": "",
+      "dedup_key": "c4cf8b3eb93538b3",
+      "risk_score": 0.1598,
+      "level": "P2"
+    },
+    {
+      "asset": "127.0.0.1:55774",
+      "url": "http://127.0.0.1:55774/weak/files/",
+      "ftype": "misconfig",
+      "rule_id": "MISCONFIG.MISSING_HEADER.x-frame-options",
+      "title": "点击劫持防护头缺失：x-frame-options",
+      "severity": "low",
+      "tool": "security-headers",
+      "tier": "T0",
+      "location": "x-frame-options",
+      "cwe": "CWE-1021",
+      "evidence": [
+        {
+          "kind": "request_response",
+          "summary": "响应头中未出现 x-frame-options",
+          "raw_ref": "http://127.0.0.1:55774/weak/files/"
+        }
+      ],
+      "confidence": 0.85,
+      "reachability": 1.0,
+      "asset_criticality": 0.9,
+      "impact": "浏览器端防护能力下降，可能被用于点击劫持、内容注入或降级攻击。",
+      "remediation": "在 Web 服务器或 CDN 为全站响应补充 x-frame-options 响应头并回归验证。",
+      "status": "new",
+      "first_seen": "2026-10-18T23:19:30+08:00",
+      "last_seen": "2026-10-18T23:19:31+08:00",
+      "sources": [
+        "security-headers"
+      ],
+      "verified": false,
+      "verify_hint": "",
+      "dedup_key": "2c952d61472c84cb",
+      "risk_score": 0.1598,
+      "level": "P2"
+    },
+    {
+      "asset": "127.0.0.1:55774",
+      "url": "http://127.0.0.1:55774/weak/files/",
+      "ftype": "misconfig",
+      "rule_id": "MISCONFIG.MISSING_HEADER.x-content-type-options",
+      "title": "MIME 嗅探防护头缺失：x-content-type-options",
+      "severity": "low",
+      "tool": "security-headers",
+      "tier": "T0",
+      "location": "x-content-type-options",
+      "cwe": "CWE-16",
+      "evidence": [
+        {
+          "kind": "request_response",
+          "summary": "响应头中未出现 x-content-type-options",
+          "raw_ref": "http://127.0.0.1:55774/weak/files/"
+        }
+      ],
+      "confidence": 0.85,
+      "reachability": 1.0,
+      "asset_criticality": 0.9,
+      "impact": "浏览器端防护能力下降，可能被用于点击劫持、内容注入或降级攻击。",
+      "remediation": "在 Web 服务器或 CDN 为全站响应补充 x-content-type-options 响应头并回归验证。",
+      "status": "new",
+      "first_seen": "2026-10-18T23:19:30+08:00",
+      "last_seen": "2026-10-18T23:19:31+08:00",
+      "sources": [
+        "security-headers"
+      ],
+      "verified": false,
+      "verify_hint": "",
+      "dedup_key": "5c600e662f1e67f6",
+      "risk_score": 0.1598,
+      "level": "P2"
+    },
+    {
+      "asset": "127.0.0.1:55774",
+      "url": "http://127.0.0.1:55774/weak/files/debug.log",
+      "ftype": "misconfig",
+      "rule_id": "MISCONFIG.MISSING_HEADER.x-frame-options",
+      "title": "点击劫持防护头缺失：x-frame-options",
+      "severity": "low",
+      "tool": "security-headers",
+      "tier": "T0",
+      "location": "x-frame-options",
+      "cwe": "CWE-1021",
+      "evidence": [
+        {
+          "kind": "request_response",
+          "summary": "响应头中未出现 x-frame-options",
+          "raw_ref": "http://127.0.0.1:55774/weak/files/debug.log"
+        }
+      ],
+      "confidence": 0.85,
+      "reachability": 1.0,
+      "asset_criticality": 0.9,
+      "impact": "浏览器端防护能力下降，可能被用于点击劫持、内容注入或降级攻击。",
+      "remediation": "在 Web 服务器或 CDN 为全站响应补充 x-frame-options 响应头并回归验证。",
+      "status": "new",
+      "first_seen": "2026-10-18T23:19:30+08:00",
+      "last_seen": "2026-10-18T23:19:31+08:00",
+      "sources": [
+        "security-headers"
+      ],
+      "verified": false,
+      "verify_hint": "",
+      "dedup_key": "3ecfedfd39aa1f80",
+      "risk_score": 0.1598,
+      "level": "P2"
+    },
+    {
+      "asset": "127.0.0.1:55774",
+      "url": "http://127.0.0.1:55774/weak/files/debug.log",
+      "ftype": "misconfig",
+      "rule_id": "MISCONFIG.MISSING_HEADER.x-content-type-options",
+      "title": "MIME 嗅探防护头缺失：x-content-type-options",
+      "severity": "low",
+      "tool": "security-headers",
+      "tier": "T0",
+      "location": "x-content-type-options",
+      "cwe": "CWE-16",
+      "evidence": [
+        {
+          "kind": "request_response",
+          "summary": "响应头中未出现 x-content-type-options",
+          "raw_ref": "http://127.0.0.1:55774/weak/files/debug.log"
+        }
+      ],
+      "confidence": 0.85,
+      "reachability": 1.0,
+      "asset_criticality": 0.9,
+      "impact": "浏览器端防护能力下降，可能被用于点击劫持、内容注入或降级攻击。",
+      "remediation": "在 Web 服务器或 CDN 为全站响应补充 x-content-type-options 响应头并回归验证。",
+      "status": "new",
+      "first_seen": "2026-10-18T23:19:30+08:00",
+      "last_seen": "2026-10-18T23:19:31+08:00",
+      "sources": [
+        "security-headers"
+      ],
+      "verified": false,
+      "verify_hint": "",
+      "dedup_key": "6579a47766df8a93",
+      "risk_score": 0.1598,
+      "level": "P2"
+    },
+    {
+      "asset": "127.0.0.1:55774",
+      "url": "http://127.0.0.1:55774/leaks/",
+      "ftype": "misconfig",
+      "rule_id": "MISCONFIG.MISSING_HEADER.referrer-policy",
+      "title": "Referrer-Policy 缺失：referrer-policy",
+      "severity": "info",
+      "tool": "security-headers",
+      "tier": "T0",
+      "location": "referrer-policy",
+      "cwe": "CWE-200",
+      "evidence": [
+        {
+          "kind": "request_response",
+          "summary": "响应头中未出现 referrer-policy",
+          "raw_ref": "http://127.0.0.1:55774/leaks/"
+        }
+      ],
+      "confidence": 0.85,
+      "reachability": 1.0,
+      "asset_criticality": 0.9,
+      "impact": "浏览器端防护能力下降，可能被用于点击劫持、内容注入或降级攻击。",
+      "remediation": "在 Web 服务器或 CDN 为全站响应补充 referrer-policy 响应头并回归验证。",
+      "status": "new",
+      "first_seen": "2026-10-18T23:19:30+08:00",
+      "last_seen": "2026-10-18T23:19:31+08:00",
+      "sources": [
+        "security-headers"
+      ],
+      "verified": false,
+      "verify_hint": "",
+      "dedup_key": "a35a613c6853d680",
+      "risk_score": 0.0444,
+      "level": "P3"
+    },
+    {
+      "asset": "127.0.0.1:55774",
+      "url": "http://127.0.0.1:55774/weak/",
+      "ftype": "misconfig",
+      "rule_id": "MISCONFIG.MISSING_HEADER.referrer-policy",
+      "title": "Referrer-Policy 缺失：referrer-policy",
+      "severity": "info",
+      "tool": "security-headers",
+      "tier": "T0",
+      "location": "referrer-policy",
+      "cwe": "CWE-200",
+      "evidence": [
+        {
+          "kind": "request_response",
+          "summary": "响应头中未出现 referrer-policy",
+          "raw_ref": "http://127.0.0.1:55774/weak/"
+        }
+      ],
+      "confidence": 0.85,
+      "reachability": 1.0,
+      "asset_criticality": 0.9,
+      "impact": "浏览器端防护能力下降，可能被用于点击劫持、内容注入或降级攻击。",
+      "remediation": "在 Web 服务器或 CDN 为全站响应补充 referrer-policy 响应头并回归验证。",
+      "status": "new",
+      "first_seen": "2026-10-18T23:19:30+08:00",
+      "last_seen": "2026-10-18T23:19:31+08:00",
+      "sources": [
+        "security-headers"
+      ],
+      "verified": false,
+      "verify_hint": "",
+      "dedup_key": "82ff799a0e2f862f",
+      "risk_score": 0.0444,
+      "level": "P3"
+    },
+    {
+      "asset": "127.0.0.1:55774",
+      "url": "http://127.0.0.1:55774/leaks/internal-note.txt",
+      "ftype": "misconfig",
+      "rule_id": "MISCONFIG.MISSING_HEADER.referrer-policy",
+      "title": "Referrer-Policy 缺失：referrer-policy",
+      "severity": "info",
+      "tool": "security-headers",
+      "tier": "T0",
+      "location": "referrer-policy",
+      "cwe": "CWE-200",
+      "evidence": [
+        {
+          "kind": "request_response",
+          "summary": "响应头中未出现 referrer-policy",
+          "raw_ref": "http://127.0.0.1:55774/leaks/internal-note.txt"
+        }
+      ],
+      "confidence": 0.85,
+      "reachability": 1.0,
+      "asset_criticality": 0.9,
+      "impact": "浏览器端防护能力下降，可能被用于点击劫持、内容注入或降级攻击。",
+      "remediation": "在 Web 服务器或 CDN 为全站响应补充 referrer-policy 响应头并回归验证。",
+      "status": "new",
+      "first_seen": "2026-10-18T23:19:30+08:00",
+      "last_seen": "2026-10-18T23:19:31+08:00",
+      "sources": [
+        "security-headers"
+      ],
+      "verified": false,
+      "verify_hint": "",
+      "dedup_key": "11b1cd51667bd89b",
+      "risk_score": 0.0444,
+      "level": "P3"
+    },
+    {
+      "asset": "127.0.0.1:55774",
+      "url": "http://127.0.0.1:55774/leaks/staff.csv",
+      "ftype": "misconfig",
+      "rule_id": "MISCONFIG.MISSING_HEADER.referrer-policy",
+      "title": "Referrer-Policy 缺失：referrer-policy",
+      "severity": "info",
+      "tool": "security-headers",
+      "tier": "T0",
+      "location": "referrer-policy",
+      "cwe": "CWE-200",
+      "evidence": [
+        {
+          "kind": "request_response",
+          "summary": "响应头中未出现 referrer-policy",
+          "raw_ref": "http://127.0.0.1:55774/leaks/staff.csv"
+        }
+      ],
+      "confidence": 0.85,
+      "reachability": 1.0,
+      "asset_criticality": 0.9,
+      "impact": "浏览器端防护能力下降，可能被用于点击劫持、内容注入或降级攻击。",
+      "remediation": "在 Web 服务器或 CDN 为全站响应补充 referrer-policy 响应头并回归验证。",
+      "status": "new",
+      "first_seen": "2026-10-18T23:19:30+08:00",
+      "last_seen": "2026-10-18T23:19:31+08:00",
+      "sources": [
+        "security-headers"
+      ],
+      "verified": false,
+      "verify_hint": "",
+      "dedup_key": "d280a0754b102e0b",
+      "risk_score": 0.0444,
+      "level": "P3"
+    },
+    {
+      "asset": "127.0.0.1:55774",
+      "url": "http://127.0.0.1:55774/weak/admin/",
+      "ftype": "misconfig",
+      "rule_id": "MISCONFIG.MISSING_HEADER.referrer-policy",
+      "title": "Referrer-Policy 缺失：referrer-policy",
+      "severity": "info",
+      "tool": "security-headers",
+      "tier": "T0",
+      "location": "referrer-policy",
+      "cwe": "CWE-200",
+      "evidence": [
+        {
+          "kind": "request_response",
+          "summary": "响应头中未出现 referrer-policy",
+          "raw_ref": "http://127.0.0.1:55774/weak/admin/"
+        }
+      ],
+      "confidence": 0.85,
+      "reachability": 1.0,
+      "asset_criticality": 0.9,
+      "impact": "浏览器端防护能力下降，可能被用于点击劫持、内容注入或降级攻击。",
+      "remediation": "在 Web 服务器或 CDN 为全站响应补充 referrer-policy 响应头并回归验证。",
+      "status": "new",
+      "first_seen": "2026-10-18T23:19:30+08:00",
+      "last_seen": "2026-10-18T23:19:31+08:00",
+      "sources": [
+        "security-headers"
+      ],
+      "verified": false,
+      "verify_hint": "",
+      "dedup_key": "c6aa672628c37535",
+      "risk_score": 0.0444,
+      "level": "P3"
+    },
+    {
+      "asset": "127.0.0.1:55774",
+      "url": "http://127.0.0.1:55774/weak/api/debug",
+      "ftype": "misconfig",
+      "rule_id": "MISCONFIG.MISSING_HEADER.referrer-policy",
+      "title": "Referrer-Policy 缺失：referrer-policy",
+      "severity": "info",
+      "tool": "security-headers",
+      "tier": "T0",
+      "location": "referrer-policy",
+      "cwe": "CWE-200",
+      "evidence": [
+        {
+          "kind": "request_response",
+          "summary": "响应头中未出现 referrer-policy",
+          "raw_ref": "http://127.0.0.1:55774/weak/api/debug"
+        }
+      ],
+      "confidence": 0.85,
+      "reachability": 1.0,
+      "asset_criticality": 0.9,
+      "impact": "浏览器端防护能力下降，可能被用于点击劫持、内容注入或降级攻击。",
+      "remediation": "在 Web 服务器或 CDN 为全站响应补充 referrer-policy 响应头并回归验证。",
+      "status": "new",
+      "first_seen": "2026-10-18T23:19:30+08:00",
+      "last_seen": "2026-10-18T23:19:31+08:00",
+      "sources": [
+        "security-headers"
+      ],
+      "verified": false,
+      "verify_hint": "",
+      "dedup_key": "184b6bf81b5846cb",
+      "risk_score": 0.0444,
+      "level": "P3"
+    },
+    {
+      "asset": "127.0.0.1:55774",
+      "url": "http://127.0.0.1:55774/weak/files/",
+      "ftype": "misconfig",
+      "rule_id": "MISCONFIG.MISSING_HEADER.referrer-policy",
+      "title": "Referrer-Policy 缺失：referrer-policy",
+      "severity": "info",
+      "tool": "security-headers",
+      "tier": "T0",
+      "location": "referrer-policy",
+      "cwe": "CWE-200",
+      "evidence": [
+        {
+          "kind": "request_response",
+          "summary": "响应头中未出现 referrer-policy",
+          "raw_ref": "http://127.0.0.1:55774/weak/files/"
+        }
+      ],
+      "confidence": 0.85,
+      "reachability": 1.0,
+      "asset_criticality": 0.9,
+      "impact": "浏览器端防护能力下降，可能被用于点击劫持、内容注入或降级攻击。",
+      "remediation": "在 Web 服务器或 CDN 为全站响应补充 referrer-policy 响应头并回归验证。",
+      "status": "new",
+      "first_seen": "2026-10-18T23:19:30+08:00",
+      "last_seen": "2026-10-18T23:19:31+08:00",
+      "sources": [
+        "security-headers"
+      ],
+      "verified": false,
+      "verify_hint": "",
+      "dedup_key": "f580662195a5e89e",
+      "risk_score": 0.0444,
+      "level": "P3"
+    },
+    {
+      "asset": "127.0.0.1:55774",
+      "url": "http://127.0.0.1:55774/weak/files/debug.log",
+      "ftype": "misconfig",
+      "rule_id": "MISCONFIG.MISSING_HEADER.referrer-policy",
+      "title": "Referrer-Policy 缺失：referrer-policy",
+      "severity": "info",
+      "tool": "security-headers",
+      "tier": "T0",
+      "location": "referrer-policy",
+      "cwe": "CWE-200",
+      "evidence": [
+        {
+          "kind": "request_response",
+          "summary": "响应头中未出现 referrer-policy",
+          "raw_ref": "http://127.0.0.1:55774/weak/files/debug.log"
+        }
+      ],
+      "confidence": 0.85,
+      "reachability": 1.0,
+      "asset_criticality": 0.9,
+      "impact": "浏览器端防护能力下降，可能被用于点击劫持、内容注入或降级攻击。",
+      "remediation": "在 Web 服务器或 CDN 为全站响应补充 referrer-policy 响应头并回归验证。",
+      "status": "new",
+      "first_seen": "2026-10-18T23:19:30+08:00",
+      "last_seen": "2026-10-18T23:19:31+08:00",
+      "sources": [
+        "security-headers"
+      ],
+      "verified": false,
+      "verify_hint": "",
+      "dedup_key": "45055e61b18255ec",
+      "risk_score": 0.0444,
+      "level": "P3"
+    }
+  ]
+}

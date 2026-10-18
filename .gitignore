@@ -1,0 +1,27 @@
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.venv/
+venv/
+.env
+.env.*
+!.env.example
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.DS_Store
+Thumbs.db
+
+# Runtime state and ad-hoc scan outputs
+**/range/out/*
+!**/range/out/demo/
+!**/range/out/demo/**
+*.jsonl.tmp
+
+# Keep the deliberately exposed synthetic log in the lab
+!**/range/site/weak/files/debug.log
+
+# Local release artifacts
+dist/
+*.zip
